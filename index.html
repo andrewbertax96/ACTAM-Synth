@@ -12,3 +12,296 @@
       <title>ACTAM-Synth</title>
 
    </head>
+   <body>
+     <!-- The whole synth -->
+     <div id="synth">
+        <div id="zonaControlli">
+        <!-- first row -->
+           <div class="grid grid-pad" >
+              <div class="col-1-12">
+                 <div class="content inline" style="text-align: center"> On/Off </div>
+              </div>
+              <div class="col-2-12">
+                 <div class="content inline" style="text-align: center"> Shape </div>
+              </div>
+              <div class="col-1-12">
+                 <div class="content inline">Tune</div>
+              </div>
+              <div class="col-1-12">
+                 <div class="content inline" style="text-align: center"> Filter </div>
+              </div>
+              <div class="col-2-12">
+                 <div class="content inline" style="text-align: center"> Type </div>
+              </div>
+              <div class="col-1-12">
+                 <div class="content inline"> Cut </div>
+              </div>
+              <div class="col-1-12">
+                 <div class="content inline" style="text-align: center">Envelope</div>
+              </div>
+              <div class="col-2-12">
+                 <div class="content inline" > </div>
+              </div>
+              <div class="col-1-12">
+                 <div class="content inline" > Vol </div>
+              </div>
+           </div>
+
+           <!-- second row -->
+           <div class="grid grid-pad">
+              <div class="col-1-12">
+                 <div id="osc1-onOff" class="content inline"></div>
+              </div>
+              <div class="col-2-12">
+                 <div id="osc1-shape" class="content inline" ></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="osc1-det" class="content inline "></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="fir1-toggle" class="content inline"></div>
+              </div>
+              <div class="col-2-12">
+                 <div id="fir1-type" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="fir1-cut" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="osc-att" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="osc-dec" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <input type="radio" id="adsr-osc1" name="adsr-select" value ="osc1" checked >  <!-- onchange="change_adsr_shown()" -->
+              </div>
+              <div class="col-1-12">
+                 <div id="osc1-vol" class="content inline"></div>
+              </div>
+           </div>
+
+           <!-- third row -->
+
+           <div class="grid grid-pad">
+              <div class="col-1-12">
+                 <div id="osc2-onOff" class="content inline"></div>
+              </div>
+              <div class="col-2-12">
+                 <div id="osc2-shape" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="osc2-det" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="fir2-toggle" class="content inline"></div>
+              </div>
+              <div class="col-2-12">
+                 <div id="fir2-type" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="fir2-cut" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="osc-sus" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <div id="osc-rel" class="content inline"></div>
+              </div>
+              <div class="col-1-12">
+                 <input type="radio" id="adsr-osc2" name="adsr-select" value="osc2"> <!-- onchange="change_adsr_shown()" -->
+              </div>
+              <div class="col-1-12">
+                <div id="osc2-vol" class="content inline"></div>
+              </div>
+           </div>
+        </div>
+
+        <div id="keybordZone">
+          <div class="grid grid-pad">
+            <div class="col-12-12">
+              <div id="keyboard" class="content inline"></div>
+            </div>
+          </div>
+        </div>
+
+     </div>
+  </body>
+  <script>
+    //
+   // NEXUS VARIABLES AND FUNCTIONS
+   //
+
+   Nexus.colors.accent = "#fcb61d"
+   Nexus.colors.fill = "#555f68"
+
+
+   let osc1_shape = new Nexus.Select('#osc1-shape',{
+      'size': [100,30],
+      'options': ['sine','triangle','square','sawtooth']
+   });
+
+   let osc1_onOff = new Nexus.Toggle('#osc1-onOff',{
+      'size': [40,20],
+      'state': false
+   });
+
+   let osc1_det = new Nexus.Number('#osc1-det',{
+      'size': [45,30],
+      'min': -200,
+      'max': 200,
+      'step': 1,
+      'value': 0
+   });
+
+   let fir1_toggle = new Nexus.Toggle('#fir1-toggle',{
+      'size': [40,20],
+      'state': false
+   });
+
+   let fir1_type = new Nexus.Select('#fir1-type',{
+      'size': [100,30],
+      'options': ['lowpass','highpass','bandpass','notch']
+   });
+
+   let fir1_cut = new Nexus.Dial('#fir1-cut',{
+      'size': [30,30],
+      'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+      'mode': 'relative', // "absolute" or "relative"
+      'min': 20,
+      'max': 5000,
+      'step': 0,
+      'value': filterCh1[0].frequency.value
+   });
+
+   let osc1_vol = new Nexus.Dial('#osc1-vol',{
+      'size': [30,30],
+      'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+      'mode': 'relative', // "absolute" or "relative"
+      'min': 0,
+      'max': 0.25,
+      'step': 0,
+      'value': volume1.gain.value
+   });
+
+   let osc2_shape = new Nexus.Select('#osc2-shape',{
+      'size': [100,30],
+      'options': ['sine','triangle','square','sawtooth']
+   });
+
+   let osc2_onOff = new Nexus.Toggle('#osc2-onOff',{
+      'size': [40,20],
+      'state': false
+   });
+
+   let osc2_det = new Nexus.Number('#osc2-det',{
+      'size': [45,30],
+      'min': -200,
+      'max': 200,
+      'step': 1,
+      'value': 0
+   });
+
+   let fir2_toggle = new Nexus.Toggle('#fir2-toggle',{
+      'size': [40,20],
+      'state': false
+   });
+
+   let fir2_type = new Nexus.Select('#fir2-type',{
+      'size': [100,30],
+      'options': ['lowpass','highpass','bandpass','notch']
+   });
+
+   let fir2_cut = new Nexus.Dial('#fir2-cut',{
+      'size': [30,30],
+      'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+      'mode': 'relative', // "absolute" or "relative"
+      'min': 20,
+      'max': 5000,
+      'step': 0,
+      'value': filterCh2[0].frequency.value
+   });
+
+   let piano = new Nexus.Piano('#keyboard',{
+      'size': [710,150],
+      'mode': 'button',  // 'button', 'toggle', or 'impulse'
+      'lowNote': 36,
+      'highNote': 108
+   });
+
+   let osc2_vol = new Nexus.Dial('#osc2-vol',{
+      'size': [30,30],
+      'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+      'mode': 'relative', // "absolute" or "relative"
+      'min': 0,
+      'max': 0.25,
+      'step': 0,
+      'value': volume2.gain.value
+   });
+
+   let osc_att = new Nexus.Dial('#osc-att',{
+      'size': [30,30],
+      'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+      'mode': 'relative', // "absolute" or "relative"
+      'min': 0.005,
+      'max': 1,
+      'step': 0,
+      'value': 0.5
+   });
+
+   let osc_dec = new Nexus.Dial('#osc-dec',{
+      'size': [30,30],
+      'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+      'mode': 'relative', // "absolute" or "relative"
+      'min': 0.005,
+      'max': 1,
+      'step': 0,
+      'value': 0.5
+   });
+
+   let osc_sus = new Nexus.Dial('#osc-sus',{
+      'size': [30,30],
+      'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+      'mode': 'relative', // "absolute" or "relative"
+      'min': 0,
+      'max': 1,
+      'step': 0,
+      'value': 0.5
+   });
+
+   let osc_rel = new Nexus.Dial('#osc-rel',{
+      'size': [30,30],
+      'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+      'mode': 'relative', // "absolute" or "relative"
+      'min': 0.005,
+      'max': 1,
+      'step': 0,
+      'value': 0.5
+   });
+
+   osc1_vol.on('change', osc1_vol_func);
+   osc1_det.on('change', osc1_det_func);
+   osc2_det.on('change', osc2_det_func);
+   osc2_vol.on('change', osc2_vol_func);
+   fir1_toggle.on('change', fir1_OnOff_func);
+   fir2_toggle.on('change', fir2_OnOff_func);
+   fir1_cut.on('change', fir1_update_param );
+   fir1_type.on('change', fir1_update_param);
+   fir2_cut.on('change', fir2_update_param);
+   fir2_type.on('change', fir2_update_param);
+   osc_att.on('change', set_adsr);
+   osc_dec.on('change', set_adsr);
+   osc_sus.on('change', set_adsr);
+   osc_rel.on('change', set_adsr);
+   piano.on('change', piano_func);
+
+   function displaySynth(){
+     //document.getElementById('zonaHarmonizer').style.display='none';
+     //document.getElementById('zonaChord').style.display='none';
+     document.getElementById('zonaControlli').style.display='block';
+     document.getElementById('synthButton').style.background='#fcb61d';
+     document.getElementById('harmButton').style.background='#555f68';
+     document.getElementById('chordButton').style.background='#555f68';
+   }
+ </script>
+</html>

@@ -1,0 +1,56 @@
+
+.inline {
+  /* display: inline-block; */
+}
+
+body {
+  color:#fcb61d ;
+  font-family: Arial;
+  font-weight: bold;
+  background-image: url("img/background_wood.jpg");
+}
+
+
+#sub-synth {
+  width: 750px;
+  height: 400px;
+  background: #212121;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #56818a;
+  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  border-width: 4px;
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 25px 35px 0 rgba(0, 0, 0, 1), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
+  /* background-image: url("img/texture_sfondo.jpg"), linear-gradient(to bottom , #212121 , #353e45); */
+}
+
+#synthButton{
+  width: 40px;
+  height: 15px;
+  background: #fcb61d;
+  border-radius: 5px;
+  padding: 10px;
+  border: 2px solid #56818a;
+  color: #212121;
+  text-align: center;
+
+}
+
+#keybordZone{
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%)
+}
+
+#keyboard{
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #56818a;
+  border-width: 2px;
+}
