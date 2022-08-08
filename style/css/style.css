@@ -1,6 +1,6 @@
 
 .inline {
-  /* display: inline-block; */
+   display: inline-block; 
 }
 
 body {
@@ -29,19 +29,7 @@ body {
   /* background-image: url("img/texture_sfondo.jpg"), linear-gradient(to bottom , #212121 , #353e45); */
 }
 
-#synthButton{
-  width: 40px;
-  height: 15px;
-  background: #fcb61d;
-  border-radius: 5px;
-  padding: 10px;
-  border: 2px solid #56818a;
-  color: #212121;
-  text-align: center;
-
-}
-
-#keybordZone{
+#keyboardZone{
   position: absolute;
   left: 50%;
   top: 75%;

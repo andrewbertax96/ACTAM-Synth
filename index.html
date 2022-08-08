@@ -13,120 +13,138 @@
 
    </head>
    <body>
-     <!-- The whole synth -->
-     <div id="synth">
-        <div id="zonaControlli">
-        <!-- first row -->
-           <div class="grid grid-pad" >
-              <div class="col-1-12">
-                 <div class="content inline" style="text-align: center"> On/Off </div>
-              </div>
-              <div class="col-2-12">
-                 <div class="content inline" style="text-align: center"> Shape </div>
-              </div>
-              <div class="col-1-12">
-                 <div class="content inline">Tune</div>
-              </div>
-              <div class="col-1-12">
-                 <div class="content inline" style="text-align: center"> Filter </div>
-              </div>
-              <div class="col-2-12">
-                 <div class="content inline" style="text-align: center"> Type </div>
-              </div>
-              <div class="col-1-12">
-                 <div class="content inline"> Cut </div>
-              </div>
-              <div class="col-1-12">
-                 <div class="content inline" style="text-align: center">Envelope</div>
-              </div>
-              <div class="col-2-12">
-                 <div class="content inline" > </div>
-              </div>
-              <div class="col-1-12">
-                 <div class="content inline" > Vol </div>
-              </div>
-           </div>
 
-           <!-- second row -->
-           <div class="grid grid-pad">
-              <div class="col-1-12">
-                 <div id="osc1-onOff" class="content inline"></div>
-              </div>
-              <div class="col-2-12">
-                 <div id="osc1-shape" class="content inline" ></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="osc1-det" class="content inline "></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="fir1-toggle" class="content inline"></div>
-              </div>
-              <div class="col-2-12">
-                 <div id="fir1-type" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="fir1-cut" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="osc-att" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="osc-dec" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <input type="radio" id="adsr-osc1" name="adsr-select" value ="osc1" checked >  <!-- onchange="change_adsr_shown()" -->
-              </div>
-              <div class="col-1-12">
-                 <div id="osc1-vol" class="content inline"></div>
-              </div>
-           </div>
-
-           <!-- third row -->
-
-           <div class="grid grid-pad">
-              <div class="col-1-12">
-                 <div id="osc2-onOff" class="content inline"></div>
-              </div>
-              <div class="col-2-12">
-                 <div id="osc2-shape" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="osc2-det" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="fir2-toggle" class="content inline"></div>
-              </div>
-              <div class="col-2-12">
-                 <div id="fir2-type" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="fir2-cut" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="osc-sus" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <div id="osc-rel" class="content inline"></div>
-              </div>
-              <div class="col-1-12">
-                 <input type="radio" id="adsr-osc2" name="adsr-select" value="osc2"> <!-- onchange="change_adsr_shown()" -->
-              </div>
-              <div class="col-1-12">
-                <div id="osc2-vol" class="content inline"></div>
-              </div>
-           </div>
-        </div>
-
-        <div id="keybordZone">
-          <div class="grid grid-pad">
-            <div class="col-12-12">
-              <div id="keyboard" class="content inline"></div>
+      <!-- The whole synth -->
+      <div id="synth">
+         <div id="zonaControlli">
+            <!-- first row -->
+            <div class="grid grid-pad" >
+               <div class="col-1-12">
+                  <div class="content inline" style="text-align: center"> On/Off </div>
+               </div>
+               <div class="col-2-12">
+                  <div class="content inline" style="text-align: center"> Shape </div>
+               </div>
+               <div class="col-1-12">
+                  <div class="content inline">Tune</div>
+               </div>
+               <div class="col-1-12">
+                  <div class="content inline" style="text-align: center"> Filter </div>
+               </div>
+               <div class="col-2-12">
+                  <div class="content inline" style="text-align: center"> Type </div>
+               </div>
+               <div class="col-1-12">
+                  <div class="content inline"> Cut </div>
+               </div>
+               <div class="col-1-12">
+                  <div class="content inline" style="text-align: center">Envelope</div>
+               </div>
+               <div class="col-2-12">
+                  <div class="content inline" > </div>
+               </div>
+               <div class="col-1-12">
+                  <div class="content inline" > Vol </div>
+               </div>
             </div>
-          </div>
-        </div>
 
-     </div>
-  </body>
+            <!-- second row -->
+            <div class="grid grid-pad">
+               <div class="col-1-12">
+                  <div id="osc1-onOff" class="content inline"></div>
+               </div>
+               <div class="col-2-12">
+                  <div id="osc1-shape" class="content inline" ></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="osc1-det" class="content inline "></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="fir1-toggle" class="content inline"></div>
+               </div>
+               <div class="col-2-12">
+                  <div id="fir1-type" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="fir1-cut" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="osc-att" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="osc-dec" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <input type="radio" id="adsr-osc1" name="adsr-select" value ="osc1" checked >  <!-- onchange="change_adsr_shown()" -->
+               </div>
+               <div class="col-1-12">
+                  <div id="osc1-vol" class="content inline"></div>
+               </div>
+            </div>
+
+            <!-- third row -->
+            <div class="grid grid-pad">
+               <div class="col-1-12">
+                  <div id="osc2-onOff" class="content inline"></div>
+               </div>
+               <div class="col-2-12">
+                  <div id="osc2-shape" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="osc2-det" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="fir2-toggle" class="content inline"></div>
+               </div>
+               <div class="col-2-12">
+                  <div id="fir2-type" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="fir2-cut" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="osc-sus" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <div id="osc-rel" class="content inline"></div>
+               </div>
+               <div class="col-1-12">
+                  <input type="radio" id="adsr-osc2" name="adsr-select" value="osc2">
+               </div>
+               <div class="col-1-12">
+                 <div id="osc2-vol" class="content inline"></div>
+               </div>
+            </div>
+         </div>
+
+          <!-- Selezione Harmonizer/Synth/chord trigger
+
+         <div id="synthHarmButtonZone">
+
+
+
+               <div class="col-2-12">
+                  <div class="content inline"><i><u>SUB-harm SYNTH</u></i></div>
+               </div>
+
+            </div>
+
+            <div class="grid grid-pad">
+            </div>
+         </div>-->
+
+          <!-- keyboard row -->
+
+         <div id="keyboardZone">
+            <div class="grid grid-pad">
+               <div class="col-12-12">
+                  <div id="keyboard" class="content inline"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </body>
   <script>
     //
    // NEXUS VARIABLES AND FUNCTIONS
@@ -161,7 +179,7 @@
 
    let fir1_type = new Nexus.Select('#fir1-type',{
       'size': [100,30],
-      'options': ['lowpass','highpass','bandpass','notch']
+      'options': ['lowpass','highpass','bandpass']
    });
 
    let fir1_cut = new Nexus.Dial('#fir1-cut',{
@@ -209,7 +227,7 @@
 
    let fir2_type = new Nexus.Select('#fir2-type',{
       'size': [100,30],
-      'options': ['lowpass','highpass','bandpass','notch']
+      'options': ['lowpass','highpass','bandpass']
    });
 
    let fir2_cut = new Nexus.Dial('#fir2-cut',{
@@ -295,13 +313,65 @@
    osc_rel.on('change', set_adsr);
    piano.on('change', piano_func);
 
-   function displaySynth(){
-     //document.getElementById('zonaHarmonizer').style.display='none';
-     //document.getElementById('zonaChord').style.display='none';
-     document.getElementById('zonaControlli').style.display='block';
-     document.getElementById('synthButton').style.background='#fcb61d';
-     document.getElementById('harmButton').style.background='#555f68';
-     document.getElementById('chordButton').style.background='#555f68';
-   }
+   //
+   // MIDI KEYBAORD
+   //
+
+
+   WebMidi.enable(function(err) {
+      if (err) {
+         console.log("An error occurred", err);
+      }
+
+      WebMidi.inputs[0].addListener("noteon", "all", function(e) {
+
+         let midiNote = e.note.number;
+
+         if (onOffChord && !fired) {
+            fired = true;
+            noteChordOn(midiNote);
+         } else {
+            let firstFree = undefined;
+            let voiceIndex = undefined;
+
+            if(activeVoices[v.note] === undefined) {
+               if(osc2_onOff.state && !osc1_onOff.state) {
+                  firstFree = adsrCh2.filter(x => x.gain.value == 0);
+                  voiceIndex = adsrCh2.indexOf(firstFree[0]);
+               } else {
+                  firstFree = adsrCh1.filter(x => x.gain.value == 0);
+                  voiceIndex = adsrCh1.indexOf(firstFree[0]);
+               }
+               if(voiceIndex < 0 || voiceIndex > 3) return;
+               activeVoices[midiNote] = voiceIndex;
+               if (onOffHarm) {
+                  noteHarmOn(midiNote, voiceIndex)
+               } else {
+                  noteSynthOn(midiNote, voiceIndex);
+               }
+            }
+         }
+      });
+
+      WebMidi.inputs[0].addListener("noteoff", "all", function(e){
+
+         let midiNote = e.note.number;
+
+         if (onOffChord) {
+            fired = false;
+            noteChordOff();
+         } else {
+            let voiceIndex = activeVoices[midiNote];
+            if(voiceIndex < 0 || voiceIndex > 3) return;
+            delete activeVoices[midiNote];
+            if (onOffHarm) {
+               noteHarmOff(voiceIndex)
+            } else {
+               noteSynthOff(voiceIndex);
+            }
+         }
+      });
+   });
+
  </script>
 </html>
