@@ -16,26 +16,33 @@
      <!-- Effect Block -->
      <div id="effectBlock">
          <div class="grid grid-pad" >
-            <div class="col-2-12">
-               <div class="chorus pedal" style="text-align: center"> CHORUS</div>
+            <div class="col-2-12 pedal">
+               <div style="text-align: center">CHORUS</div>
+               <div id="chorus-onOff"></div>
             </div>
-            <div class="col-2-12">
-               <div class="vibrato pedal" style="text-align: center"> VIBRATO </div>
+            <div class="col-2-12 pedal">
+               <div style="text-align: center">VIBRATO</div>
+               <div id="vibrato-onOff"></div>
             </div>
-            <div class="col-2-12">
-               <div class="tremolo pedal" style="text-align: center">TREMOLO</div>
+            <div class="col-2-12 pedal">
+               <div style="text-align: center">TREMOLO</div>
+               <div id="tremolo-onOff"></div>
             </div>
-            <div class="col-2-12">
-               <div class="phaser pedal" style="text-align: center"> PHASER </div>
+            <div class="col-2-12 pedal">
+               <div style="text-align: center">PHASER</div>
+               <div id="phaser-onOff"></div>
             </div>
-            <div class="col-2-12">
-               <div class="delay pedal" style="text-align: center"> DELAY </div>
+            <div class="col-2-12 pedal">
+               <div style="text-align: center">DELAY</div>
+               <div id="delay-onOff"></div>
             </div>
-            <div class="col-2-12">
-               <div class="reverb pedal" style="text-align: center"> REVERB </div>
+            <div class="col-2-12 pedal">
+               <div style="text-align: center">REVERB</div>
+               <div id="reverb-onOff"></div>
             </div>
           </div>
      </div>
+     
       <!-- The whole synth -->
       <div id="synth">
          <div id="zonaControlli">
@@ -175,7 +182,34 @@
    Nexus.colors.accent = "#fcb61d"
    Nexus.colors.fill = "#555f68"
 
+   //Pedal Box elements
+   let chorus_onOff = new Nexus.Toggle('#chorus-onOff',{
+      'size': [40,20],
+      'state': false
+   });
+   let vibrato_onOff = new Nexus.Toggle('#vibrato-onOff',{
+      'size': [40,20],
+      'state': false
+   });
+   let tremolo_onOff = new Nexus.Toggle('#tremolo-onOff',{
+      'size': [40,20],
+      'state': false
+   });
+   let phaser_onOff = new Nexus.Toggle('#phaser-onOff',{
+      'size': [40,20],
+      'state': false
+   });
+   let delay_onOff = new Nexus.Toggle('#delay-onOff',{
+      'size': [40,20],
+      'state': false
+   });
+   let reverb_onOff = new Nexus.Toggle('#reverb-onOff',{
+      'size': [40,20],
+      'state': false
+   });
 
+
+   //Synth elements
    let osc1_shape = new Nexus.Select('#osc1-shape',{
       'size': [100,30],
       'options': ['sine','triangle','square','sawtooth']
