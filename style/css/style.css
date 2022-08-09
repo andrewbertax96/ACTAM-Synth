@@ -1,6 +1,6 @@
 
 .inline {
-   display: inline-block; 
+   display: inline-block;
 }
 
 body {
@@ -10,6 +10,23 @@ body {
   background-image: url("img/background_wood.jpg");
 }
 
+#effectBlock {
+  width: 840px;
+  height: 415px;
+  background: #212121;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #56818a;
+  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  border-width: 4px;
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, 0%);
+  box-shadow: 0 25px 35px 0 rgba(0, 0, 0, 1), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
+  background-image: url("img/texture_sfondo.jpg"), linear-gradient(to bottom , #212121 , #353e45);
+}
 
 #synth {
   width: 750px;
@@ -23,10 +40,9 @@ body {
   padding: 10px;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 100%;
   transform: translate(-50%, -50%);
   box-shadow: 0 25px 35px 0 rgba(0, 0, 0, 1), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
-  /* background-image: url("img/texture_sfondo.jpg"), linear-gradient(to bottom , #212121 , #353e45); */
 }
 
 #keyboardZone{
@@ -41,4 +57,16 @@ body {
   border-style: solid;
   border-color: #56818a;
   border-width: 2px;
+}
+
+.pedal{
+  width: 90px;
+  height: 350px;
+  background: #212121;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #56818a;
+  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  border-width: 4px;
+  padding: 10px;
 }
