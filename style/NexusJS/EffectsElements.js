@@ -51,11 +51,28 @@ let chorusDepths = new Nexus.Dial('#chorusDepths',{
    'step': 0,
    //'value': filterCh1[0].frequency.value
 });
-let number = new Nexus.Number('#number',{
-  'size': [30,30],
+
+let chorusLFO_number = new Nexus.Number('#chorusLFO_number',{
+  'size': [45,20],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
-number.link(chorusLFO);
+let chorusDelayTime_number = new Nexus.Number('#chorusDelayTime_number',{
+  'size': [45,20],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let chorusDepths_number = new Nexus.Number('#chorusDepths_number',{
+  'size': [45,20],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+chorusLFO_number.link(chorusLFO);
+chorusDelayTime_number.link(chorusDelayTime);
+chorusDepths_number.link(chorusDepths);
