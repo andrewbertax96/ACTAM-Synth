@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
    <head>
       <meta charset="utf-8">
       <link rel="stylesheet" href="style/css/style.css">
@@ -9,10 +8,8 @@
       <script src="https://cdn.jsdelivr.net/npm/webmidi"></script>
       <script src="synth.js"></script>
       <title>ACTAM-Synth</title>
-
    </head>
    <body>
-
      <!-- Effect Block -->
      <div id="effectBlock">
          <div class="grid grid-pad" >
@@ -68,106 +65,103 @@
             </div>
           </div>
      </div>
-
-      <!-- The whole synth -->
-      <div id="synth">
+     <!-- Synth -->
+     <div id="synth">
          <div id="zonaControlli">
             <!-- first row -->
             <div class="grid grid-pad" >
                <div class="col-1-12">
-                  <div class="content inline" style="text-align: center"> On/Off </div>
+                  <div style="text-align: center"> On/Off </div>
                </div>
                <div class="col-2-12">
-                  <div class="content inline" style="text-align: center"> Shape </div>
+                  <div style="text-align: center"> Shape </div>
                </div>
                <div class="col-1-12">
-                  <div class="content inline">Tune</div>
+                  <div>Tune</div>
                </div>
                <div class="col-1-12">
-                  <div class="content inline" style="text-align: center"> Filter </div>
+                  <div style="text-align: center"> Filter </div>
                </div>
                <div class="col-2-12">
-                  <div class="content inline" style="text-align: center"> Type </div>
+                  <div style="text-align: center"> Type </div>
                </div>
                <div class="col-1-12">
-                  <div class="content inline"> Cut </div>
+                  <div> Cut </div>
                </div>
                <div class="col-1-12">
-                  <div class="content inline" style="text-align: center">Envelope</div>
+                  <div style="text-align: center">Envelope</div>
                </div>
                <div class="col-2-12">
-                  <div class="content inline" > </div>
+                  <div> </div>
                </div>
                <div class="col-1-12">
-                  <div class="content inline" > Vol </div>
+                  <div> Vol </div>
                </div>
             </div>
-
             <!-- second row -->
             <div class="grid grid-pad">
                <div class="col-1-12">
-                  <div id="osc1-onOff" class="content inline"></div>
+                  <div id="osc1-onOff"></div>
                </div>
                <div class="col-2-12">
-                  <div id="osc1-shape" class="content inline" ></div>
+                  <div id="osc1-shape"></div>
                </div>
                <div class="col-1-12">
-                  <div id="osc1-det" class="content inline "></div>
+                  <div id="osc1-det"></div>
                </div>
                <div class="col-1-12">
-                  <div id="fir1-toggle" class="content inline"></div>
+                  <div id="fir1-toggle"></div>
                </div>
                <div class="col-2-12">
-                  <div id="fir1-type" class="content inline"></div>
+                  <div id="fir1-type"></div>
                </div>
                <div class="col-1-12">
-                  <div id="fir1-cut" class="content inline"></div>
+                  <div id="fir1-cut"></div>
                </div>
                <div class="col-1-12">
-                  <div id="osc-att" class="content inline"></div>
+                  <div id="osc-att"></div>
                </div>
                <div class="col-1-12">
-                  <div id="osc-dec" class="content inline"></div>
+                  <div id="osc-dec"></div>
                </div>
                <div class="col-1-12">
                   <input type="radio" id="adsr-osc1" name="adsr-select" value ="osc1" checked >
                </div>
                <div class="col-1-12">
-                  <div id="osc1-vol" class="content inline"></div>
+                  <div id="osc1-vol"></div>
                </div>
             </div>
-
             <!-- third row -->
             <div class="grid grid-pad">
                <div class="col-1-12">
-                  <div id="osc2-onOff" class="content inline"></div>
+                  <div id="osc2-onOff"></div>
                </div>
                <div class="col-2-12">
-                  <div id="osc2-shape" class="content inline"></div>
+                  <div id="osc2-shape"></div>
                </div>
                <div class="col-1-12">
-                  <div id="osc2-det" class="content inline"></div>
+                  <div id="osc2-det"></div>
                </div>
                <div class="col-1-12">
-                  <div id="fir2-toggle" class="content inline"></div>
+                  <div id="fir2-toggle"></div>
                </div>
                <div class="col-2-12">
-                  <div id="fir2-type" class="content inline"></div>
+                  <div id="fir2-type"></div>
                </div>
                <div class="col-1-12">
-                  <div id="fir2-cut" class="content inline"></div>
+                  <div id="fir2-cut"></div>
                </div>
                <div class="col-1-12">
-                  <div id="osc-sus" class="content inline"></div>
+                  <div id="osc-sus"></div>
                </div>
                <div class="col-1-12">
-                  <div id="osc-rel" class="content inline"></div>
+                  <div id="osc-rel"></div>
                </div>
                <div class="col-1-12">
                   <input type="radio" id="adsr-osc2" name="adsr-select" value="osc2">
                </div>
                <div class="col-1-12">
-                 <div id="osc2-vol" class="content inline"></div>
+                 <div id="osc2-vol"></div>
                </div>
             </div>
          </div>
@@ -189,19 +183,16 @@
          </div>-->
 
           <!-- keyboard row -->
-
          <div id="keyboardZone">
             <div class="grid grid-pad">
                <div class="col-12-12">
-                  <div id="keyboard" class="content inline"></div>
+                  <div id="keyboard"></div>
                </div>
             </div>
          </div>
       </div>
-
    </body>
    <script src="style/NexusJS/EffectsElements.js"></script>
    <script src="style/NexusJS/SynthElements.js"></script>
    <script src="style/NexusJS/Keyboard.js"></script>
-
 </html>
