@@ -34,63 +34,15 @@ let fir1_cut = new Nexus.Dial('#fir1-cut',{
    'step': 0,
    'value': filterCh1[0].frequency.value
 });
-let osc1_vol = new Nexus.Dial('#osc1-vol',{
-   'size': [30,30],
-   'interaction': 'vertical', // "radial", "vertical", or "horizontal"
-   'mode': 'relative', // "absolute" or "relative"
-   'min': 0,
-   'max': 0.25,
-   'step': 0,
-   'value': volume1.gain.value
-});
-let osc2_shape = new Nexus.Select('#osc2-shape',{
-   'size': [100,30],
-   'options': ['sine','triangle','square','sawtooth']
-});
-let osc2_onOff = new Nexus.Toggle('#osc2-onOff',{
-   'size': [40,20],
-   'state': false
-});
-let osc2_det = new Nexus.Number('#osc2-det',{
-   'size': [45,30],
-   'min': -200,
-   'max': 200,
-   'step': 1,
-   'value': 0
-});
-let fir2_toggle = new Nexus.Toggle('#fir2-toggle',{
-   'size': [40,20],
-   'state': false
-});
-let fir2_type = new Nexus.Select('#fir2-type',{
-   'size': [100,30],
-   'options': ['lowpass','highpass','bandpass']
-});
-let fir2_cut = new Nexus.Dial('#fir2-cut',{
+let fir1_gain = new Nexus.Dial('#fir1-gain',{
    'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
    'max': 5000,
    'step': 0,
-   'value': filterCh2[0].frequency.value
+   'value': filterCh1[0].frequency.value
 });
-let piano = new Nexus.Piano('#keyboard',{
-   'size': [710,150],
-   'mode': 'button',  // 'button', 'toggle', or 'impulse'
-   'lowNote': 36,
-   'highNote': 108
-});
-let osc2_vol = new Nexus.Dial('#osc2-vol',{
-   'size': [30,30],
-   'interaction': 'vertical', // "radial", "vertical", or "horizontal"
-   'mode': 'relative', // "absolute" or "relative"
-   'min': 0,
-   'max': 0.25,
-   'step': 0,
-   'value': volume2.gain.value
-});
-
 let osc1_att = new Nexus.Dial('#osc1-att',{
    'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -126,6 +78,57 @@ let osc1_rel = new Nexus.Dial('#osc1-rel',{
    'max': 1,
    'step': 0,
    'value': 0.5
+});
+let osc1_vol = new Nexus.Dial('#osc1-vol',{
+   'size': [30,30],
+   'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+   'mode': 'relative', // "absolute" or "relative"
+   'min': 0,
+   'max': 0.25,
+   'step': 0,
+   'value': volume1.gain.value
+});
+
+let osc2_shape = new Nexus.Select('#osc2-shape',{
+   'size': [100,30],
+   'options': ['sine','triangle','square','sawtooth']
+});
+let osc2_onOff = new Nexus.Toggle('#osc2-onOff',{
+   'size': [40,20],
+   'state': false
+});
+let osc2_det = new Nexus.Number('#osc2-det',{
+   'size': [45,30],
+   'min': -200,
+   'max': 200,
+   'step': 1,
+   'value': 0
+});
+let fir2_toggle = new Nexus.Toggle('#fir2-toggle',{
+   'size': [40,20],
+   'state': false
+});
+let fir2_type = new Nexus.Select('#fir2-type',{
+   'size': [100,30],
+   'options': ['lowpass','highpass','bandpass']
+});
+let fir2_cut = new Nexus.Dial('#fir2-cut',{
+   'size': [30,30],
+   'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+   'mode': 'relative', // "absolute" or "relative"
+   'min': 20,
+   'max': 5000,
+   'step': 0,
+   'value': filterCh2[0].frequency.value
+});
+let fir2_gain = new Nexus.Dial('#fir2-gain',{
+   'size': [30,30],
+   'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+   'mode': 'relative', // "absolute" or "relative"
+   'min': 20,
+   'max': 5000,
+   'step': 0,
+   'value': filterCh2[0].frequency.value
 });
 
 let osc2_att = new Nexus.Dial('#osc2-att',{
@@ -163,6 +166,31 @@ let osc2_rel = new Nexus.Dial('#osc2-rel',{
    'max': 1,
    'step': 0,
    'value': 0.5
+});
+let osc2_vol = new Nexus.Dial('#osc2-vol',{
+   'size': [30,30],
+   'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+   'mode': 'relative', // "absolute" or "relative"
+   'min': 0,
+   'max': 0.25,
+   'step': 0,
+   'value': volume2.gain.value
+});
+
+let mix = new Nexus.Dial('#mix',{
+   'size': [30,30],
+   'interaction': 'vertical', // "radial", "vertical", or "horizontal"
+   'mode': 'relative', // "absolute" or "relative"
+   'min': 0,
+   'max': 0.25,
+   'step': 0,
+   'value': volume2.gain.value
+});
+let piano = new Nexus.Piano('#keyboard',{
+   'size': [710,150],
+   'mode': 'button',  // 'button', 'toggle', or 'impulse'
+   'lowNote': 36,
+   'highNote': 108
 });
 
 //
