@@ -1,5 +1,5 @@
 
-audioCtx = new AudioContext();
+/*audioCtx = new AudioContext();
 
 
 document.onclick = async function () {
@@ -52,4 +52,4 @@ for (let i = 0; i < nVoices; i++) {
 }
 
 volume1.connect(audioCtx.destination);
-volume2.connect(audioCtx.destination);
+volume2.connect(audioCtx.destination);*/
