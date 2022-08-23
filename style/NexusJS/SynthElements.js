@@ -35,7 +35,7 @@ let fir1_cut = new Nexus.Dial('#fir1-cut',{
    'value': filterCh1[0].frequency.value
 });
 let fir1_gain = new Nexus.Dial('#fir1-gain',{
-   'size': [30,30],
+  'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -44,7 +44,7 @@ let fir1_gain = new Nexus.Dial('#fir1-gain',{
    'value': filterCh1[0].frequency.value
 });
 let osc1_att = new Nexus.Dial('#osc1-att',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0.005,
@@ -53,7 +53,7 @@ let osc1_att = new Nexus.Dial('#osc1-att',{
    'value': 0.5
 });
 let osc1_dec = new Nexus.Dial('#osc1-dec',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0.005,
@@ -62,7 +62,7 @@ let osc1_dec = new Nexus.Dial('#osc1-dec',{
    'value': 0.5
 });
 let osc1_sus = new Nexus.Dial('#osc1-sus',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0,
@@ -71,7 +71,7 @@ let osc1_sus = new Nexus.Dial('#osc1-sus',{
    'value': 0.5
 });
 let osc1_rel = new Nexus.Dial('#osc1-rel',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0.005,
@@ -80,7 +80,7 @@ let osc1_rel = new Nexus.Dial('#osc1-rel',{
    'value': 0.5
 });
 let osc1_vol = new Nexus.Dial('#osc1-vol',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0,

@@ -1,6 +1,6 @@
 //Pedal Box elements
 let chorus_onOff = new Nexus.Toggle('#chorus_onOff',{
-   'size': [40,20],
+   'size': [110,15],
    'state': false
 });
 let vibrato_onOff = new Nexus.Toggle('#vibrato_onOff',{
@@ -25,7 +25,7 @@ let reverb_onOff = new Nexus.Toggle('#reverb_onOff',{
 });
 
 let chorusLFO = new Nexus.Dial('#chorusLFO',{
-   'size': [30,30],
+   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -34,7 +34,7 @@ let chorusLFO = new Nexus.Dial('#chorusLFO',{
    //'value': filterCh1[0].frequency.value
 });
 let chorusDelayTime = new Nexus.Dial('#chorusDelayTime',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -43,7 +43,7 @@ let chorusDelayTime = new Nexus.Dial('#chorusDelayTime',{
    //'value': filterCh1[0].frequency.value
 });
 let chorusDepths = new Nexus.Dial('#chorusDepths',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -52,7 +52,7 @@ let chorusDepths = new Nexus.Dial('#chorusDepths',{
    //'value': filterCh1[0].frequency.value
 });
 let vibratoFreq = new Nexus.Dial('#vibratoFreq',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -61,7 +61,7 @@ let vibratoFreq = new Nexus.Dial('#vibratoFreq',{
    //'value': filterCh1[0].frequency.value
 });
 let vibratoDepths = new Nexus.Dial('#vibratoDepths',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -70,7 +70,7 @@ let vibratoDepths = new Nexus.Dial('#vibratoDepths',{
    //'value': filterCh1[0].frequency.value
 });
 let tremoloFreq = new Nexus.Dial('#tremoloFreq',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -79,7 +79,7 @@ let tremoloFreq = new Nexus.Dial('#tremoloFreq',{
    //'value': filterCh1[0].frequency.value
 });
 let tremoloDepths = new Nexus.Dial('#tremoloDepths',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -88,7 +88,7 @@ let tremoloDepths = new Nexus.Dial('#tremoloDepths',{
    //'value': filterCh1[0].frequency.value
 });
 let phaserFreq = new Nexus.Dial('#phaserFreq',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -97,7 +97,7 @@ let phaserFreq = new Nexus.Dial('#phaserFreq',{
    //'value': filterCh1[0].frequency.value
 });
 let phaserOctave = new Nexus.Dial('#phaserOctave',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -106,7 +106,7 @@ let phaserOctave = new Nexus.Dial('#phaserOctave',{
    //'value': filterCh1[0].frequency.value
 });
 let phaserBaseFreq = new Nexus.Dial('#phaserBaseFreq',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -115,7 +115,7 @@ let phaserBaseFreq = new Nexus.Dial('#phaserBaseFreq',{
    //'value': filterCh1[0].frequency.value
 });
 let delayTune = new Nexus.Dial('#delayTune',{
-   'size': [30,30],
+   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -124,7 +124,7 @@ let delayTune = new Nexus.Dial('#delayTune',{
    //'value': filterCh1[0].frequency.value
 });
 let reverbDecay = new Nexus.Dial('#reverbDecay',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
@@ -133,7 +133,7 @@ let reverbDecay = new Nexus.Dial('#reverbDecay',{
    //'value': filterCh1[0].frequency.value
 });
 let reverbSeconds = new Nexus.Dial('#reverbSeconds',{
-   'size': [30,30],
+  'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
