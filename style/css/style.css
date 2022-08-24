@@ -25,7 +25,7 @@ body {
   background-image: url("img/background_wood.jpg");
 }
 #synth {
-  width: 1140px;
+  width: 1200px;
   height: 650px;
   background: #212121;
   border-radius: 10px;
@@ -55,14 +55,14 @@ body {
   border-width: 2px;
 }
 
-/*.pedal{
-  width: 90px;
+.pedal{
+  width: 20px;
   height: 350px;
   background: #212121;
   border-radius: 10px;
   border-style: solid;
   border-color: #56818a;
   background-image: linear-gradient(to bottom , #212121 , #353e45);
-  border-width: 4px;
-  padding: 10px;
-}*/
+  border-width: 3px;
+  padding: 20px;
+}
