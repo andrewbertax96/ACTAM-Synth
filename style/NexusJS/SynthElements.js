@@ -102,8 +102,40 @@ let fir1_gain_number = new Nexus.Number('#fir1_gain_number',{
   'max': 5000,
   'step': 1
 });
+let osc1_att_number = new Nexus.Number('#osc1_att_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let osc1_dec_number = new Nexus.Number('#osc1_dec_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let osc1_sus_number = new Nexus.Number('#osc1_sus_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let osc1_rel_number = new Nexus.Number('#osc1_rel_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
 fir1_cut_number.link(fir1_cut);
 fir1_gain_number.link(fir1_gain);
+osc1_att_number.link(osc1_att);
+osc1_dec_number.link(osc1_dec);
+osc1_sus_number.link(osc1_sus);
+osc1_rel_number.link(osc1_rel);
 
 let osc2_shape = new Nexus.Select('#osc2-shape',{
    'size': [100,30],
@@ -147,7 +179,7 @@ let fir2_gain = new Nexus.Dial('#fir2-gain',{
    'value': filterCh2[0].frequency.value
 });
 let osc2_att = new Nexus.Dial('#osc2-att',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0.005,
@@ -156,7 +188,7 @@ let osc2_att = new Nexus.Dial('#osc2-att',{
    'value': 0.5
 });
 let osc2_dec = new Nexus.Dial('#osc2-dec',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0.005,
@@ -165,7 +197,7 @@ let osc2_dec = new Nexus.Dial('#osc2-dec',{
    'value': 0.5
 });
 let osc2_sus = new Nexus.Dial('#osc2-sus',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0,
@@ -174,7 +206,7 @@ let osc2_sus = new Nexus.Dial('#osc2-sus',{
    'value': 0.5
 });
 let osc2_rel = new Nexus.Dial('#osc2-rel',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0.005,
@@ -183,7 +215,7 @@ let osc2_rel = new Nexus.Dial('#osc2-rel',{
    'value': 0.5
 });
 let osc2_vol = new Nexus.Dial('#osc2-vol',{
-   'size': [30,30],
+  'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0,
@@ -205,8 +237,40 @@ let fir2_gain_number = new Nexus.Number('#fir2_gain_number',{
   'max': 5000,
   'step': 1
 });
+let osc2_att_number = new Nexus.Number('#osc2_att_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let osc2_dec_number = new Nexus.Number('#osc2_dec_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let osc2_sus_number = new Nexus.Number('#osc2_sus_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let osc2_rel_number = new Nexus.Number('#osc2_rel_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
 fir2_cut_number.link(fir2_cut);
 fir2_gain_number.link(fir2_gain);
+osc2_att_number.link(osc2_att);
+osc2_dec_number.link(osc2_dec);
+osc2_sus_number.link(osc2_sus);
+osc2_rel_number.link(osc2_rel);
 
 let mix = new Nexus.Dial('#mix',{
    'size': [30,30],
