@@ -31,7 +31,7 @@
 	min-width: 748px; /* when using padded grid on ipad in portrait mode, width should be viewport-width - padding = (768 - 20) = 748. actually, it should be even smaller to allow for padding of grid containing element */
 	margin: 0 auto;
 	overflow: hidden;
-	padding-top: 20px;
+	padding-top: 5px;
 }
 
 .grid:after {
@@ -76,8 +76,7 @@
 }
 
 .col-1-6, .col-2-12 {
-	margin-left: 4px;
-	width: 16.2%;
+	width: 16.667%;
 }
 
 .col-1-7 {

@@ -22,31 +22,26 @@
   display: inline-block;
   margin-left: 25px;
 }
+.tab6 {
+  display: inline-block;
+  margin-left: 5px;
+}
 
 body {
-  color:#353433 ;
+  color:#fcb61d ;
   font-family: Arial;
   font-weight: bold;
-  background-image: url("img/background.jpg");
-  background-size: 100%;
+  background-image: url("img/background_wood.jpg");
 }
-
-.subtext {
-  font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 3px;
-}
-
 #synth {
   width: 1200px;
-  height: 650px;
+  height: 680px;
   background: #212121;
   border-radius: 10px;
   border-style: solid;
-  border-color: #7d7d7d;
-  background-image: linear-gradient(to bottom , #dedcdce0 , #f1f1f1);
-  border-width: 2px;
-  opacity: 0.9;
+  border-color: #56818a;
+  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  border-width: 4px;
   padding: 10px;
   position: absolute;
   left: 50%;
@@ -58,25 +53,36 @@ body {
 #keyboardZone{
   position: absolute;
   left: 50%;
-  top: 83%;
+  top: 87%;
   transform: translate(-50%, -50%)
 }
 
 #keyboard{
   border-radius: 5px;
   border-style: solid;
-  border-color: #abaaaa;
+  border-color: #56818a;
   border-width: 2px;
 }
 
 .pedal{
   /*width: 5px;*/
-  height: 330px;
-  background: #cfcece;
+  height: 308px;
+  background: #212121;
   border-radius: 35px;
-  border-style: transparent;
-  border-color: #505151e3;
-  background-image: linear-gradient(to bottom , #999898 , #e2e2e2);
+  border-style: solid;
+  border-color: #56818a;
+  background-image: linear-gradient(to bottom , #212121 , #353e45);
   border-width: 2px;
   padding: 20px;
+}
+.component{
+  /*width: 5px;*/
+  height: 170px;
+  background: #212121;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #56818a;
+  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  border-width: 2px;
+  padding: 10px;
 }

@@ -19,19 +19,19 @@
              <div class = "inline" id="chorus_onOff"></div>
              <div class = "inline">On</div>
            </div><hr><br>
-           <div class="inline subtext">&nbsp;LFO
-             <div class="inline subtext" style="text-align: right">&emsp;&emsp;&emsp;Delay Time</div>
+           <div>&nbsp;LFO
+             <div class="inline" style="text-align: right">&emsp;Delay Time</div>
            </div>
            <div>
              <div class="inline" id="chorusLFO"></div>
              <div class="tab inline" id="chorusDelayTime"></div>
            </div>
            <div>
-             <div class="inline " id="chorusLFO_number"></div>
+             <div class="inline" id="chorusLFO_number"></div>
              <div class="tab2 inline" id="chorusDelayTime_number"></div>
            </div>
            <div><br>
-             <div class="inline subtext" style="text-align: center">&emsp;&emsp;&ensp;&ensp;&ensp;Depths</div>
+             <div>&emsp;&emsp;&ensp;Depths</div>
              <div class="tab3" id="chorusDepths"></div>
              <div class="tab4" id="chorusDepths_number"></div>
            </div>
@@ -43,12 +43,12 @@
              <div class = "inline">On</div>
            </div><hr><br>
            <div>
-             <div class = "subtext" style="text-align: center">Freq</div>
+             <div>&emsp;&emsp;&emsp;&nbsp;Freq</div>
              <div class="tab3" id="vibratoFreq"></div>
              <div class="tab4"id="vibratoFreq_number"></div>
            </div>
            <div><br>
-             <div class = "subtext" style="text-align: center">Depths</div>
+             <div>&emsp;&emsp;&ensp;Depths</div>
              <div class="tab3" id="vibratoDepths"></div>
              <div class="tab4" id="vibratoDepths_number"></div>
            </div>
@@ -60,12 +60,12 @@
              <div class = "inline">On</div>
            </div><hr><br>
            <div>
-             <div class = "subtext" style="text-align: center">&nbsp;Freq</div>
+             <div>&emsp;&emsp;&emsp;&nbsp;Freq</div>
              <div class="tab3" id="tremoloFreq"></div>
              <div class="tab4"id="tremoloFreq_number"></div>
            </div>
            <div><br>
-             <div class = "subtext" style="text-align: center">Depths</div>
+             <div>&emsp;&emsp;&ensp;Depths</div>
              <div class="tab3" id="tremoloDepths"></div>
              <div class="tab4" id="tremoloDepths_number"></div>
            </div>
@@ -76,8 +76,8 @@
              <div class = "inline" id="phaser_onOff"></div>
              <div class = "inline">On</div>
            </div><hr><br>
-           <div class = "subtext" >&nbsp;Freq
-             <div class="inline" style="text-align: right">&emsp;&emsp;&emsp;&emsp;&emsp;Octave</div>
+           <div>&nbsp;Freq
+             <div class="inline" style="text-align: right">&emsp;&emsp;&emsp;Octave</div>
            </div>
            <div>
              <div class="inline" id="phaserFreq"></div>
@@ -88,7 +88,7 @@
              <div class="tab2 inline" id="phaserOctave_number"></div>
            </div>
            <div><br>
-             <div class = "subtext">&emsp;&emsp;&emsp;Base Freq</div>
+             <div>&emsp;&emsp;Base Freq</div>
              <div class="tab3" id="phaserBaseFreq"></div>
              <div class="tab4" id="phaserBaseFreq_number"></div>
            </div>
@@ -100,7 +100,7 @@
              <div class = "inline">On</div>
            </div><hr>
            <div>
-             <p class = "subtext" style="text-align: center" >&nbsp;Tune</p>
+             <p>&emsp;&emsp;&emsp;&nbsp;Tune</p>
              <p class="tab5" id="delayTune"></p>
              <div class="tab3"id="delayTune_number"></div>
            </div>
@@ -112,12 +112,12 @@
              <div class = "inline">On</div>
            </div><hr><br>
            <div>
-             <div class="subtext" style="text-align: center">Decay</div>
+             <div>&emsp;&emsp;&emsp;Decay</div>
              <div class="tab3" id="reverbDecay"></div>
              <div class="tab4"id="reverbDecay_number"></div>
            </div>
            <div><br>
-             <div class="subtext" style="text-align: center">Seconds</div>
+             <div>&emsp;&emsp;&ensp;Seconds</div>
              <div class="tab3" id="reverbSeconds"></div>
              <div class="tab4" id="reverbSeconds_number"></div>
            </div>
@@ -125,32 +125,38 @@
        </div>
        <!-- Oscillators -->
        <div class="grid" >
-         <div class="col-1-12">
-           <div style="text-align: center"> On/Off </div>
-           <p id="osc1-onOff"></p>
-           <p id="osc2-onOff"></p>
+         <div class="col-1-4 component">
+           <div style="text-align: center"> OSCILLATORS </div><hr>
+           <div>Off
+             <p class = "inline" id="osc1-onOff"></p>
+             <p class = "inline">On</p>
+             <p class = "tab2 inline" id="osc1-shape"></p>
+           </div>
+           <div>Off
+             <p class = "inline" id="osc2-onOff"></p>
+             <p class = "inline">On</p>
+             <p class = "tab2 inline" id="osc2-shape"></p>
+           </div>
          </div>
-         <div class="col-2-12">
-           <div style="text-align: center"> Shape </div>
-           <div id="osc1-shape"></div>
-           <div id="osc2-shape"></div>
+         <div class="col-1-12 component">
+           <div style="text-align: center">TUNE</div><hr>
+           <p class="tab6" id="osc1-det"></p>
+           <p class="tab6" id="osc2-det"></p>
          </div>
-         <div class="col-1-12">
-           <div style="text-align: center">Tune</div>
-           <div id="osc1-det"></div>
-           <div id="osc2-det"></div>
+         <div class="col-3-12 component">
+           <div style="text-align: center"> FILTERS </div><hr>
+           <div>Off
+             <p class = "inline" id="fir1-toggle"></p>
+             <p class = "inline">On</p>
+             <p class = "inline" id="fir1-type"></p>
+           </div>
+           <div>Off
+             <p class = "inline" id="fir2-toggle"></p>
+             <p class = "inline">On</p>
+             <p class = "inline" id="fir2-type"></p>
+           </div>
          </div>
-         <div class="col-1-12">
-           <div style="text-align: center"> Filter </div>
-           <div id="fir1-toggle"></div>
-           <div id="fir2-toggle"></div>
-         </div>
-         <div class="col-2-12">
-           <div style="text-align: center"> Type </div>
-           <div id="fir1-type"></div>
-           <div id="fir2-type"></div>
-         </div>
-         <div class="col-1-12">
+         <div class="col-1-12 component">
            <div style="text-align: center"> Cut </div>
            <div>
              <div class="inline" id="fir1-cut"></div>
@@ -161,7 +167,7 @@
              <div class="inline" id="fir2-gain"></div>
            </div>
          </div>
-         <div class="col-3-12">
+         <div class="col-3-12 component">
            <div style="text-align: center">Envelope</div>
            <div>
              <div class="inline" id="osc1-att"></div>
@@ -176,7 +182,7 @@
              <div class="inline" id="osc2-rel"></div>
            </div>
          </div>
-         <div class="col-1-12">
+         <div class="col-1-12 component">
            <div> Vol </div>
            <div id="osc1-vol"></div>
            <div id="mix"></div>

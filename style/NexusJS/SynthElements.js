@@ -1,5 +1,5 @@
-Nexus.colors.accent = "#555f68"
-Nexus.colors.fill = "#F3F2F3"
+Nexus.colors.accent = "#fcb61d"
+Nexus.colors.fill = "#555f68"
 
 //Synth elements
 let osc1_shape = new Nexus.Select('#osc1-shape',{
@@ -88,6 +88,15 @@ let osc1_vol = new Nexus.Dial('#osc1-vol',{
    'step': 0,
    'value': volume1.gain.value
 });
+let fir1_cut_number = new Nexus.Number('#fir1_cut_number',{
+  'size': [45,20],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+fir1_cut_number.link(fir1_cut);
+
 
 let osc2_shape = new Nexus.Select('#osc2-shape',{
    'size': [100,30],
@@ -130,7 +139,6 @@ let fir2_gain = new Nexus.Dial('#fir2-gain',{
    'step': 0,
    'value': filterCh2[0].frequency.value
 });
-
 let osc2_att = new Nexus.Dial('#osc2-att',{
    'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -187,7 +195,7 @@ let mix = new Nexus.Dial('#mix',{
    'value': volume2.gain.value
 });
 let piano = new Nexus.Piano('#keyboard',{
-   'size': [900,150],
+   'size': [710,150],
    'mode': 'button',  // 'button', 'toggle', or 'impulse'
    'lowNote': 36,
    'highNote': 108
