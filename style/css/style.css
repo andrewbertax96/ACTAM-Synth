@@ -4,19 +4,19 @@
 }
 .tab {
   display: inline-block;
-  margin-left: 70px;
+  margin-left: 59px;
 }
 .tab2 {
   display: inline-block;
-  margin-left: 62.5px;
+  margin-left: 49px;
 }
 .tab3 {
   display: inline-block;
-  margin-left: 56px;
+  margin-left: 50px;
 }
 .tab4 {
   display: inline-block;
-  margin-left: 55px;
+  margin-left: 49px;
 }
 body {
   color:#fcb61d ;
@@ -56,10 +56,10 @@ body {
 }
 
 .pedal{
-  width: 20px;
-  height: 350px;
+  /*width: 5px;*/
+  height: 320px;
   background: #212121;
-  border-radius: 10px;
+  border-radius: 7px;
   border-style: solid;
   border-color: #56818a;
   background-image: linear-gradient(to bottom , #212121 , #353e45);

@@ -1,6 +1,6 @@
 //Pedal Box elements
 let chorus_onOff = new Nexus.Toggle('#chorus_onOff',{
-   'size': [110,15],
+   'size': [89,15],
    'state': false
 });
 let vibrato_onOff = new Nexus.Toggle('#vibrato_onOff',{
