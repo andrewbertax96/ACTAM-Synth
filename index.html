@@ -14,7 +14,7 @@
        <!-- Effects -->
        <div class="grid" >
          <div class="col-2-12 pedal">
-           <div style="text-align: center">CHORUS</div><br>
+           <div style="text-align: center">CHORUS</div>
            <div>Off
              <div class = "inline" id="chorus_onOff"></div>
              <div class = "inline">On</div>
@@ -37,7 +37,7 @@
            </div>
          </div>
          <div class="col-2-12 pedal">
-           <div style="text-align: center">VIBRATO</div><br>
+           <div style="text-align: center">VIBRATO</div>
            <div>Off
              <div class = "inline" id="vibrato_onOff"></div>
              <div class = "inline">On</div>
@@ -54,7 +54,7 @@
            </div>
          </div>
          <div class="col-2-12 pedal">
-           <div style="text-align: center">TREMOLO</div><br>
+           <div style="text-align: center">TREMOLO</div>
            <div>Off
              <div class = "inline" id="tremolo_onOff"></div>
              <div class = "inline">On</div>
@@ -71,7 +71,7 @@
            </div>
          </div>
          <div class="col-2-12 pedal">
-           <div style="text-align: center">PHASER</div><br>
+           <div style="text-align: center">PHASER</div>
            <div>Off
              <div class = "inline" id="phaser_onOff"></div>
              <div class = "inline">On</div>
@@ -94,7 +94,7 @@
            </div>
          </div>
          <div class="col-2-12 pedal">
-           <div style="text-align: center">DELAY</div><br>
+           <div style="text-align: center">DELAY</div>
            <div>Off
              <div class = "inline" id="delay_onOff"></div>
              <div class = "inline">On</div>
@@ -106,7 +106,7 @@
            </div>
          </div>
          <div class="col-2-12 pedal">
-           <div style="text-align: center">REVERB</div><br>
+           <div style="text-align: center">REVERB</div>
            <div>Off
              <div class = "inline" id="reverb_onOff"></div>
              <div class = "inline">On</div>
@@ -125,18 +125,18 @@
        </div>
        <!-- Oscillators -->
        <div class="grid" >
-         <div class="col-1-4 component">
+         <div class="col-1-4-2 component">
            <div style="text-align: center"> OSCILLATORS </div><hr>
-           <div class = "tab8">Type</div>
+           <div class = "tab9">Type</div>
            <div>Off
              <p class = "inline" id="osc1-onOff"></p>
              <p class = "inline">On</p>
-             <p class = "tab2 inline" id="osc1-shape"></p>
+             <p class = "tab12 inline" id="osc1-shape"></p>
            </div>
            <div>Off
              <p class = "inline" id="osc2-onOff"></p>
              <p class = "inline">On</p>
-             <p class = "tab2 inline" id="osc2-shape"></p>
+             <p class = "tab12 inline" id="osc2-shape"></p>
            </div>
          </div>
          <div class="col-1-12 component">
@@ -206,15 +206,19 @@
            </div>
          </div>
          <div class="col-1-12 component">
-           <div> Vol </div>
-           <div id="osc1-vol"></div>
-           <div id="mix"></div>
-           <div id="osc2-vol"></div>
+           <div style="text-align: center">VOLUME</div><hr><br>
+           <div class="tab13" id="osc1-vol"></div><br><br>
+           <p class="tab13" id="osc2-vol"></p>
+         </div>
+         <div class="col-1-12 component">
+           <div style="text-align: center">MIX</div><hr>
+           <div class="tab13" id="meter"></div>
+           <p class="tab13" id="mix"></p>
          </div>
        </div>
        <!-- Keyboard -->
        <div id="keyboardZone">
-         <div class="grid grid-pad">
+         <div class="grid">
            <div class="col-12-12">
              <div id="keyboard"></div>
            </div>

@@ -24,7 +24,7 @@ body {
 #keyboardZone{
   position: absolute;
   left: 50%;
-  top: 87%;
+  top: 85%;
   transform: translate(-50%, -50%)
 }
 
@@ -108,4 +108,8 @@ body {
 .tab12{
   display: inline-block;
   margin-left: 29px;
+}
+.tab13{
+  display: inline-block;
+  margin-left: 15px;
 }

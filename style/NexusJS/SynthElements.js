@@ -281,6 +281,11 @@ let mix = new Nexus.Dial('#mix',{
    'step': 0,
    'value': volume2.gain.value
 });
+var meter = new Nexus.Meter('#meter', {
+  size: [30,90]
+})
+meter.connect(myWebAudioNode)
+
 let piano = new Nexus.Piano('#keyboard',{
    'size': [710,150],
    'mode': 'button',  // 'button', 'toggle', or 'impulse'
