@@ -281,17 +281,25 @@ let mix = new Nexus.Dial('#mix',{
    'step': 0,
    'value': volume2.gain.value
 });
-var meter = new Nexus.Meter('#meter', {
+let meter = new Nexus.Meter('#meter', {
   size: [30,90]
 })
-meter.connect(myWebAudioNode)
-
 let piano = new Nexus.Piano('#keyboard',{
    'size': [710,150],
    'mode': 'button',  // 'button', 'toggle', or 'impulse'
    'lowNote': 36,
    'highNote': 108
 });
+let oscilloscope = new Nexus.Oscilloscope('#Oscilloscope',{
+  'size': [50,50]
+})
+let spectrogram = new Nexus.Spectrogram('#Spectrogram',{
+  'size': [50,50]
+})
+meter.connect(myWebAudioNode)
+oscilloscope.connect(myWebAudioNode)
+spectrogram.connect(myWebAudioNode)
+
 
 osc1_vol.on('change', osc1_vol_func);
 osc1_det.on('change', osc1_det_func);
