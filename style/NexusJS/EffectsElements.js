@@ -4,23 +4,23 @@ let chorus_onOff = new Nexus.Toggle('#chorus_onOff',{
    'state': false
 });
 let vibrato_onOff = new Nexus.Toggle('#vibrato_onOff',{
-   'size': [40,20],
+  'size': [89,15],
    'state': false
 });
 let tremolo_onOff = new Nexus.Toggle('#tremolo_onOff',{
-   'size': [40,20],
+  'size': [89,15],
    'state': false
 });
 let phaser_onOff = new Nexus.Toggle('#phaser_onOff',{
-   'size': [40,20],
+  'size': [89,15],
    'state': false
 });
 let delay_onOff = new Nexus.Toggle('#delay_onOff',{
-   'size': [40,20],
+  'size': [89,15],
    'state': false
 });
 let reverb_onOff = new Nexus.Toggle('#reverb_onOff',{
-   'size': [40,20],
+  'size': [89,15],
    'state': false
 });
 

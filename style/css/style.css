@@ -18,6 +18,7 @@
   display: inline-block;
   margin-left: 49px;
 }
+
 body {
   color:#fcb61d ;
   font-family: Arial;
@@ -59,10 +60,10 @@ body {
   /*width: 5px;*/
   height: 320px;
   background: #212121;
-  border-radius: 7px;
+  border-radius: 35px;
   border-style: solid;
   border-color: #56818a;
   background-image: linear-gradient(to bottom , #212121 , #353e45);
-  border-width: 3px;
+  border-width: 2px;
   padding: 20px;
 }
