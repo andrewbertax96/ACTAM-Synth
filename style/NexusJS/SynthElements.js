@@ -285,16 +285,16 @@ let meter = new Nexus.Meter('#meter', {
   size: [30,90]
 })
 let piano = new Nexus.Piano('#keyboard',{
-   'size': [710,150],
+   'size': [300,150],
    'mode': 'button',  // 'button', 'toggle', or 'impulse'
    'lowNote': 36,
    'highNote': 108
 });
 let oscilloscope = new Nexus.Oscilloscope('#Oscilloscope',{
-  'size': [50,50]
+  'size': [300,150]
 })
 let spectrogram = new Nexus.Spectrogram('#Spectrogram',{
-  'size': [50,50]
+  'size': [300,150]
 })
 meter.connect(myWebAudioNode)
 oscilloscope.connect(myWebAudioNode)

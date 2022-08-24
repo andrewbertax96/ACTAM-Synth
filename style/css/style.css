@@ -21,19 +21,19 @@ body {
   box-shadow: 0 25px 35px 0 rgba(0, 0, 0, 1), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
-#keyboardZone{
+/*#keyboardZone{
   position: absolute;
   left: 50%;
   top: 85%;
   transform: translate(-50%, -50%)
-}
+}*/
 
-#keyboard{
+/*#keyboard{
   border-radius: 5px;
   border-style: solid;
   border-color: #56818a;
   border-width: 2px;
-}
+}*/
 
 .pedal{
   /*width: 5px;*/
