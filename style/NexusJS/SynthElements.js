@@ -201,11 +201,6 @@ let piano = new Nexus.Piano('#keyboard',{
    'highNote': 108
 });
 
-//
-// NEXUS VARIABLES AND FUNCTIONS
-//
-
-
 osc1_vol.on('change', osc1_vol_func);
 osc1_det.on('change', osc1_det_func);
 osc2_det.on('change', osc2_det_func);

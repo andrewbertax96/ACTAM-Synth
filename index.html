@@ -127,10 +127,11 @@
        <div class="grid" >
          <div class="col-1-4 component">
            <div style="text-align: center"> OSCILLATORS </div><hr>
+           <div>Type</div>
            <div>Off
-             <p class = "inline" id="osc1-onOff"></p>
-             <p class = "inline">On</p>
-             <p class = "tab2 inline" id="osc1-shape"></p>
+             <div class = "inline" id="osc1-onOff"></div>
+             <div class = "inline">On</div>
+             <div class = "tab2 inline" id="osc1-shape"></div>
            </div>
            <div>Off
              <p class = "inline" id="osc2-onOff"></p>
@@ -141,14 +142,22 @@
          <div class="col-1-12 component">
            <div style="text-align: center">TUNE</div><hr>
            <p class="tab6" id="osc1-det"></p>
-           <p class="tab6" id="osc2-det"></p>
+           <div class="tab6" id="osc2-det"></div>
          </div>
-         <div class="col-3-12 component">
+         <div class="col-4-12 component">
            <div style="text-align: center"> FILTERS </div><hr>
+           <div>Cut
+             <div class  = "inline">Gain</div>
+           </div>
            <div>Off
              <p class = "inline" id="fir1-toggle"></p>
              <p class = "inline">On</p>
              <p class = "inline" id="fir1-type"></p>
+             <p class="inline" id="fir1-cut"></p>
+             <p class="inline" id="fir1-gain"></p>
+           </div>
+           <div>
+             <p class = "inline" id="fir1_cut_number"></p>
            </div>
            <div>Off
              <p class = "inline" id="fir2-toggle"></p>
@@ -159,8 +168,7 @@
          <div class="col-1-12 component">
            <div style="text-align: center"> Cut </div>
            <div>
-             <div class="inline" id="fir1-cut"></div>
-             <div class="inline" id="fir1-gain"></div>
+
            </div>
            <div>
              <div class="inline" id="fir2-cut"></div>
