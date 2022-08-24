@@ -11,8 +11,9 @@
    </head>
    <body>
      <div id = "synth">
+       <!-- Effects -->
        <div class="grid grid-pad" >
-            <div class="col-2-12 pedal">
+         <div class="col-2-12 pedal">
                <div style="text-align: center">CHORUS</div>
                <div>Off
                  <div class = "inline" id="chorus_onOff"></div>
@@ -28,7 +29,7 @@
                <div id="chorusDepths"></div>
                <div id="chorusDepths_number"></div>
             </div>
-            <div class="col-2-12 pedal">
+         <div class="col-2-12 pedal">
                <div style="text-align: left">VIBRATO</div><hr>
                <div id="vibrato_onOff"></div>
                <div>Freq</div>
@@ -38,7 +39,7 @@
                <div id="vibratoDepths"></div>
                <div id="vibratoDepths_number"></div>
             </div>
-            <div class="col-2-12 pedal">
+         <div class="col-2-12 pedal">
                <div style="text-align: left">TREMOLO</div><hr>
                <div id="tremolo_onOff"></div>
                <div>Freq</div>
@@ -48,7 +49,7 @@
                <div id="tremoloDepths"></div>
                <div id="tremoloDepths_number"></div>
             </div>
-            <div class="col-2-12 pedal">
+         <div class="col-2-12 pedal">
                <div style="text-align: left">PHASER</div><hr>
                <div id="phaser_onOff"></div>
                <div id="phaserFreq"></div>
@@ -58,13 +59,13 @@
                <div id="phaserBaseFreq"></div>
                <div id="phaserBaseFreq_number"></div>
             </div>
-            <div class="col-2-12 pedal">
+         <div class="col-2-12 pedal">
                <div style="text-align: left">DELAY</div><hr>
                <div id="delay_onOff"></div>
                <div id="delayTune"></div>
                <div id="delayTune_number"></div>
             </div>
-            <div class="col-2-12 pedal">
+         <div class="col-2-12 pedal">
                <div style="text-align: left">REVERB</div><hr>
                <div id="reverb_onOff"></div>
                <div id="reverbDecay"></div>
@@ -72,80 +73,76 @@
                <div id="reverbSeconds"></div>
                <div id="reverbSeconds_number"></div>
             </div>
-          </div>
-           <!-- first row -->
-           <div class="grid grid-pad" >
-              <div class="col-1-12">
-                 <div style="text-align: center"> On/Off </div>
-                 <div id="osc1-onOff"></div>
-                 <div id="osc2-onOff"></div>
-              </div>
-              <div class="col-2-12">
-                 <div style="text-align: center"> Shape </div>
-                 <div id="osc1-shape"></div>
-                 <div id="osc2-shape"></div>
-              </div>
-              <div class="col-1-12">
-                 <div style="text-align: center">Tune</div>
-                 <div id="osc1-det"></div>
-                 <div id="osc2-det"></div>
-              </div>
-              <div class="col-1-12">
-                 <div style="text-align: center"> Filter </div>
-                 <div id="fir1-toggle"></div>
-                 <div id="fir2-toggle"></div>
-              </div>
-              <div class="col-2-12">
-                 <div style="text-align: center"> Type </div>
-                 <div id="fir1-type"></div>
-                 <div id="fir2-type"></div>
-              </div>
-              <div class="col-1-12">
-                 <div style="text-align: center"> Cut </div>
-                 <div>
-                   <div class="inline" id="fir1-cut"></div>
-                   <div class="inline" id="fir1-gain"></div>
-                 </div>
-                 <div>
-                   <div class="inline" id="fir2-cut"></div>
-                   <div class="inline" id="fir2-gain"></div>
-                 </div>
-
-
-              </div>
-              <div class="col-3-12">
-                 <div style="text-align: center">Envelope</div>
-                 <div>
-                   <div class="inline" id="osc1-att"></div>
-                   <div class="inline" id="osc1-dec"></div>
-                   <div class="inline" id="osc1-sus"></div>
-                   <div class="inline" id="osc1-rel"></div>
-                 </div>
-                 <div>
-                   <div class="inline" id="osc2-att"></div>
-                   <div class="inline" id="osc2-dec"></div>
-                   <div class="inline" id="osc2-sus"></div>
-                   <div class="inline" id="osc2-rel"></div>
-                 </div>
-              </div>
-              <!--<div class="col-2-12">
-                 <div> </div>
-              </div>-->
-              <div class="col-1-12">
-                 <div> Vol </div>
-                 <div id="osc1-vol"></div>
-                 <div id="mix"></div>
-                 <div id="osc2-vol"></div>
-              </div>
-           </div>
-           <div id="keyboardZone">
-              <div class="grid grid-pad">
-                 <div class="col-12-12">
-                    <div id="keyboard"></div>
-                 </div>
-              </div>
-           </div>
        </div>
+       <!-- Oscillators -->
+       <div class="grid grid-pad" >
+         <div class="col-1-12">
+           <div style="text-align: center"> On/Off </div>
+           <div id="osc1-onOff"></div>
+           <div id="osc2-onOff"></div>
+         </div>
+         <div class="col-2-12">
+           <div style="text-align: center"> Shape </div>
+           <div id="osc1-shape"></div>
+           <div id="osc2-shape"></div>
+         </div>
+         <div class="col-1-12">
+           <div style="text-align: center">Tune</div>
+           <div id="osc1-det"></div>
+           <div id="osc2-det"></div>
+         </div>
+         <div class="col-1-12">
+           <div style="text-align: center"> Filter </div>
+           <div id="fir1-toggle"></div>
+           <div id="fir2-toggle"></div>
+         </div>
+         <div class="col-2-12">
+           <div style="text-align: center"> Type </div>
+           <div id="fir1-type"></div>
+           <div id="fir2-type"></div>
+         </div>
+         <div class="col-1-12">
+           <div style="text-align: center"> Cut </div>
+           <div>
+             <div class="inline" id="fir1-cut"></div>
+             <div class="inline" id="fir1-gain"></div>
+           </div>
+           <div>
+             <div class="inline" id="fir2-cut"></div>
+             <div class="inline" id="fir2-gain"></div>
+           </div>
+         </div>
+         <div class="col-3-12">
+           <div style="text-align: center">Envelope</div>
+           <div>
+             <div class="inline" id="osc1-att"></div>
+             <div class="inline" id="osc1-dec"></div>
+             <div class="inline" id="osc1-sus"></div>
+             <div class="inline" id="osc1-rel"></div>
+           </div>
+           <div>
+             <div class="inline" id="osc2-att"></div>
+             <div class="inline" id="osc2-dec"></div>
+             <div class="inline" id="osc2-sus"></div>
+             <div class="inline" id="osc2-rel"></div>
+           </div>
+         </div>
+         <div class="col-1-12">
+           <div> Vol </div>
+           <div id="osc1-vol"></div>
+           <div id="mix"></div>
+           <div id="osc2-vol"></div>
+         </div>
+       </div>
+       <!-- Keyboard -->
+       <div id="keyboardZone">
+         <div class="grid grid-pad">
+           <div class="col-12-12">
+             <div id="keyboard"></div>
+           </div>
+         </div>
+       </div>
+     </div>
    </body>
    <script src="style/NexusJS/EffectsElements.js"></script>
    <script src="style/NexusJS/SynthElements.js"></script>
