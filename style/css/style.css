@@ -4,7 +4,7 @@
 }
 .tab {
   display: inline-block;
-  margin-left: 59px;
+  margin-left: 75px;
 }
 .tab2 {
   display: inline-block;
@@ -12,11 +12,15 @@
 }
 .tab3 {
   display: inline-block;
-  margin-left: 50px;
+  margin-left: 52.5px;
 }
 .tab4 {
   display: inline-block;
   margin-left: 49px;
+}
+.tab5 {
+  display: inline-block;
+  margin-left: 25px;
 }
 
 body {
