@@ -2,32 +2,28 @@
 .inline {
    display: inline-block;
 }
-
+.tab {
+  display: inline-block;
+  margin-left: 70px;
+}
+.tab2 {
+  display: inline-block;
+  margin-left: 62.5px;
+}
+.tab3 {
+  display: inline-block;
+  margin-left: 56px;
+}
+.tab4 {
+  display: inline-block;
+  margin-left: 55px;
+}
 body {
   color:#fcb61d ;
   font-family: Arial;
   font-weight: bold;
   background-image: url("img/background_wood.jpg");
 }
-
-/*#effectBlock {
-  width: 840px;
-  height: 415px;
-  background: #212121;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #56818a;
-  background-image: linear-gradient(to bottom , #212121 , #353e45);
-  border-width: 4px;
-  padding: 10px;
-  position: absolute;
-  left: 50%;
-  top: 0%;
-  transform: translate(-50%, 0%);
-  box-shadow: 0 25px 35px 0 rgba(0, 0, 0, 1), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
-  background-image: url("img/texture_sfondo.jpg"), linear-gradient(to bottom , #212121 , #353e45);
-}*/
-
 #synth {
   width: 1140px;
   height: 650px;
@@ -48,7 +44,7 @@ body {
 #keyboardZone{
   position: absolute;
   left: 50%;
-  top: 75%;
+  top: 85%;
   transform: translate(-50%, -50%)
 }
 
