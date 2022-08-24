@@ -24,20 +24,29 @@
 }
 
 body {
-  color:#fcb61d ;
+  color:#353433 ;
   font-family: Arial;
   font-weight: bold;
-  background-image: url("img/background_wood.jpg");
+  background-image: url("img/background.jpg");
+  background-size: 100%;
 }
+
+.subtext {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3px;
+}
+
 #synth {
   width: 1200px;
   height: 650px;
   background: #212121;
   border-radius: 10px;
   border-style: solid;
-  border-color: #56818a;
-  background-image: linear-gradient(to bottom , #212121 , #353e45);
-  border-width: 4px;
+  border-color: #7d7d7d;
+  background-image: linear-gradient(to bottom , #dedcdce0 , #f1f1f1);
+  border-width: 2px;
+  opacity: 0.9;
   padding: 10px;
   position: absolute;
   left: 50%;
@@ -49,25 +58,25 @@ body {
 #keyboardZone{
   position: absolute;
   left: 50%;
-  top: 85%;
+  top: 83%;
   transform: translate(-50%, -50%)
 }
 
 #keyboard{
   border-radius: 5px;
   border-style: solid;
-  border-color: #56818a;
+  border-color: #abaaaa;
   border-width: 2px;
 }
 
 .pedal{
   /*width: 5px;*/
-  height: 320px;
-  background: #212121;
+  height: 330px;
+  background: #cfcece;
   border-radius: 35px;
-  border-style: solid;
-  border-color: #56818a;
-  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  border-style: transparent;
+  border-color: #505151e3;
+  background-image: linear-gradient(to bottom , #999898 , #e2e2e2);
   border-width: 2px;
   padding: 20px;
 }

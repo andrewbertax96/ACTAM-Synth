@@ -76,7 +76,8 @@
 }
 
 .col-1-6, .col-2-12 {
-	width: 16.667%;
+	margin-left: 4px;
+	width: 16.2%;
 }
 
 .col-1-7 {

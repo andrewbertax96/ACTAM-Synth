@@ -1,5 +1,5 @@
-Nexus.colors.accent = "#fcb61d"
-Nexus.colors.fill = "#555f68"
+Nexus.colors.accent = "#555f68"
+Nexus.colors.fill = "#F3F2F3"
 
 //Synth elements
 let osc1_shape = new Nexus.Select('#osc1-shape',{
@@ -187,7 +187,7 @@ let mix = new Nexus.Dial('#mix',{
    'value': volume2.gain.value
 });
 let piano = new Nexus.Piano('#keyboard',{
-   'size': [710,150],
+   'size': [900,150],
    'mode': 'button',  // 'button', 'toggle', or 'impulse'
    'lowNote': 36,
    'highNote': 108
