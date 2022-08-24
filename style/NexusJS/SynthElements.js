@@ -89,14 +89,21 @@ let osc1_vol = new Nexus.Dial('#osc1-vol',{
    'value': volume1.gain.value
 });
 let fir1_cut_number = new Nexus.Number('#fir1_cut_number',{
-  'size': [45,20],
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let fir1_gain_number = new Nexus.Number('#fir1_gain_number',{
+  'size': [30,15],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
 fir1_cut_number.link(fir1_cut);
-
+fir1_gain_number.link(fir1_gain);
 
 let osc2_shape = new Nexus.Select('#osc2-shape',{
    'size': [100,30],
@@ -184,6 +191,22 @@ let osc2_vol = new Nexus.Dial('#osc2-vol',{
    'step': 0,
    'value': volume2.gain.value
 });
+let fir2_cut_number = new Nexus.Number('#fir2_cut_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+let fir2_gain_number = new Nexus.Number('#fir2_gain_number',{
+  'size': [30,15],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
+});
+fir2_cut_number.link(fir2_cut);
+fir2_gain_number.link(fir2_gain);
 
 let mix = new Nexus.Dial('#mix',{
    'size': [30,30],
