@@ -10,7 +10,7 @@ let osc1_onOff = new Nexus.Toggle('#osc1-onOff',{
    'size': [40,20],
    'state': false
 });
-let osc1_det = new Nexus.Number('#osc1-det',{
+let detune1 = new Nexus.Number('#osc1-det',{
    'size': [45,30],
    'min': -200,
    'max': 200,
@@ -32,7 +32,7 @@ let fir1_cut = new Nexus.Dial('#fir1-cut',{
    'min': 20,
    'max': 5000,
    'step': 0,
-   'value': filterCh1[0].frequency.value
+   'value': 0 //TODO: filterCh1[0].frequency.value
 });
 let fir1_gain = new Nexus.Dial('#fir1-gain',{
   'size': [30,30],
@@ -41,9 +41,9 @@ let fir1_gain = new Nexus.Dial('#fir1-gain',{
    'min': 20,
    'max': 5000,
    'step': 0,
-   'value': filterCh1[0].frequency.value
+   'value': 0 //TODO: filterCh1[0].frequency.value
 });
-let osc1_att = new Nexus.Dial('#osc1-att',{
+let attack1 = new Nexus.Dial('#osc1-att',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
@@ -52,7 +52,7 @@ let osc1_att = new Nexus.Dial('#osc1-att',{
    'step': 0,
    'value': 0.5
 });
-let osc1_dec = new Nexus.Dial('#osc1-dec',{
+let decay1 = new Nexus.Dial('#osc1-dec',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
@@ -61,7 +61,7 @@ let osc1_dec = new Nexus.Dial('#osc1-dec',{
    'step': 0,
    'value': 0.5
 });
-let osc1_sus = new Nexus.Dial('#osc1-sus',{
+let sustain1 = new Nexus.Dial('#osc1-sus',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
@@ -70,7 +70,7 @@ let osc1_sus = new Nexus.Dial('#osc1-sus',{
    'step': 0,
    'value': 0.5
 });
-let osc1_rel = new Nexus.Dial('#osc1-rel',{
+let release1 = new Nexus.Dial('#osc1-rel',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
@@ -79,14 +79,14 @@ let osc1_rel = new Nexus.Dial('#osc1-rel',{
    'step': 0,
    'value': 0.5
 });
-let osc1_vol = new Nexus.Dial('#osc1-vol',{
+let volume1 = new Nexus.Dial('#osc1-vol',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 0,
-   'max': 0.25,
+   'min': -25,
+   'max': 5,
    'step': 0,
-   'value': volume1.gain.value
+   'value': -5 
 });
 let fir1_cut_number = new Nexus.Number('#fir1_cut_number',{
   'size': [30,15],
@@ -102,28 +102,28 @@ let fir1_gain_number = new Nexus.Number('#fir1_gain_number',{
   'max': 5000,
   'step': 1
 });
-let osc1_att_number = new Nexus.Number('#osc1_att_number',{
+let attack1_number = new Nexus.Number('#osc1_att_number',{
   'size': [30,15],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
-let osc1_dec_number = new Nexus.Number('#osc1_dec_number',{
+let decay1_number = new Nexus.Number('#osc1_dec_number',{
   'size': [30,15],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
-let osc1_sus_number = new Nexus.Number('#osc1_sus_number',{
+let sustain1_number = new Nexus.Number('#osc1_sus_number',{
   'size': [30,15],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
-let osc1_rel_number = new Nexus.Number('#osc1_rel_number',{
+let release1_number = new Nexus.Number('#osc1_rel_number',{
   'size': [30,15],
   'value': 0,
   'min': 20,
@@ -132,10 +132,10 @@ let osc1_rel_number = new Nexus.Number('#osc1_rel_number',{
 });
 fir1_cut_number.link(fir1_cut);
 fir1_gain_number.link(fir1_gain);
-osc1_att_number.link(osc1_att);
-osc1_dec_number.link(osc1_dec);
-osc1_sus_number.link(osc1_sus);
-osc1_rel_number.link(osc1_rel);
+attack1_number.link(attack1);
+decay1_number.link(decay1);
+sustain1_number.link(sustain1);
+release1_number.link(release1);
 
 let osc2_shape = new Nexus.Select('#osc2-shape',{
    'size': [100,30],
@@ -145,7 +145,7 @@ let osc2_onOff = new Nexus.Toggle('#osc2-onOff',{
    'size': [40,20],
    'state': false
 });
-let osc2_det = new Nexus.Number('#osc2-det',{
+let detune2 = new Nexus.Number('#osc2-det',{
    'size': [45,30],
    'min': -200,
    'max': 200,
@@ -167,7 +167,7 @@ let fir2_cut = new Nexus.Dial('#fir2-cut',{
    'min': 20,
    'max': 5000,
    'step': 0,
-   'value': filterCh2[0].frequency.value
+   'value': 0 //TODO: filterCh2[0].frequency.value
 });
 let fir2_gain = new Nexus.Dial('#fir2-gain',{
    'size': [30,30],
@@ -176,9 +176,9 @@ let fir2_gain = new Nexus.Dial('#fir2-gain',{
    'min': 20,
    'max': 5000,
    'step': 0,
-   'value': filterCh2[0].frequency.value
+   'value': 0 //TODO: filterCh2[0].frequency.value
 });
-let osc2_att = new Nexus.Dial('#osc2-att',{
+let attack2 = new Nexus.Dial('#osc2-att',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
@@ -187,7 +187,7 @@ let osc2_att = new Nexus.Dial('#osc2-att',{
    'step': 0,
    'value': 0.5
 });
-let osc2_dec = new Nexus.Dial('#osc2-dec',{
+let decay2 = new Nexus.Dial('#osc2-dec',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
@@ -196,7 +196,7 @@ let osc2_dec = new Nexus.Dial('#osc2-dec',{
    'step': 0,
    'value': 0.5
 });
-let osc2_sus = new Nexus.Dial('#osc2-sus',{
+let sustain2 = new Nexus.Dial('#osc2-sus',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
@@ -205,7 +205,7 @@ let osc2_sus = new Nexus.Dial('#osc2-sus',{
    'step': 0,
    'value': 0.5
 });
-let osc2_rel = new Nexus.Dial('#osc2-rel',{
+let release2 = new Nexus.Dial('#osc2-rel',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
@@ -214,14 +214,14 @@ let osc2_rel = new Nexus.Dial('#osc2-rel',{
    'step': 0,
    'value': 0.5
 });
-let osc2_vol = new Nexus.Dial('#osc2-vol',{
+let volume2 = new Nexus.Dial('#osc2-vol',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 0,
-   'max': 0.25,
+   'min': -25,
+   'max': 5,
    'step': 0,
-   'value': volume2.gain.value
+   'value': -5 
 });
 let fir2_cut_number = new Nexus.Number('#fir2_cut_number',{
   'size': [30,15],
@@ -237,49 +237,50 @@ let fir2_gain_number = new Nexus.Number('#fir2_gain_number',{
   'max': 5000,
   'step': 1
 });
-let osc2_att_number = new Nexus.Number('#osc2_att_number',{
+let attack2_number = new Nexus.Number('#osc2_att_number',{
   'size': [30,15],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
-let osc2_dec_number = new Nexus.Number('#osc2_dec_number',{
+let decay2_number = new Nexus.Number('#osc2_dec_number',{
   'size': [30,15],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
-let osc2_sus_number = new Nexus.Number('#osc2_sus_number',{
+let sustain2_number = new Nexus.Number('#osc2_sus_number',{
   'size': [30,15],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
-let osc2_rel_number = new Nexus.Number('#osc2_rel_number',{
+let release2_number = new Nexus.Number('#osc2_rel_number',{
   'size': [30,15],
   'value': 0,
   'min': 20,
   'max': 5000,
   'step': 1
 });
+
 fir2_cut_number.link(fir2_cut);
 fir2_gain_number.link(fir2_gain);
-osc2_att_number.link(osc2_att);
-osc2_dec_number.link(osc2_dec);
-osc2_sus_number.link(osc2_sus);
-osc2_rel_number.link(osc2_rel);
+attack2_number.link(attack2);
+decay2_number.link(decay2);
+sustain2_number.link(sustain2);
+release2_number.link(release2);
 
-let mix = new Nexus.Dial('#mix',{
+let mixVolume = new Nexus.Dial('#mix',{
    'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 0,
-   'max': 0.25,
+   'min': -25,
+   'max': 5,
    'step': 0,
-   'value': volume2.gain.value
+   'value': 0
 });
 let meter = new Nexus.Meter('#meter', {
   size: [30,90]
@@ -296,27 +297,131 @@ let oscilloscope = new Nexus.Oscilloscope('#Oscilloscope',{
 let spectrogram = new Nexus.Spectrogram('#Spectrogram',{
   'size': [209,180]
 })
-meter.connect(myWebAudioNode)
-oscilloscope.connect(myWebAudioNode)
-spectrogram.connect(myWebAudioNode)
 
+/*****************************/
+/***** Events processing *****/
+/*****************************/
 
-osc1_vol.on('change', osc1_vol_func);
-osc1_det.on('change', osc1_det_func);
-osc2_det.on('change', osc2_det_func);
-osc2_vol.on('change', osc2_vol_func);
+osc1_shape.on('change', updateSoundSettings);
+osc1_onOff.on('change', updateSoundSettings);
+osc2_shape.on('change', updateSoundSettings);
+osc2_onOff.on('change', updateSoundSettings);
+
+volume1.on('change', updateSoundSettings);
+detune1.on('change', updateSoundSettings);
+detune2.on('change', updateSoundSettings);
+volume2.on('change', updateSoundSettings);
+
 fir1_toggle.on('change', fir1_OnOff_func);
 fir2_toggle.on('change', fir2_OnOff_func);
 fir1_cut.on('change', fir1_update_param );
 fir1_type.on('change', fir1_update_param);
 fir2_cut.on('change', fir2_update_param);
 fir2_type.on('change', fir2_update_param);
-osc1_att.on('change', set_adsr);
-osc1_dec.on('change', set_adsr);
-osc1_sus.on('change', set_adsr);
-osc1_rel.on('change', set_adsr);
-osc2_att.on('change', set_adsr);
-osc2_dec.on('change', set_adsr);
-osc2_sus.on('change', set_adsr);
-osc2_rel.on('change', set_adsr);
+
+attack1.on('change', updateEnvelope1);
+decay1.on('change', updateEnvelope1);
+sustain1.on('change', updateEnvelope1);
+release1.on('change', updateEnvelope1);
+
+attack2.on('change', updateEnvelope2);
+decay2.on('change', updateEnvelope2);
+sustain2.on('change', updateEnvelope2);
+release2.on('change', updateEnvelope2);
 piano.on('change', piano_func);
+
+let envelope1 =  new Tone.Envelope({
+   attack: 0.5,
+   decay: 0.5,
+   sustain: 0.5,
+   release: 0.5,
+});
+
+let envelope2 =  new Tone.Envelope({
+   attack: 0.5,
+   decay: 0.5,
+   sustain: 0.5,
+   release: 0.5,
+});
+
+function updateEnvelope1( )
+{
+   envelope1.attack = attack1.value;
+   envelope1.decay = decay1.value;
+   envelope1.sustain = sustain1.value;
+   envelope1.release = release1.value;
+}
+
+function updateEnvelope2( )
+{
+   envelope2.attack = attack2.value;
+   envelope2.decay = decay2.value;
+   envelope2.sustain = sustain2.value;
+   envelope2.release = release2.value;
+}
+
+function fir1_OnOff_func(){
+   if(fir1_toggle.state){
+      /*for (let i = 0; i < nVoices; i++) {
+         voicesCh1[i].disconnect(adsrCh1[i]);
+         harmVoicesCh1[i].disconnect(adsrHarmCh1[i]);
+         voicesCh1[i].connect(filterCh1[i]);
+         harmVoicesCh1[i].connect(filterHarmCh1[i]);
+         filterCh1[i].connect(adsrCh1[i]);
+         filterHarmCh1[i].connect(adsrHarmCh1[i]);
+      }*/
+   } else {
+      /*for (let i = 0; i < nVoices; i++) {
+         voicesCh1[i].disconnect(filterCh1[i]);
+         harmVoicesCh1[i].disconnect(filterHarmCh1[i]);
+         filterCh1[i].disconnect(adsrCh1[i]);
+         filterHarmCh1[i].disconnect(adsrHarmCh1[i]);
+         voicesCh1[i].connect(adsrCh1[i]);
+         harmVoicesCh1[i].connect(adsrHarmCh1[i]);
+      }*/
+   }
+}
+
+function fir2_OnOff_func(){
+   if(fir2_toggle.state){
+      /*for (let i = 0; i < nVoices; i++) {
+         voicesCh2[i].disconnect(adsrCh2[i]);
+         harmVoicesCh2[i].disconnect(adsrHarmCh2[i]);
+         voicesCh2[i].connect(filterCh2[i]);
+         harmVoicesCh2[i].connect(filterHarmCh2[i]);
+         filterCh2[i].connect(adsrCh2[i]);
+         filterHarmCh2[i].connect(adsrHarmCh2[i]);
+      }*/
+   } else{
+      /*for (let i = 0; i < nVoices; i++) {
+         /*voicesCh2[i].disconnect(filterCh2[i]);
+         harmVoicesCh2[i].disconnect(filterHarmCh2[i]);
+         filterCh2[i].disconnect(adsrCh2[i]);
+         filterHarmCh2[i].disconnect(adsrHarmCh2[i]);
+         voicesCh2[i].connect(adsrCh2[i]);
+         harmVoicesCh2[i].connect(adsrHarmCh2[i]);
+      }*/
+   }
+}
+
+function fir1_update_param(){
+   for (let i = 0; i < nVoices; i++) {
+     /* filterCh1[i].type = fir1_type.value;
+      filterCh1[i].frequency.value = fir1_cut.value;
+      filterHarmCh1[i].type = fir1_type.value;
+      filterHarmCh1[i].frequency.value = fir1_cut.value;*/
+   }
+}
+
+function fir2_update_param(){
+   for (let i = 0; i < nVoices; i++) {
+     /*filterCh2[i].type = fir2_type.value;
+     filterCh2[i].frequency.value = fir2_cut.value;
+     filterHarmCh2[i].type = fir2_type.value;
+     filterHarmCh2[i].frequency.value = fir2_cut.value;*/
+  }
+}
+
+meter.connect(myWebAudioNode)
+oscilloscope.connect(myWebAudioNode)
+spectrogram.connect(myWebAudioNode)

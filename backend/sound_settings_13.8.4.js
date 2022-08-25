@@ -1,9 +1,27 @@
-export default class sound_settings {
+/***********************************************/
+/***** sound_settings class implementation *****/
+/***********************************************/
+
+class sound_settings {
     //array of MonoSynths
     #oscillators = [];
 
     //array of Effects
     #effects = [];
+
+    addOscillatorShort(type, detune, volume, envelope, filter) 
+    {
+        let synthOptions = 
+        {
+            type: type,
+            detune: detune, //0-1200 semitone cents, a Cent is 1/100th of a semitone
+            volume: volume,
+            envelope: envelope,
+            filter: filter
+        };
+
+        this.#oscillators.push(synthOptions);
+    }
 
     addOscillator(type, attack, decay, sustain, release, detune, f_type, f_freq, f_gain, volume) 
     {
@@ -66,12 +84,20 @@ export default class sound_settings {
     }
   }
 
-  let synth;
-  export function playSound(pitch, duration, soundSettings)
+  //let synth;
+  function playSound(pitch, duration, soundSettings)
   {
-    synth = createSynth(soundSettings);
+    let synth = createSynth(soundSettings);
     synth = addEffects(synth, soundSettings);
 
+    if (synth instanceof Tone.DuoSynth)
+    {
+        synth.volume.value = mixVolume.value;
+    }
+    else
+    {
+        synth.volume.value += mixVolume.value;
+    }
     synth.toMaster().triggerAttackRelease(pitch, duration);
     return synth;
   }
@@ -81,41 +107,40 @@ export default class sound_settings {
     const oscCount = soundSettings.getOscillatorCount();
     if (oscCount == 1)
     {
-        const synthSettings = soundSettings.getOscillatorAtIndex(0);
-
-        const synth = new Tone.MonoSynth(synthSettings);
-        const detune = synthSettings.detune;
+        const settings = soundSettings.getOscillatorAtIndex(0);
+        const synth = new Tone.MonoSynth();
+        synth.oscillator.type = settings.type;
         synth.set
         ({
-            detune: detune
+            detune: settings.detune,
+            volume: settings.volume,
         });
 
+        setEnvelope(synth, settings.envelope);
+        //synth.filter.frequency = 20000;
         return synth;
     }
     else if (oscCount == 2)
     {
-        const synthSettings1 = soundSettings.getOscillatorAtIndex(0);
-        const synthSettings2 = soundSettings.getOscillatorAtIndex(1);
+        const settings1 = soundSettings.getOscillatorAtIndex(0);
+        const settings2 = soundSettings.getOscillatorAtIndex(1);
 
         const duoSynth = new Tone.DuoSynth();
-        duoSynth.voice0.oscillator.envelope = synthSettings1.envelope;
-        duoSynth.voice0.oscillator.type = synthSettings1.oscillator.type;
-        duoSynth.voice0.oscillator.volume = synthSettings1.volume;
+        setEnvelope(duoSynth.voice0, settings1.envelope);
 
-        let detune = synthSettings1.detune;
+        duoSynth.voice0.oscillator.type = settings1.type;
+        duoSynth.voice0.filter = settings1.filter;
         duoSynth.voice0.set({
-            detune: detune
+            detune: settings1.detune,
+            volume: settings1.volume
         });
-        //duoSynth.voice0.oscillator.filter = synthSettings1.filter;
+        setEnvelope(duoSynth.voice1, settings2.envelope);
 
-        duoSynth.voice1.oscillator.envelope = synthSettings2.envelope;
-        duoSynth.voice1.oscillator.type = synthSettings2.oscillator.type;
-        duoSynth.voice1.oscillator.volume = synthSettings2.volume;
-        //duoSynth.voice1.oscillator.filter = synthSettings2.filter;
-
-        detune = synthSettings2.detune;
+        duoSynth.voice1.oscillator.type = settings2.type;
+        duoSynth.voice1.filter = settings2.filter;
         duoSynth.voice1.set({
-            detune: detune
+            detune: settings2.detune,
+            volume: settings2.volume
         });
 
         duoSynth.harmonicity.value = 1;
@@ -124,6 +149,14 @@ export default class sound_settings {
         return duoSynth;
     }
   }
+
+function setEnvelope(synth, envelope)
+{
+    synth.envelope.attack = envelope.attack;
+    synth.envelope.decay = envelope.decay;
+    synth.envelope.sustain = envelope.sustain;
+    synth.envelope.release = envelope.release;
+}
 
 function addEffects(synth, soundSettings)
   {
