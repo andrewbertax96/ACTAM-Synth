@@ -1,17 +1,19 @@
 body {
-  color:#fcb61d ;
+  color:#353535 ;
   font-family: Arial;
   font-weight: bold;
-  background-image: url("img/background_wood.jpg");
+  background-image: url("img/background.jpg");
+  background-size: 100%;
 }
 #synth {
   width: 1200px;
   height: 685px;
   background: #212121;
   border-radius: 10px;
-  border-style: solid;
+  border-style: transparent;
   border-color: #56818a;
-  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  background-image: linear-gradient(to bottom , #dbdbdbe4 , #f8f4f4);
+  opacity: 0.95;
   border-width: 4px;
   padding: 10px;
   position: absolute;
@@ -22,7 +24,7 @@ body {
 }
 #keyboard, #Oscilloscope, #Spectrogram{
   border-radius: 5px;
-  border-style: solid;
+  border-style: transparent;
   border-color: #56818a;
   border-width: 2px;
 }
@@ -31,9 +33,9 @@ body {
   height: 290px;
   background: #212121;
   border-radius: 15px;
-  border-style: solid;
+  border-style: transparent;
   border-color: #56818a;
-  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  background-image: linear-gradient(to bottom , #9a9a9a , #f8f4f4);
   border-width: 2px;
   padding: 20px;
 }
@@ -42,10 +44,13 @@ body {
   height: 208px;
   background: #212121;
   border-radius: 15px;
-  border-style: solid;
+  border-style: transparent;
   border-color: #56818a;
-  background-image: linear-gradient(to bottom , #212121 , #353e45);
+  background-image: linear-gradient(to top , #c0c0c0 , #f8f4f4);
   border-width: 2px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  margin-top: 3px;
   padding: 10px;
 }
 

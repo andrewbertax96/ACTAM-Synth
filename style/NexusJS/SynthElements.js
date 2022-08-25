@@ -1,5 +1,5 @@
-Nexus.colors.accent = "#fcb61d"
-Nexus.colors.fill = "#555f68"
+Nexus.colors.accent = "#353535"
+Nexus.colors.fill = "#F7F6EF"
 
 //Synth elements
 let osc1_shape = new Nexus.Select('#osc1-shape',{

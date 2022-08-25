@@ -1,5 +1,5 @@
-Nexus.colors.accent = "#fcb61d"
-Nexus.colors.fill = "#212121"
+Nexus.colors.accent = "#353535"
+Nexus.colors.fill = "#F7F6EF"
 //Pedal Box elements
 let chorus_onOff = new Nexus.Toggle('#chorus_onOff',{
    'size': [89,15],
