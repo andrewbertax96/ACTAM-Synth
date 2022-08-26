@@ -43,6 +43,10 @@ let fir1_gain = new Nexus.Dial('#fir1-gain',{
    'step': 0,
    'value': 0 //TODO: filterCh1[0].frequency.value
 });
+let env1_onOff = new Nexus.Toggle('#env1-onOff',{
+   'size': [22,15],
+   'state': false
+});
 let attack1 = new Nexus.Dial('#osc1-att',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -187,6 +191,11 @@ let fir2_gain = new Nexus.Dial('#fir2-gain',{
    'step': 0,
    'value': 0 //TODO: filterCh2[0].frequency.value
 });
+let env2_onOff = new Nexus.Toggle('#env2-onOff',{
+   'size': [22,15],
+   'state': false
+});
+
 let attack2 = new Nexus.Dial('#osc2-att',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
