@@ -57,6 +57,17 @@ class sound_settings {
         }
     }
 
+    removeEffect( effect )
+    {
+        if(this.#effects.includes(effect)) 
+        {
+            console.log("removing effect: " + effect);
+
+            let index = this.#effects.indexOf(effect)
+            this.#effects.splice(index, 1);
+        }
+    }
+
     getOscillatorAtIndex(index)
     {
         if (this.#oscillators.length > index)
@@ -88,6 +99,11 @@ class sound_settings {
   function playSound(pitch, duration, soundSettings)
   {
     let synth = createSynth(soundSettings);
+    if (synth == null)
+    {
+        return synth;
+    }
+
     synth = addEffects(synth, soundSettings);
 
     if (synth instanceof Tone.DuoSynth)

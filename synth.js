@@ -24,8 +24,6 @@ navigator.requestMIDIAccess().then((midiAccess) =>
  function midiNoteOn(key)
  {
    let pitch = pitchFromMidiNote(key);
-   console.log("pitch = " + pitch);
-   
    onClickedPlaySound(pitch, "8n");
  }
 
@@ -62,7 +60,7 @@ function piano_func( msg )
    }
 }
 
-// Below is keyboard emulation for C4-C5 s-l keys
+// Keyboard emulation for C4-C5 s-l keys
 let emulatedKeys = {
    s: 60,
    e: 61,
@@ -93,12 +91,12 @@ let emulatedKeys = {
 
 let soundSettings;
 
-let tremolo = new Tone.Tremolo(13, 0.75).toMaster().start();
+let tremolo = new Tone.Tremolo(12, 0.75).toMaster().start();
 let vibrato = new Tone.Vibrato(5, 0.5).toMaster();
 let chorus = new Tone.Chorus(4, 10, 0.5).toMaster();
 let phaser = new Tone.Phaser(10, 3, 350).toMaster();
 let reverb = new Tone.JCReverb(0.7).toMaster();
-let pingpong  =  new Tone.PingPongDelay(0.2, 0.4).toMaster();
+let pingpong  =  new Tone.PingPongDelay(0.2, 0.3).toMaster();
 
 function updateSoundSettings()
 {
@@ -123,76 +121,77 @@ function updateSoundSettings()
          updateEnvelope2();
          soundSettings.addOscillatorShort(type, detune, volume, envelope2);
     }
-    /*
-    if ( document.getElementById("checkTremolo").checked == true )
-    {
-        soundSettings.addEffect(tremolo);
-    }
 
-    if ( document.getElementById("checkVibrato").checked == true )
-    {
-        soundSettings.addEffect(vibrato);
-    }
-
-    if ( document.getElementById("checkChorus").checked == true )
-    {
-        soundSettings.addEffect(chorus);
-    }
-
-    if ( document.getElementById("checkPhaser").checked == true )
-    {
-        soundSettings.addEffect(phaser);
-    }
-
-    if ( document.getElementById("checkReverb").checked == true )
-    {
-        soundSettings.addEffect(reverb);
-    }
-
-    if ( document.getElementById("checkPingPong").checked == true )
-    {
-        soundSettings.addEffect(pingpong);
-    }*/
+    updateEffects( );
 }
 
-/*
-document.getElementById("checkOscillator1").addEventListener("change", onOscillatorClicked);
-document.getElementById("checkOscillator2").addEventListener("change", onOscillatorClicked);
-
-function onOscillatorClicked( )
+function updateEffects( )
 {
-    updateSoundSettings();
+  if (soundSettings == undefined)
+  {
+      return;
+  }
+
+  /* add or remove Tremolo */
+  if ( tremolo_onOff.state == true )
+  {
+    soundSettings.addEffect(tremolo);
+  }
+  else
+  {
+    soundSettings.removeEffect(tremolo);
+  }
+
+  /* add or remove Vibrato */
+  if ( vibrato_onOff.state == true )
+  {
+    soundSettings.addEffect(vibrato);
+  }
+  else
+  {
+    soundSettings.removeEffect(vibrato);
+  }
+
+  /* add or remove Chorus */
+  if ( chorus_onOff.state == true )
+  {
+    soundSettings.addEffect(chorus);
+  }
+  else
+  {
+    soundSettings.removeEffect(chorus);
+  }
+
+  /* add or remove Phaser */
+  if ( phaser_onOff.state == true )
+  {
+    soundSettings.addEffect(phaser);
+  }
+  else
+  {
+    soundSettings.removeEffect(phaser);
+  }
+
+  /* add or remove Reverb */
+  if ( reverb_onOff.state == true )
+  {
+    soundSettings.addEffect(reverb);
+  }
+  else
+  {
+    soundSettings.removeEffect(reverb);
+  }
+
+  /* add or remove PingPong delay */
+  if ( delay_onOff.state == true )
+  {
+    soundSettings.addEffect(pingpong);
+  }
+  else
+  {
+    soundSettings.removeEffect(pingpong);
+  }
 }
-
-document.getElementById("waveforms1").addEventListener("change", onWaveformClicked);
-document.getElementById("waveforms2").addEventListener("change", onWaveformClicked);
-
-function onWaveformClicked( )
-{
-    updateSoundSettings();
-}
-
-document.getElementById("attack1").addEventListener("change", onEnvelopeChanged);
-document.getElementById("decay1").addEventListener("change", onEnvelopeChanged);
-document.getElementById("sustain1").addEventListener("change", onEnvelopeChanged);
-document.getElementById("release1").addEventListener("change", onEnvelopeChanged);
-document.getElementById("attack2").addEventListener("change", onEnvelopeChanged);
-document.getElementById("decay2").addEventListener("change", onEnvelopeChanged);
-document.getElementById("sustain2").addEventListener("change", onEnvelopeChanged);
-document.getElementById("release2").addEventListener("change", onEnvelopeChanged);
-
-function onEnvelopeChanged()
-{
-    updateSoundSettings();
-}
-
-document.getElementById("detune1").addEventListener("change", onDetuneChanged);
-document.getElementById("detune2").addEventListener("change", onDetuneChanged);
-
-function onDetuneChanged()
-{
-    updateSoundSettings();
-}*/
 
 /*************************************/
 /********* MIDI Keyboard *************/
@@ -210,14 +209,6 @@ and obtaining access to those devices.*/
    }
 })*/
 
- /*
- function playSound(pitch, duration)
- {
-   let synth = new Tone.MonoSynth();
-   synth.toMaster().triggerAttackRelease(pitch, duration);
-   return synth;
- }*/
-
 /*audioCtx = new AudioContext();
 
 
@@ -234,41 +225,3 @@ let adsrCh1 = new Array(nVoices);
 let adsrCh2 = new Array(nVoices);
 let filterCh1 = new Array(nVoices);
 let filterCh2 = new Array(nVoices);
-
-
-/*volume1 = audioCtx.createGain();
-volume1.gain.value = 0.125;
-volume2 = audioCtx.createGain();
-volume2.gain.value = 0.125;
-
-
-for (let i = 0; i < nVoices; i++) {
-   voicesCh1[i] = audioCtx.createOscillator();
-   voicesCh2[i] = audioCtx.createOscillator();
-
-   voicesCh1[i].start();
-   voicesCh2[i].start();
-
-   adsrCh1[i] = audioCtx.createGain();
-   adsrCh2[i] = audioCtx.createGain();
-   adsrCh1[i].gain.value = 0;
-   adsrCh2[i].gain.value = 0;
-
-   voicesCh1[i].connect(adsrCh1[i]);
-   voicesCh2[i].connect(adsrCh2[i]);
-
-   adsrCh1[i].connect(volume1);
-   adsrCh2[i].connect(volume2);
-
-   filterCh1[i] = audioCtx.createBiquadFilter();
-   filterCh2[i] = audioCtx.createBiquadFilter();
-
-   filterCh1[i].frequency.value = 5000;
-   filterCh1[i].type = 'lowpass';
-
-   filterCh2[i].frequency.value = 5000;
-   filterCh2[i].type = 'lowpass';
-}
-
-volume1.connect(audioCtx.destination);
-volume2.connect(audioCtx.destination);*/
