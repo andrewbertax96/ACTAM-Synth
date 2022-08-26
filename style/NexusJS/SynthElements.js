@@ -317,10 +317,10 @@ let piano = new Nexus.Piano('#keyboard',{
    'lowNote': 36,
    'highNote': 108
 });
-let oscilloscope = new Nexus.Oscilloscope('#Oscilloscope',{
+let oscilloscope = new Nexus.Oscilloscope('#oscilloscope',{
   'size': [180,180]
 })
-let spectrogram = new Nexus.Spectrogram('#Spectrogram',{
+let spectrogram = new Nexus.Spectrogram('#spectrogram',{
   'size': [180,180]
 })
 

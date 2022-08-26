@@ -22,8 +22,17 @@ body {
   transform: translate(-50%, -50%);
   box-shadow: 0 25px 35px 0 rgba(0, 0, 0, 1), 0 20px 40px 0 rgba(0, 0, 0, 0.19);
 }
-#keyboard, #Oscilloscope, #Spectrogram{
-  border-radius: 5px;
+
+#oscilloscope, #spectrogram{
+  background: #212121;
+  border-radius: 10px;
+  opacity: 0.95;
+  border-style: transparent;
+  border-color: #56818a;
+  background-image: linear-gradient(to bottom , #dbdbdbe4 , #f8f4f4);
+}
+#keyboard {
+  border-radius: 30px;
   border-style: transparent;
   border-color: #56818a;
   border-width: 2px;
@@ -55,9 +64,9 @@ body {
 }
 .componentMix{
   /*width: 5px;*/
-  height: 180px;
+  height: 177px;
   background: #212121;
-  border-radius: 15px;
+  border-radius: 5px;
   border-style: transparent;
   border-color: #56818a;
   background-image: linear-gradient(to top , #c0c0c0 , #f8f4f4);
@@ -65,7 +74,7 @@ body {
   margin-left: 3px;
   margin-bottom: 3px;
   margin-top: 3px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .inline {
