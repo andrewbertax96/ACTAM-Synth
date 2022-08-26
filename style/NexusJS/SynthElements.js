@@ -311,18 +311,22 @@ let mixVolume = new Nexus.Dial('#mix',{
 let meter = new Nexus.Meter('#meter', {
   size: [30,90]
 })
-let piano = new Nexus.Piano('#keyboard',{
-   'size': [700,180],
-   'mode': 'button',  // 'button', 'toggle', or 'impulse'
-   'lowNote': 36,
-   'highNote': 108
-});
 let oscilloscope = new Nexus.Oscilloscope('#oscilloscope',{
   'size': [175,180]
 })
 let spectrogram = new Nexus.Spectrogram('#spectrogram',{
   'size': [175,180]
 })
+
+Nexus.colors.accent = "darkorange"
+Nexus.colors.fill = "#F7F6EF"
+let piano = new Nexus.Piano('#keyboard',{
+   'size': [700,180],
+   'mode': 'button',  // 'button', 'toggle', or 'impulse'
+   'lowNote': 36,
+   'highNote': 108
+});
+
 
 /*****************************/
 /***** Events processing *****/
