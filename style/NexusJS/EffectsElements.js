@@ -99,28 +99,28 @@ let phaserFreq = new Nexus.Dial('#phaserFreq',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 20,
-   'max': 5000,
+   'min': 1,
+   'max': 20,
    'step': 0,
-   //'value': filterCh1[0].frequency.value
+   'value': 10
 });
 let phaserOctave = new Nexus.Dial('#phaserOctave',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 20,
-   'max': 5000,
-   'step': 0,
-   //'value': filterCh1[0].frequency.value
+   'min': 0,
+   'max': 6,
+   'step': 1,
+   'value': 3
 });
 let phaserBaseFreq = new Nexus.Dial('#phaserBaseFreq',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
-   'max': 5000,
-   'step': 0,
-   //'value': filterCh1[0].frequency.value
+   'max': 500,
+   'step': 1,
+   'value': 350
 });
 
 let reverbDecay = new Nexus.Dial('#reverbDecay',{
@@ -181,25 +181,15 @@ let tremoloDepth_number = new Nexus.Number('#tremoloDepth_number',{
 });
 
 let phaserFreq_number = new Nexus.Number('#phaserFreq_number',{
-  'size': [45,20],
-  'value': 0,
-  'min': 20,
-  'max': 5000,
-  'step': 1
+  'size': [45,20]
 });
+
 let phaserOctave_number = new Nexus.Number('#phaserOctave_number',{
-  'size': [45,20],
-  'value': 0,
-  'min': 20,
-  'max': 5000,
-  'step': 1
+  'size': [45,20]
 });
+
 let phaserBaseFreq_number = new Nexus.Number('#phaserBaseFreq_number',{
-  'size': [45,20],
-  'value': 0,
-  'min': 20,
-  'max': 5000,
-  'step': 1
+  'size': [45,20]
 });
 
 let reverbDecay_number = new Nexus.Number('#reverbDecay_number',{
@@ -345,5 +335,38 @@ function onPingPongFeedbackChanged()
     newValue = pingpongFeedback.value;
     pingpong.set({
         feedback: newValue
+    });
+}
+
+/*****************************************/
+/***** Phaser effect implementation *****/
+/*****************************************/
+
+phaser_onOff.on("change", updateEffects);
+phaserFreq.on("change", onPhaserFreqChanged)
+phaserOctave.on("change", onPhaserOctavesChanged);
+phaserBaseFreq.on("change", onPhaserBaseFreqChanged);
+
+function onPhaserBaseFreqChanged( )
+{
+    newValue = phaserBaseFreq.value;
+    phaser.set({
+        baseFrequency: newValue
+    });
+}
+
+function onPhaserFreqChanged()
+{
+    newValue = phaserFreq.value;
+    phaser.set({
+        frequency: newValue
+    });
+}
+
+function onPhaserOctavesChanged()
+{
+    newValue = phaserOctave.value;
+    phaser.set({
+        octaves: newValue
     });
 }
