@@ -1,3 +1,5 @@
+Nexus.context = Tone.context.rawContext;
+
 navigator.requestMIDIAccess().then((midiAccess) => 
 {
    Array.from(midiAccess.inputs).forEach

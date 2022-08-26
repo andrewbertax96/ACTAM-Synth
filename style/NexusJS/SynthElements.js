@@ -422,6 +422,8 @@ function fir2_update_param(){
   }
 }
 
+let myWebAudioNode = Tone.Master;
+
 meter.connect(myWebAudioNode)
 oscilloscope.connect(myWebAudioNode)
 spectrogram.connect(myWebAudioNode)
