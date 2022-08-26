@@ -10,8 +10,8 @@ let osc1_onOff = new Nexus.Toggle('#osc1-onOff',{
    'size': [40,20],
    'state': false
 });
-let detune1 = new Nexus.Number('#osc1-det',{
-   'size': [45,30],
+let detune1 = new Nexus.Dial('#osc1-det',{
+   'size': [35,35],
    'min': -200,
    'max': 200,
    'step': 1,
@@ -86,7 +86,14 @@ let volume1 = new Nexus.Dial('#osc1-vol',{
    'min': -25,
    'max': 5,
    'step': 0,
-   'value': -5 
+   'value': -5
+});
+let detune1_number = new Nexus.Number('#detune1_number',{
+  'size': [40,18],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
 });
 let fir1_cut_number = new Nexus.Number('#fir1_cut_number',{
   'size': [30,15],
@@ -130,6 +137,8 @@ let release1_number = new Nexus.Number('#osc1_rel_number',{
   'max': 5000,
   'step': 1
 });
+
+detune1_number.link(detune1);
 fir1_cut_number.link(fir1_cut);
 fir1_gain_number.link(fir1_gain);
 attack1_number.link(attack1);
@@ -145,8 +154,8 @@ let osc2_onOff = new Nexus.Toggle('#osc2-onOff',{
    'size': [40,20],
    'state': false
 });
-let detune2 = new Nexus.Number('#osc2-det',{
-   'size': [45,30],
+let detune2 = new Nexus.Dial('#osc2-det',{
+   'size': [35,35],
    'min': -200,
    'max': 200,
    'step': 1,
@@ -221,7 +230,14 @@ let volume2 = new Nexus.Dial('#osc2-vol',{
    'min': -25,
    'max': 5,
    'step': 0,
-   'value': -5 
+   'value': -5
+});
+let detune2_number = new Nexus.Number('#detune2_number',{
+  'size': [40,18],
+  'value': 0,
+  'min': 20,
+  'max': 5000,
+  'step': 1
 });
 let fir2_cut_number = new Nexus.Number('#fir2_cut_number',{
   'size': [30,15],
@@ -266,6 +282,7 @@ let release2_number = new Nexus.Number('#osc2_rel_number',{
   'step': 1
 });
 
+detune2_number.link(detune2);
 fir2_cut_number.link(fir2_cut);
 fir2_gain_number.link(fir2_gain);
 attack2_number.link(attack2);
