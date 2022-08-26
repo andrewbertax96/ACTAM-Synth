@@ -175,39 +175,37 @@
              <div class = "tab5 inline" id="fir2_gain_number"></div>
            </div>
          </div>
-         <div class="col-1-5-2 component">
-           <div>
-             <div class="inline" style="font-size:10px">1</div>
-             <div class = "inline" id="env1-onOff"></div>
-             <div class="inline">&nbsp;ENVELOPE&nbsp;</div>
-             <div class = "inline" id="env2-onOff"></div>
-             <div class="inline" style="font-size:10px">2</div><hr>
-           </div>
-           <div class="tab11">A
+         <div class="col-1-4-3 component">
+           <div style="text-align: center">ENVELOPE</div><hr>
+           <div class="tab">&emsp;&emsp;A
              <div class="tab12 inline">D</div>
              <div class="tab12 inline">S</div>
              <div class="tab12 inline">R</div>
            </div>
-           <div>
+           <div>Off
+             <div class = "inline" id="env1-onOff"></div>
+             <div class="inline">On</div>
              <div class="inline" id="osc1-att"></div>
              <div class="tab6 inline" id="osc1-dec"></div>
              <div class="tab6 inline" id="osc1-sus"></div>
              <div class="tab6 inline" id="osc1-rel"></div>
            </div>
            <div>
-             <div class = "inline" id="osc1_att_number"></div>
+             <div class = "tab14 inline" id="osc1_att_number"></div>
              <div class = "tab11 inline" id="osc1_dec_number"></div>
              <div class = "tab11 inline" id="osc1_sus_number"></div>
              <div class = "tab11 inline" id="osc1_rel_number"></div>
            </div><br>
-           <div>
+           <div>Off
+             <div class = "inline" id="env2-onOff"></div>
+             <div class="inline">On</div>
              <div class="inline" id="osc2-att"></div>
              <div class="tab6 inline" id="osc2-dec"></div>
              <div class="tab6 inline" id="osc2-sus"></div>
              <div class="tab6 inline" id="osc2-rel"></div>
            </div>
            <div>
-             <div class = "inline" id="osc2_att_number"></div>
+             <div class = "tab14 inline" id="osc2_att_number"></div>
              <div class = "tab11 inline" id="osc2_dec_number"></div>
              <div class = "tab11 inline" id="osc2_sus_number"></div>
              <div class = "tab11 inline" id="osc2_rel_number"></div>
@@ -218,17 +216,17 @@
            <div class="tab13" id="osc1-vol"></div><br><br>
            <p class="tab13" id="osc2-vol"></p>
          </div>
-         <div class="col-1-12 component">
-           <div style="text-align: center">MIX</div><hr>
-           <div class="tab13" id="meter"></div>
-           <p class="tab13" id="mix"></p>
-         </div>
        </div>
-       <!-- Keyboars, Oscilloscope, Spectrogram -->
+       <!-- Keyboars, Oscilloscope, Spectrogram, Meter -->
        <div class="grid">
            <div class="inline" id="Oscilloscope"></div>
-           <div class="inline" id="keyboard"></div>
            <div class="inline" id="Spectrogram"></div>
+           <div class="inline" id="keyboard"></div>
+           <div class="inline col-1-12-mix componentMix">
+             <div style="text-align: center">MIX</div><hr>
+             <div class="tab6" id="meter"></div>
+             <div class="tab6" id="mix"></div>
+           </div>
        </div>
      </div>
    </body>

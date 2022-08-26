@@ -73,11 +73,11 @@
 .col-1-4-2{
 	width: 23.3%;
 }
+.col-1-4-3{
+	width: 26%;
+}
 .col-1-5 {
 	width: 20%;
-}
-.col-1-5-2{
-	width: 17.75%;
 }
 
 .col-1-6, .col-2-12 {
@@ -107,6 +107,9 @@
 
 .col-1-12 {
 	width: 8%
+}
+.col-1-12-mix {
+	width: 5.5%
 }
 
 /* Layout Columns */

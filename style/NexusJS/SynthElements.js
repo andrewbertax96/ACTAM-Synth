@@ -44,7 +44,7 @@ let fir1_gain = new Nexus.Dial('#fir1-gain',{
    'value': 0 //TODO: filterCh1[0].frequency.value
 });
 let env1_onOff = new Nexus.Toggle('#env1-onOff',{
-   'size': [22,15],
+   'size': [39,20],
    'state': false
 });
 let attack1 = new Nexus.Dial('#osc1-att',{
@@ -192,7 +192,7 @@ let fir2_gain = new Nexus.Dial('#fir2-gain',{
    'value': 0 //TODO: filterCh2[0].frequency.value
 });
 let env2_onOff = new Nexus.Toggle('#env2-onOff',{
-   'size': [22,15],
+  'size': [39,20],
    'state': false
 });
 
@@ -318,10 +318,10 @@ let piano = new Nexus.Piano('#keyboard',{
    'highNote': 108
 });
 let oscilloscope = new Nexus.Oscilloscope('#Oscilloscope',{
-  'size': [210,180]
+  'size': [180,180]
 })
 let spectrogram = new Nexus.Spectrogram('#Spectrogram',{
-  'size': [209,180]
+  'size': [180,180]
 })
 
 /*****************************/

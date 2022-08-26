@@ -53,6 +53,20 @@ body {
   margin-top: 3px;
   padding: 10px;
 }
+.componentMix{
+  /*width: 5px;*/
+  height: 180px;
+  background: #212121;
+  border-radius: 15px;
+  border-style: transparent;
+  border-color: #56818a;
+  background-image: linear-gradient(to top , #c0c0c0 , #f8f4f4);
+  border-width: 2px;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  padding: 10px;
+}
 
 .inline {
    display: inline-block;
@@ -108,4 +122,8 @@ body {
 .tab13{
   display: inline-block;
   margin-left: 15px;
+}
+.tab14{
+  display: inline-block;
+  margin-left: 100px;
 }
