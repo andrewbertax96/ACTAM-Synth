@@ -325,8 +325,26 @@ osc1_onOff.on('change',function(changeColors) {
       fir1_gain.colorize("accent",accentColor)
       fir1_gain.colorize("fill",fillColor)
     }
+    if(env1_onOff.state == true){
+      env1_onOff.colorize("accent",accentColor)
+      env1_onOff.colorize("fill",fillColor)
+      attack1.colorize("accent",accentColor)
+      attack1.colorize("fill",fillColor)
+      decay1.colorize("accent",accentColor)
+      decay1.colorize("fill",fillColor)
+      sustain1.colorize("accent",accentColor)
+      sustain1.colorize("fill",fillColor)
+      release1.colorize("accent",accentColor)
+      release1.colorize("fill",fillColor)
+    }
   }
   else{
+    osc1_onOff.colorize("accent","#353535")
+    osc1_onOff.colorize("fill","#F7F6EF")
+    detune1.colorize("accent","#353535")
+    detune1.colorize("fill","#F7F6EF")
+    volume1.colorize("accent","#353535")
+    volume1.colorize("fill","#F7F6EF")
     if(fir1_toggle.state == true){
       fir1_toggle.colorize("accent",accentColorBase)
       fir1_toggle.colorize("fill",fillColorBase)
@@ -335,12 +353,18 @@ osc1_onOff.on('change',function(changeColors) {
       fir1_gain.colorize("accent",accentColorBase)
       fir1_gain.colorize("fill",fillColorBase)
     }
-    osc1_onOff.colorize("accent","#353535")
-    osc1_onOff.colorize("fill","#F7F6EF")
-    detune1.colorize("accent","#353535")
-    detune1.colorize("fill","#F7F6EF")
-    volume1.colorize("accent","#353535")
-    volume1.colorize("fill","#F7F6EF")
+    if(env1_onOff.state == true){
+      env1_onOff.colorize("accent",accentColorBase)
+      env1_onOff.colorize("fill",fillColorBase)
+      attack1.colorize("accent",accentColorBase)
+      attack1.colorize("fill",fillColorBase)
+      decay1.colorize("accent",accentColorBase)
+      decay1.colorize("fill",fillColorBase)
+      sustain1.colorize("accent",accentColorBase)
+      sustain1.colorize("fill",fillColorBase)
+      release1.colorize("accent",accentColorBase)
+      release1.colorize("fill",fillColorBase)
+    }
   }
 })
 osc1_onOff.on('change', updateSoundSettings);
@@ -362,8 +386,26 @@ osc2_onOff.on('change',function(changeColors) {
       fir2_gain.colorize("accent",accentColor)
       fir2_gain.colorize("fill",fillColor)
     }
+    if(env2_onOff.state == true){
+      env2_onOff.colorize("accent",accentColor)
+      env2_onOff.colorize("fill",fillColor)
+      attack2.colorize("accent",accentColor)
+      attack2.colorize("fill",fillColor)
+      decay2.colorize("accent",accentColor)
+      decay2.colorize("fill",fillColor)
+      sustain2.colorize("accent",accentColor)
+      sustain2.colorize("fill",fillColor)
+      release2.colorize("accent",accentColor)
+      release2.colorize("fill",fillColor)
+    }
   }
   else{
+    osc2_onOff.colorize("accent",accentColorBase)
+    osc2_onOff.colorize("fill",fillColorBase)
+    detune2.colorize("accent",accentColorBase)
+    detune2.colorize("fill",fillColorBase)
+    volume2.colorize("accent",accentColorBase)
+    volume2.colorize("fill",fillColorBase)
     if(fir2_toggle.state == true){
       fir2_toggle.colorize("accent",accentColorBase)
       fir2_toggle.colorize("fill",fillColorBase)
@@ -372,12 +414,18 @@ osc2_onOff.on('change',function(changeColors) {
       fir2_gain.colorize("accent",accentColorBase)
       fir2_gain.colorize("fill",fillColorBase)
     }
-    osc2_onOff.colorize("accent",accentColorBase)
-    osc2_onOff.colorize("fill",fillColorBase)
-    detune2.colorize("accent",accentColorBase)
-    detune2.colorize("fill",fillColorBase)
-    volume2.colorize("accent",accentColorBase)
-    volume2.colorize("fill",fillColorBase)
+    if(env2_onOff.state == true){
+      env2_onOff.colorize("accent",accentColorBase)
+      env2_onOff.colorize("fill",fillColorBase)
+      attack2.colorize("accent",accentColorBase)
+      attack2.colorize("fill",fillColorBase)
+      decay2.colorize("accent",accentColorBase)
+      decay2.colorize("fill",fillColorBase)
+      sustain2.colorize("accent",accentColorBase)
+      sustain2.colorize("fill",fillColorBase)
+      release2.colorize("accent",accentColorBase)
+      release2.colorize("fill",fillColorBase)
+    }
   }
 })
 osc2_onOff.on('change', updateSoundSettings);
@@ -459,7 +507,19 @@ env1_onOff.on('change',function(changeColors) {
     release1.colorize("accent",accentColor)
     release1.colorize("fill",fillColor)
   }
-  else{
+  if(env1_onOff.state == true && osc1_onOff.state == false){
+    env1_onOff.colorize("accent",accentColorBase)
+    env1_onOff.colorize("fill",fillColorBase)
+    attack1.colorize("accent",accentColorBase)
+    attack1.colorize("fill",fillColorBase)
+    decay1.colorize("accent",accentColorBase)
+    decay1.colorize("fill",fillColorBase)
+    sustain1.colorize("accent",accentColorBase)
+    sustain1.colorize("fill",fillColorBase)
+    release1.colorize("accent",accentColorBase)
+    release1.colorize("fill",fillColorBase)
+  }
+  if(env1_onOff.state == false && osc1_onOff.state == true){
     env1_onOff.colorize("accent",accentColorBase)
     env1_onOff.colorize("fill",fillColorBase)
     attack1.colorize("accent",accentColorBase)
@@ -490,7 +550,19 @@ env2_onOff.on('change',function(changeColors) {
     release2.colorize("accent",accentColor)
     release2.colorize("fill",fillColor)
   }
-  else{
+  if(env2_onOff.state == true && osc2_onOff.state == false){
+    env2_onOff.colorize("accent",accentColorBase)
+    env2_onOff.colorize("fill",fillColorBase)
+    attack2.colorize("accent",accentColorBase)
+    attack2.colorize("fill",fillColorBase)
+    decay2.colorize("accent",accentColorBase)
+    decay2.colorize("fill",fillColorBase)
+    sustain2.colorize("accent",accentColorBase)
+    sustain2.colorize("fill",fillColorBase)
+    release2.colorize("accent",accentColorBase)
+    release2.colorize("fill",fillColorBase)
+  }
+  if(env2_onOff.state == false && osc2_onOff.state == true){
     env2_onOff.colorize("accent",accentColorBase)
     env2_onOff.colorize("fill",fillColorBase)
     attack2.colorize("accent",accentColorBase)
