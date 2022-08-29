@@ -198,7 +198,52 @@ reverbDecay_number.link(reverbDecay);
 pingpongDelay_number.link(pingpongDelay);
 pingpongFeedback_number.link(pingpongFeedback);
 
-//Change COlORS on state
+/*****************************************/
+/***** Tremolo effect implementation *****/
+/*****************************************/
+
+tremolo_onOff.on("change", updateEffects);
+tremoloFreq.on("change", onTremoloFreqChanged)
+tremoloDepth.on("change", onTremoloDepthChanged);
+
+function onTremoloDepthChanged( ){
+    newValue = tremoloDepth.value / 100;
+    tremolo.set({
+        depth: newValue
+    });
+}
+function onTremoloFreqChanged(){
+    newValue = tremoloFreq.value;
+    tremolo.set({
+        frequency: newValue
+    });
+}
+
+/*****************************************/
+/***** Vibrato effect implementation *****/
+/*****************************************/
+
+vibrato_onOff.on("change", updateEffects);
+vibratoFreq.on("change", onVibratoFreqChanged)
+vibratoDepth.on("change", onVibratoDepthChanged);
+
+function onVibratoDepthChanged( ){
+    newValue = vibratoDepth.value / 100;
+    vibrato.set({
+        depth: newValue
+    });
+}
+function onVibratoFreqChanged(){
+    newValue = vibratoFreq.value;
+    vibrato.set({
+        frequency: newValue
+    });
+}
+
+/*****************************************/
+/***** Chorus effect implementation ******/
+/*****************************************/
+
 chorus_onOff.on('change',function(changeColors) {
   if(chorus_onOff.state == true){
 
@@ -223,55 +268,6 @@ chorus_onOff.on('change',function(changeColors) {
     chorusLFO.colorize("fill","#F7F6EF")
   }
 })
-
-/*****************************************/
-/***** Tremolo effect implementation *****/
-/*****************************************/
-
-tremolo_onOff.on("change", updateEffects);
-tremoloFreq.on("change", onTremoloFreqChanged)
-tremoloDepth.on("change", onTremoloDepthChanged);
-
-function onTremoloDepthChanged( ){
-    newValue = tremoloDepth.value / 100;
-    tremolo.set({
-        depth: newValue
-    });
-}
-
-function onTremoloFreqChanged(){
-    newValue = tremoloFreq.value;
-    tremolo.set({
-        frequency: newValue
-    });
-}
-
-/*****************************************/
-/***** Vibrato effect implementation *****/
-/*****************************************/
-
-vibrato_onOff.on("change", updateEffects);
-vibratoFreq.on("change", onVibratoFreqChanged)
-vibratoDepth.on("change", onVibratoDepthChanged);
-
-function onVibratoDepthChanged( ){
-    newValue = vibratoDepth.value / 100;
-    vibrato.set({
-        depth: newValue
-    });
-}
-
-function onVibratoFreqChanged(){
-    newValue = vibratoFreq.value;
-    vibrato.set({
-        frequency: newValue
-    });
-}
-
-/*****************************************/
-/***** Chorus effect implementation ******/
-/*****************************************/
-
 chorus_onOff.on("change", updateEffects);
 chorusLFO.on("change", onChorusFreqChanged)
 chorusDepth.on("change", onChorusDepthChanged);
@@ -283,14 +279,12 @@ function onChorusDepthChanged( ){
         depth: newValue
     });
 }
-
 function onChorusFreqChanged(){
     newValue = chorusLFO.value;
     chorus.set({
         frequency: newValue
     });
 }
-
 function onChorusDelayChanged( ){
     newValue = chorusDelayTime.value;
     chorus.set({
@@ -326,7 +320,6 @@ function onPingPongDelayChanged( ){
         delayTime: newValue
     });
 }
-
 function onPingPongFeedbackChanged(){
     newValue = pingpongFeedback.value;
     pingpong.set({
@@ -349,14 +342,12 @@ function onPhaserBaseFreqChanged( ){
         baseFrequency: newValue
     });
 }
-
 function onPhaserFreqChanged(){
     newValue = phaserFreq.value;
     phaser.set({
         frequency: newValue
     });
 }
-
 function onPhaserOctavesChanged(){
     newValue = phaserOctave.value;
     phaser.set({

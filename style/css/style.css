@@ -2,7 +2,7 @@ body {
   color:#353535 ;
   font-family: Arial;
   font-weight: bold;
-  background-image: url("img/background.jpg");
+  background-image: url("../img/background.jpg");
   background-size: 100%;
 }
 #synth {
