@@ -2,7 +2,7 @@ Nexus.colors.accent = "#353535"
 Nexus.colors.fill = "#F7F6EF"
 
 let mixVolume = new Nexus.Dial('#mix',{
-   'size': [30,30],
+   'size': [28,28],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': -25,
@@ -14,14 +14,14 @@ let meter = new Nexus.Meter('#meter', {
   size: [30,90]
 })
 let oscilloscope = new Nexus.Oscilloscope('#oscilloscope',{
-  'size': [175,180]
+  'size': [175,170]
 })
 let spectrogram = new Nexus.Spectrogram('#spectrogram',{
-  'size': [175,180]
+  'size': [175,170]
 })
 
 let piano = new Nexus.Piano('#keyboard',{
-   'size': [700,180],
+   'size': [700,170],
    'mode': 'button',  // 'button', 'toggle', or 'impulse'
    'lowNote': 36,
    'highNote': 108

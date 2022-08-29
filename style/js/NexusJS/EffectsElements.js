@@ -248,24 +248,15 @@ chorus_onOff.on('change',function(changeColors) {
   if(chorus_onOff.state == true){
 
     const el = document.getElementById("chorus");
-    //el.className = "col-2-12 pedalON";
-    el.className = "col-2-12 pedalON2";
-
-    /*const el = document.getElementById("chorusTitle");
-    el.style.color="darkorange";*/
-
+    el.className = "col-2-12 pedalON";
     /*chorusLFO.colorize("accent","#ff0")
     chorusLFO.colorize("fill","#333")*/
   }
   else{
     const el = document.getElementById("chorus");
     el.className = "col-2-12 pedal";
-
-    /*const el = document.getElementById("chorusTitle");
-    el.style.color="#353535"*/;
-
-    chorusLFO.colorize("accent","#353535")
-    chorusLFO.colorize("fill","#F7F6EF")
+    /*chorusLFO.colorize("accent","#353535")
+    chorusLFO.colorize("fill","#F7F6EF")*/
   }
 })
 chorus_onOff.on("change", updateEffects);
