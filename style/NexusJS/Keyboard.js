@@ -1,3 +1,5 @@
+Nexus.colors.accent = "#353535"
+Nexus.colors.fill = "#F7F6EF"
 
 let mixVolume = new Nexus.Dial('#mix',{
    'size': [30,30],
@@ -18,14 +20,15 @@ let spectrogram = new Nexus.Spectrogram('#spectrogram',{
   'size': [175,180]
 })
 
-Nexus.colors.accent = "darkorange"
-Nexus.colors.fill = "#F7F6EF"
 let piano = new Nexus.Piano('#keyboard',{
    'size': [700,180],
    'mode': 'button',  // 'button', 'toggle', or 'impulse'
    'lowNote': 36,
    'highNote': 108
 });
+piano.colorize("accent","darkorange")
+piano.colorize("fill","#F7F6EF")
+
 let myWebAudioNode = Tone.Master;
 
 meter.connect(myWebAudioNode)
