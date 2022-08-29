@@ -198,6 +198,7 @@ reverbDecay_number.link(reverbDecay);
 pingpongDelay_number.link(pingpongDelay);
 pingpongFeedback_number.link(pingpongFeedback);
 
+//Change COlORS on state
 chorus_onOff.on('change',function(changeColors) {
   if(chorus_onOff.state == true){
 
@@ -231,16 +232,14 @@ tremolo_onOff.on("change", updateEffects);
 tremoloFreq.on("change", onTremoloFreqChanged)
 tremoloDepth.on("change", onTremoloDepthChanged);
 
-function onTremoloDepthChanged( )
-{
+function onTremoloDepthChanged( ){
     newValue = tremoloDepth.value / 100;
     tremolo.set({
         depth: newValue
     });
 }
 
-function onTremoloFreqChanged()
-{
+function onTremoloFreqChanged(){
     newValue = tremoloFreq.value;
     tremolo.set({
         frequency: newValue
@@ -255,16 +254,14 @@ vibrato_onOff.on("change", updateEffects);
 vibratoFreq.on("change", onVibratoFreqChanged)
 vibratoDepth.on("change", onVibratoDepthChanged);
 
-function onVibratoDepthChanged( )
-{
+function onVibratoDepthChanged( ){
     newValue = vibratoDepth.value / 100;
     vibrato.set({
         depth: newValue
     });
 }
 
-function onVibratoFreqChanged()
-{
+function onVibratoFreqChanged(){
     newValue = vibratoFreq.value;
     vibrato.set({
         frequency: newValue
@@ -280,24 +277,21 @@ chorusLFO.on("change", onChorusFreqChanged)
 chorusDepth.on("change", onChorusDepthChanged);
 chorusDelayTime.on("change", onChorusDelayChanged);
 
-function onChorusDepthChanged( )
-{
+function onChorusDepthChanged( ){
     newValue = chorusDepth.value / 100;
     chorus.set({
         depth: newValue
     });
 }
 
-function onChorusFreqChanged()
-{
+function onChorusFreqChanged(){
     newValue = chorusLFO.value;
     chorus.set({
         frequency: newValue
     });
 }
 
-function onChorusDelayChanged( )
-{
+function onChorusDelayChanged( ){
     newValue = chorusDelayTime.value;
     chorus.set({
         delayTime: newValue
@@ -311,8 +305,7 @@ function onChorusDelayChanged( )
 reverb_onOff.on("change", updateEffects);
 reverbDecay.on("change", onReverbChanged)
 
-function onReverbChanged( )
-{
+function onReverbChanged( ){
     newValue = reverbDecay.value;
     reverb.set({
         roomSize: newValue
@@ -327,16 +320,14 @@ delay_onOff.on("change", updateEffects);
 pingpongDelay.on("change", onPingPongDelayChanged)
 pingpongFeedback.on("change", onPingPongFeedbackChanged);
 
-function onPingPongDelayChanged( )
-{
+function onPingPongDelayChanged( ){
     newValue = pingpongDelay.value;
     pingpong.set({
         delayTime: newValue
     });
 }
 
-function onPingPongFeedbackChanged()
-{
+function onPingPongFeedbackChanged(){
     newValue = pingpongFeedback.value;
     pingpong.set({
         feedback: newValue
@@ -352,24 +343,21 @@ phaserFreq.on("change", onPhaserFreqChanged)
 phaserOctave.on("change", onPhaserOctavesChanged);
 phaserBaseFreq.on("change", onPhaserBaseFreqChanged);
 
-function onPhaserBaseFreqChanged( )
-{
+function onPhaserBaseFreqChanged( ){
     newValue = phaserBaseFreq.value;
     phaser.set({
         baseFrequency: newValue
     });
 }
 
-function onPhaserFreqChanged()
-{
+function onPhaserFreqChanged(){
     newValue = phaserFreq.value;
     phaser.set({
         frequency: newValue
     });
 }
 
-function onPhaserOctavesChanged()
-{
+function onPhaserOctavesChanged(){
     newValue = phaserOctave.value;
     phaser.set({
         octaves: newValue
