@@ -299,34 +299,6 @@ decay2_number.link(decay2);
 sustain2_number.link(sustain2);
 release2_number.link(release2);
 
-let mixVolume = new Nexus.Dial('#mix',{
-   'size': [30,30],
-   'interaction': 'vertical', // "radial", "vertical", or "horizontal"
-   'mode': 'relative', // "absolute" or "relative"
-   'min': -25,
-   'max': 5,
-   'step': 0,
-   'value': 0
-});
-let meter = new Nexus.Meter('#meter', {
-  size: [30,90]
-})
-let oscilloscope = new Nexus.Oscilloscope('#oscilloscope',{
-  'size': [175,180]
-})
-let spectrogram = new Nexus.Spectrogram('#spectrogram',{
-  'size': [175,180]
-})
-
-Nexus.colors.accent = "darkorange"
-Nexus.colors.fill = "#F7F6EF"
-let piano = new Nexus.Piano('#keyboard',{
-   'size': [700,180],
-   'mode': 'button',  // 'button', 'toggle', or 'impulse'
-   'lowNote': 36,
-   'highNote': 108
-});
-
 
 /*****************************/
 /***** Events processing *****/
@@ -358,7 +330,6 @@ attack2.on('change', updateEnvelope2);
 decay2.on('change', updateEnvelope2);
 sustain2.on('change', updateEnvelope2);
 release2.on('change', updateEnvelope2);
-piano.on('change', piano_func);
 
 let envelope1 =  new Tone.Envelope({
    attack: 0.5,
@@ -451,9 +422,3 @@ function fir2_update_param(){
      filterHarmCh2[i].frequency.value = fir2_cut.value;*/
   }
 }
-
-let myWebAudioNode = Tone.Master;
-
-meter.connect(myWebAudioNode)
-oscilloscope.connect(myWebAudioNode)
-spectrogram.connect(myWebAudioNode)

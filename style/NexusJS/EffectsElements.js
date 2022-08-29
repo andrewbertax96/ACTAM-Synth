@@ -35,7 +35,6 @@ let chorusLFO = new Nexus.Dial('#chorusLFO',{
    'step': 1,
    'value': 4
 });
-
 let chorusDelayTime = new Nexus.Dial('#chorusDelayTime',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -45,7 +44,6 @@ let chorusDelayTime = new Nexus.Dial('#chorusDelayTime',{
    'step': 0,
    'value': 10
 });
-
 let chorusDepth = new Nexus.Dial('#chorusDepth',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -55,7 +53,6 @@ let chorusDepth = new Nexus.Dial('#chorusDepth',{
    'step': 1,
    'value': 50
 });
-
 let vibratoFreq = new Nexus.Dial('#vibratoFreq',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -74,7 +71,6 @@ let vibratoDepth = new Nexus.Dial('#vibratoDepth',{
    'step': 1,
    'value': 50
 });
-
 let tremoloFreq = new Nexus.Dial('#tremoloFreq',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -84,7 +80,6 @@ let tremoloFreq = new Nexus.Dial('#tremoloFreq',{
    'step': 1,
    'value': 12
 });
-
 let tremoloDepth = new Nexus.Dial('#tremoloDepth',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -94,7 +89,6 @@ let tremoloDepth = new Nexus.Dial('#tremoloDepth',{
    'step': 1,
    'value': 75
 });
-
 let phaserFreq = new Nexus.Dial('#phaserFreq',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -122,7 +116,6 @@ let phaserBaseFreq = new Nexus.Dial('#phaserBaseFreq',{
    'step': 1,
    'value': 350
 });
-
 let reverbDecay = new Nexus.Dial('#reverbDecay',{
    'size': [100,100],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -132,7 +125,6 @@ let reverbDecay = new Nexus.Dial('#reverbDecay',{
    'step': 0,
    'value': 0.7
 });
-
 let pingpongDelay = new Nexus.Dial('#pingpongDelay',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -142,7 +134,6 @@ let pingpongDelay = new Nexus.Dial('#pingpongDelay',{
    'step': 0,
    'value': 0.2
 });
-
 let pingpongFeedback = new Nexus.Dial('#pingpongFeedback',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -156,50 +147,39 @@ let pingpongFeedback = new Nexus.Dial('#pingpongFeedback',{
 let chorusLFO_number = new Nexus.Number('#chorusLFO_number',{
   'size': [45,20]
 });
-
 let chorusDelayTime_number = new Nexus.Number('#chorusDelayTime_number',{
   'size': [45,20]
 });
-
 let chorusDepth_number = new Nexus.Number('#chorusDepth_number',{
   'size': [45,20]
 });
-
 let vibratoFreq_number = new Nexus.Number('#vibratoFreq_number',{
   'size': [45,20]
 });
 let vibratoDepth_number = new Nexus.Number('#vibratoDepth_number',{
   'size': [45,20]
 });
-
 let tremoloFreq_number = new Nexus.Number('#tremoloFreq_number',{
   'size': [45,20]
 });
-
 let tremoloDepth_number = new Nexus.Number('#tremoloDepth_number',{
   'size': [45,20]
 });
-
 let phaserFreq_number = new Nexus.Number('#phaserFreq_number',{
   'size': [45,20]
 });
-
 let phaserOctave_number = new Nexus.Number('#phaserOctave_number',{
   'size': [45,20]
 });
-
 let phaserBaseFreq_number = new Nexus.Number('#phaserBaseFreq_number',{
   'size': [45,20]
 });
-
 let reverbDecay_number = new Nexus.Number('#reverbDecay_number',{
   'size': [45,20]
 });
-
 let pingpongDelay_number = new Nexus.Number('#pingpongDelay_number',{
   'size': [45,20]
 });
-
 let pingpongFeedback_number = new Nexus.Number('#pingpongFeedback_number',{
   'size': [45,20]
 });
@@ -217,6 +197,31 @@ phaserBaseFreq_number.link(phaserBaseFreq);
 reverbDecay_number.link(reverbDecay);
 pingpongDelay_number.link(pingpongDelay);
 pingpongFeedback_number.link(pingpongFeedback);
+
+chorus_onOff.on('change',function(changeColors) {
+  if(chorus_onOff.state == true){
+
+    const el = document.getElementById("chorus");
+    //el.className = "col-2-12 pedalON";
+    el.className = "col-2-12 pedalON2";
+
+    /*const el = document.getElementById("chorusTitle");
+    el.style.color="darkorange";*/
+
+    /*chorusLFO.colorize("accent","#ff0")
+    chorusLFO.colorize("fill","#333")*/
+  }
+  else{
+    const el = document.getElementById("chorus");
+    el.className = "col-2-12 pedal";
+
+    /*const el = document.getElementById("chorusTitle");
+    el.style.color="#353535"*/;
+
+    chorusLFO.colorize("accent","#353535")
+    chorusLFO.colorize("fill","#F7F6EF")
+  }
+})
 
 /*****************************************/
 /***** Tremolo effect implementation *****/

@@ -41,9 +41,31 @@ body {
   background: #212121;
   border-radius: 15px;
   border-style: transparent;
-  border-color: #56818a;
+  border-color: #c0c0c0;
   background-image: linear-gradient(to bottom , #9a9a9a , #f8f4f4);
   border-width: 2px;
+  padding: 20px;
+}
+.pedalON{
+  /*width: 5px;*/
+  height: 290px;
+  background: #212121;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: darkorange;
+  background-image: linear-gradient(to bottom , #9a9a9a , #f8f4f4);
+  border-width: px;
+  padding: 20px;
+}
+.pedalON2{
+  /*width: 5px;*/
+  height: 290px;
+  background: #yellow;
+  border-radius: 15px;
+  border-style: transparent;
+  border-color: darkorange;
+  background-image: linear-gradient(to bottom , red , orange);
+  border-width: px;
   padding: 20px;
 }
 .component{
