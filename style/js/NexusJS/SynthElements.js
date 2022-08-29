@@ -195,7 +195,6 @@ let env2_onOff = new Nexus.Toggle('#env2-onOff',{
   'size': [39,20],
    'state': false
 });
-
 let attack2 = new Nexus.Dial('#osc2-att',{
   'size': [35,35],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -304,9 +303,83 @@ release2_number.link(release2);
 /***** Events processing *****/
 /*****************************/
 
+let accentColorBase = "#353535";
+let fillColorBase = "#F7F6EF";
+let accentColor = "darkorange";
+let fillColor = "#blue";
+
 osc1_shape.on('change', updateSoundSettings);
+osc1_onOff.on('change',function(changeColors) {
+  if(osc1_onOff.state == true){
+    osc1_onOff.colorize("accent","darkorange")
+    osc1_onOff.colorize("fill","#blue")
+    detune1.colorize("accent","darkorange")
+    detune1.colorize("fill","#blue")
+    volume1.colorize("accent","darkorange")
+    volume1.colorize("fill","#blue")
+    if(fir1_toggle.state == true){
+      fir1_toggle.colorize("accent",accentColor)
+      fir1_toggle.colorize("fill",fillColor)
+      fir1_cut.colorize("accent",accentColor)
+      fir1_cut.colorize("fill",fillColor)
+      fir1_gain.colorize("accent",accentColor)
+      fir1_gain.colorize("fill",fillColor)
+    }
+  }
+  else{
+    if(fir1_toggle.state == true){
+      fir1_toggle.colorize("accent",accentColorBase)
+      fir1_toggle.colorize("fill",fillColorBase)
+      fir1_cut.colorize("accent",accentColorBase)
+      fir1_cut.colorize("fill",fillColorBase)
+      fir1_gain.colorize("accent",accentColorBase)
+      fir1_gain.colorize("fill",fillColorBase)
+    }
+    osc1_onOff.colorize("accent","#353535")
+    osc1_onOff.colorize("fill","#F7F6EF")
+    detune1.colorize("accent","#353535")
+    detune1.colorize("fill","#F7F6EF")
+    volume1.colorize("accent","#353535")
+    volume1.colorize("fill","#F7F6EF")
+  }
+})
 osc1_onOff.on('change', updateSoundSettings);
+
 osc2_shape.on('change', updateSoundSettings);
+osc2_onOff.on('change',function(changeColors) {
+  if(osc2_onOff.state == true){
+    osc2_onOff.colorize("accent",accentColor)
+    osc2_onOff.colorize("fill",fillColor)
+    detune2.colorize("accent",accentColor)
+    detune2.colorize("fill",fillColor)
+    volume2.colorize("accent",accentColor)
+    volume2.colorize("fill",fillColor)
+    if(fir2_toggle.state == true){
+      fir2_toggle.colorize("accent",accentColor)
+      fir2_toggle.colorize("fill",fillColor)
+      fir2_cut.colorize("accent",accentColor)
+      fir2_cut.colorize("fill",fillColor)
+      fir2_gain.colorize("accent",accentColor)
+      fir2_gain.colorize("fill",fillColor)
+    }
+  }
+  else{
+    if(fir2_toggle.state == true){
+      fir2_toggle.colorize("accent",accentColorBase)
+      fir2_toggle.colorize("fill",fillColorBase)
+      fir2_cut.colorize("accent",accentColorBase)
+      fir2_cut.colorize("fill",fillColorBase)
+      fir2_gain.colorize("accent",accentColorBase)
+      fir2_gain.colorize("fill",fillColorBase)
+    }
+    osc2_onOff.colorize("accent",accentColorBase)
+    osc2_onOff.colorize("fill",fillColorBase)
+    detune2.colorize("accent",accentColorBase)
+    detune2.colorize("fill",fillColorBase)
+    volume2.colorize("accent",accentColorBase)
+    volume2.colorize("fill",fillColorBase)
+  }
+})
 osc2_onOff.on('change', updateSoundSettings);
 
 volume1.on('change', updateSoundSettings);
@@ -314,18 +387,122 @@ detune1.on('change', updateSoundSettings);
 detune2.on('change', updateSoundSettings);
 volume2.on('change', updateSoundSettings);
 
+fir1_toggle.on('change',function(changeColors) {
+  if(fir1_toggle.state == true && osc1_onOff.state == true){
+    fir1_toggle.colorize("accent",accentColor)
+    fir1_toggle.colorize("fill",fillColor)
+    fir1_cut.colorize("accent",accentColor)
+    fir1_cut.colorize("fill",fillColor)
+    fir1_gain.colorize("accent",accentColor)
+    fir1_gain.colorize("fill",fillColor)
+  }
+  if(fir1_toggle.state == true && osc1_onOff.state == false) {
+    fir1_toggle.colorize("accent",accentColorBase)
+    fir1_toggle.colorize("fill",fillColorBase)
+    fir1_cut.colorize("accent",accentColorBase)
+    fir1_cut.colorize("fill",fillColorBase)
+    fir1_gain.colorize("accent",accentColorBase)
+    fir1_gain.colorize("fill",fillColorBase)
+  }
+  if(fir1_toggle.state == false && osc1_onOff.state == true) {
+    fir1_toggle.colorize("accent",accentColorBase)
+    fir1_toggle.colorize("fill",fillColorBase)
+    fir1_cut.colorize("accent",accentColorBase)
+    fir1_cut.colorize("fill",fillColorBase)
+    fir1_gain.colorize("accent",accentColorBase)
+    fir1_gain.colorize("fill",fillColorBase)
+  }
+})
 fir1_toggle.on('change', fir1_OnOff_func);
+fir2_toggle.on('change',function(changeColors) {
+  if(fir2_toggle.state == true && osc2_onOff.state == true){
+    fir2_toggle.colorize("accent",accentColor)
+    fir2_toggle.colorize("fill",fillColor)
+    fir2_cut.colorize("accent",accentColor)
+    fir2_cut.colorize("fill",fillColor)
+    fir2_gain.colorize("accent",accentColor)
+    fir2_gain.colorize("fill",fillColor)
+  }
+  if(fir2_toggle.state == true && osc2_onOff.state == false){
+    fir2_toggle.colorize("accent",accentColorBase)
+    fir2_toggle.colorize("fill",fillColorBase)
+    fir2_cut.colorize("accent",accentColorBase)
+    fir2_cut.colorize("fill",fillColorBase)
+    fir2_gain.colorize("accent",accentColorBase)
+    fir2_gain.colorize("fill",fillColorBase)
+  }
+  if(fir2_toggle.state == false && osc2_onOff.state == true){
+    fir2_toggle.colorize("accent",accentColorBase)
+    fir2_toggle.colorize("fill",fillColorBase)
+    fir2_cut.colorize("accent",accentColorBase)
+    fir2_cut.colorize("fill",fillColorBase)
+    fir2_gain.colorize("accent",accentColorBase)
+    fir2_gain.colorize("fill",fillColorBase)
+  }
+})
 fir2_toggle.on('change', fir2_OnOff_func);
 fir1_cut.on('change', fir1_update_param );
 fir1_type.on('change', fir1_update_param);
 fir2_cut.on('change', fir2_update_param);
 fir2_type.on('change', fir2_update_param);
 
+env1_onOff.on('change',function(changeColors) {
+  if(env1_onOff.state == true && osc1_onOff.state == true){
+    env1_onOff.colorize("accent",accentColor)
+    env1_onOff.colorize("fill",fillColor)
+    attack1.colorize("accent",accentColor)
+    attack1.colorize("fill",fillColor)
+    decay1.colorize("accent",accentColor)
+    decay1.colorize("fill",fillColor)
+    sustain1.colorize("accent",accentColor)
+    sustain1.colorize("fill",fillColor)
+    release1.colorize("accent",accentColor)
+    release1.colorize("fill",fillColor)
+  }
+  else{
+    env1_onOff.colorize("accent",accentColorBase)
+    env1_onOff.colorize("fill",fillColorBase)
+    attack1.colorize("accent",accentColorBase)
+    attack1.colorize("fill",fillColorBase)
+    decay1.colorize("accent",accentColorBase)
+    decay1.colorize("fill",fillColorBase)
+    sustain1.colorize("accent",accentColorBase)
+    sustain1.colorize("fill",fillColorBase)
+    release1.colorize("accent",accentColorBase)
+    release1.colorize("fill",fillColorBase)
+  }
+})
 attack1.on('change', updateEnvelope1);
 decay1.on('change', updateEnvelope1);
 sustain1.on('change', updateEnvelope1);
 release1.on('change', updateEnvelope1);
 
+env2_onOff.on('change',function(changeColors) {
+  if(env2_onOff.state == true && osc2_onOff.state == true){
+    env2_onOff.colorize("accent",accentColor)
+    env2_onOff.colorize("fill",fillColor)
+    attack2.colorize("accent",accentColor)
+    attack2.colorize("fill",fillColor)
+    decay2.colorize("accent",accentColor)
+    decay2.colorize("fill",fillColor)
+    sustain2.colorize("accent",accentColor)
+    sustain2.colorize("fill",fillColor)
+    release2.colorize("accent",accentColor)
+    release2.colorize("fill",fillColor)
+  }
+  else{
+    env2_onOff.colorize("accent",accentColorBase)
+    env2_onOff.colorize("fill",fillColorBase)
+    attack2.colorize("accent",accentColorBase)
+    attack2.colorize("fill",fillColorBase)
+    decay2.colorize("accent",accentColorBase)
+    decay2.colorize("fill",fillColorBase)
+    sustain2.colorize("accent",accentColorBase)
+    sustain2.colorize("fill",fillColorBase)
+    release2.colorize("accent",accentColorBase)
+    release2.colorize("fill",fillColorBase)
+  }
+})
 attack2.on('change', updateEnvelope2);
 decay2.on('change', updateEnvelope2);
 sustain2.on('change', updateEnvelope2);
@@ -337,7 +514,6 @@ let envelope1 =  new Tone.Envelope({
    sustain: 0.5,
    release: 0.5,
 });
-
 let envelope2 =  new Tone.Envelope({
    attack: 0.5,
    decay: 0.5,
@@ -345,22 +521,18 @@ let envelope2 =  new Tone.Envelope({
    release: 0.5,
 });
 
-function updateEnvelope1( )
-{
+function updateEnvelope1( ){
    envelope1.attack = attack1.value;
    envelope1.decay = decay1.value;
    envelope1.sustain = sustain1.value;
    envelope1.release = release1.value;
 }
-
-function updateEnvelope2( )
-{
+function updateEnvelope2( ){
    envelope2.attack = attack2.value;
    envelope2.decay = decay2.value;
    envelope2.sustain = sustain2.value;
    envelope2.release = release2.value;
 }
-
 function fir1_OnOff_func(){
    if(fir1_toggle.state){
       /*for (let i = 0; i < nVoices; i++) {
@@ -382,7 +554,6 @@ function fir1_OnOff_func(){
       }*/
    }
 }
-
 function fir2_OnOff_func(){
    if(fir2_toggle.state){
       /*for (let i = 0; i < nVoices; i++) {
@@ -404,7 +575,6 @@ function fir2_OnOff_func(){
       }*/
    }
 }
-
 function fir1_update_param(){
    for (let i = 0; i < nVoices; i++) {
      /* filterCh1[i].type = fir1_type.value;
@@ -413,7 +583,6 @@ function fir1_update_param(){
       filterHarmCh1[i].frequency.value = fir1_cut.value;*/
    }
 }
-
 function fir2_update_param(){
    for (let i = 0; i < nVoices; i++) {
      /*filterCh2[i].type = fir2_type.value;

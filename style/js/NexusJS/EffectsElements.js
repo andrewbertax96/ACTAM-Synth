@@ -1,5 +1,6 @@
 Nexus.colors.accent = "#353535"
 Nexus.colors.fill = "#F7F6EF"
+
 //Pedal Box elements
 let chorus_onOff = new Nexus.Toggle('#chorus_onOff',{
    'size': [89,15],
@@ -201,7 +202,17 @@ pingpongFeedback_number.link(pingpongFeedback);
 /*****************************************/
 /***** Tremolo effect implementation *****/
 /*****************************************/
+tremolo_onOff.on('change',function(changeColors) {
+  if(tremolo_onOff.state == true){
 
+    const el = document.getElementById("tremolo");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("tremolo");
+    el.className = "col-2-12 pedal";
+  }
+})
 tremolo_onOff.on("change", updateEffects);
 tremoloFreq.on("change", onTremoloFreqChanged)
 tremoloDepth.on("change", onTremoloDepthChanged);
@@ -222,7 +233,17 @@ function onTremoloFreqChanged(){
 /*****************************************/
 /***** Vibrato effect implementation *****/
 /*****************************************/
+vibrato_onOff.on('change',function(changeColors) {
+  if(vibrato_onOff.state == true){
 
+    const el = document.getElementById("vibrato");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("vibrato");
+    el.className = "col-2-12 pedal";
+  }
+})
 vibrato_onOff.on("change", updateEffects);
 vibratoFreq.on("change", onVibratoFreqChanged)
 vibratoDepth.on("change", onVibratoDepthChanged);
@@ -249,14 +270,10 @@ chorus_onOff.on('change',function(changeColors) {
 
     const el = document.getElementById("chorus");
     el.className = "col-2-12 pedalON";
-    /*chorusLFO.colorize("accent","#ff0")
-    chorusLFO.colorize("fill","#333")*/
   }
   else{
     const el = document.getElementById("chorus");
     el.className = "col-2-12 pedal";
-    /*chorusLFO.colorize("accent","#353535")
-    chorusLFO.colorize("fill","#F7F6EF")*/
   }
 })
 chorus_onOff.on("change", updateEffects);
@@ -286,7 +303,17 @@ function onChorusDelayChanged( ){
 /*****************************************/
 /***** Reverb effect implementation *****/
 /*****************************************/
+reverb_onOff.on('change',function(changeColors) {
+  if(reverb_onOff.state == true){
 
+    const el = document.getElementById("reverb");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("reverb");
+    el.className = "col-2-12 pedal";
+  }
+})
 reverb_onOff.on("change", updateEffects);
 reverbDecay.on("change", onReverbChanged)
 
@@ -300,7 +327,17 @@ function onReverbChanged( ){
 /*****************************************/
 /***** PingPong effect implementation *****/
 /*****************************************/
+delay_onOff.on('change',function(changeColors) {
+  if(delay_onOff.state == true){
 
+    const el = document.getElementById("delay");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("delay");
+    el.className = "col-2-12 pedal";
+  }
+})
 delay_onOff.on("change", updateEffects);
 pingpongDelay.on("change", onPingPongDelayChanged)
 pingpongFeedback.on("change", onPingPongFeedbackChanged);
@@ -321,7 +358,17 @@ function onPingPongFeedbackChanged(){
 /*****************************************/
 /***** Phaser effect implementation *****/
 /*****************************************/
+phaser_onOff.on('change',function(changeColors) {
+  if(phaser_onOff.state == true){
 
+    const el = document.getElementById("phaser");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("phaser");
+    el.className = "col-2-12 pedal";
+  }
+})
 phaser_onOff.on("change", updateEffects);
 phaserFreq.on("change", onPhaserFreqChanged)
 phaserOctave.on("change", onPhaserOctavesChanged);
