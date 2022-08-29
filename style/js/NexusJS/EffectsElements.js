@@ -118,7 +118,7 @@ let phaserBaseFreq = new Nexus.Dial('#phaserBaseFreq',{
    'value': 350
 });
 let reverbDecay = new Nexus.Dial('#reverbDecay',{
-   'size': [100,100],
+   'size': [75,75],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0,
