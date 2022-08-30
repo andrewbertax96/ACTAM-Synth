@@ -1,6 +1,6 @@
 Nexus.context = Tone.context.rawContext;
 
-navigator.requestMIDIAccess().then((midiAccess) => 
+navigator.requestMIDIAccess().then((midiAccess) =>
 {
    Array.from(midiAccess.inputs).forEach
    (
@@ -8,15 +8,15 @@ navigator.requestMIDIAccess().then((midiAccess) =>
    )
 })
 
- function processMidiMessage( msg ) 
+ function processMidiMessage( msg )
  {
    const [command, key, velocity] = msg.data;
-   if (command === 145) 
+   if (command === 145)
    {
      console.log('KEY UP: ' + key);
      midiNoteOn(key);
-   } 
-   else if (command === 129) 
+   }
+   else if (command === 129)
    {
      console.log('KEY DOWN: ' + key);
      midiNoteOff(key);
@@ -41,7 +41,7 @@ navigator.requestMIDIAccess().then((midiAccess) =>
  }
 
  function onClickedPlaySound( pitch, duration )
-{   
+{
     if (soundSettings === undefined)
     {
         updateSoundSettings();
@@ -50,13 +50,13 @@ navigator.requestMIDIAccess().then((midiAccess) =>
     playSound(pitch, duration, soundSettings);
 }
 
-function piano_func( msg ) 
+function piano_func( msg )
 {
-   if (msg.state) 
+   if (msg.state)
    {
       midiNoteOn(msg.note);
-   } 
-   else 
+   }
+   else
    {
       midiNoteOff(msg.note);
    }
@@ -78,13 +78,13 @@ let emulatedKeys = {
    k: 71,
    l: 72
  }
- 
+
  document.addEventListener('keydown', function(e) {
    if (emulatedKeys.hasOwnProperty(e.key)) {
       midiNoteOn(emulatedKeys[e.key]);
    }
  });
- 
+
  document.addEventListener('keyup', function(e) {
    if (emulatedKeys.hasOwnProperty(e.key)) {
       midiNoteOff();
@@ -109,7 +109,7 @@ function updateSoundSettings()
         const type = osc1_shape.value;
         const detune = detune1.value;
         const volume = volume1.value;
-        
+
         updateEnvelope1();
 
         let filter = fir1_toggle.state == true ? filter1 : undefined;
@@ -206,7 +206,7 @@ function updateEffects( )
 /********* MIDI Keyboard *************/
 /*************************************/
 
-/* Note: MIDIAccess provides methods for listing MIDI input and output devices, 
+/* Note: MIDIAccess provides methods for listing MIDI input and output devices,
 and obtaining access to those devices.*/
 /*navigator.requestMIDIAccess().then(function(access)
 {

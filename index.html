@@ -5,7 +5,7 @@
       <link rel="stylesheet" href="style/css/style.css">
       <link rel="stylesheet" href="style/css/simplegrid.css">
       <script src="https://unpkg.com/tone@13.8.4/build/Tone.js"></script>
-      <script src="style/NexusJS/NexusUI.js"></script>
+      <script src="style/js/NexusJS/NexusUI.js"></script>
       <script src="synth.js"></script>
       <title>ACTAM-Synth</title>
    </head>
@@ -13,14 +13,14 @@
      <div id = "synth">
        <!-- Effects -->
        <div class="grid" >
-         <div class="col-2-12 pedal">
-           <div style="text-align: center">CHORUS</div>
+         <div class="col-2-12 pedal" id = "chorus">
+           <div style="text-align: center; text-decoration: underline;">CHORUS</div><br>
            <div>Off
              <div class = "inline" id="chorus_onOff"></div>
              <div class = "inline">On</div>
            </div><hr><br>
-           <div>&nbsp;LFO
-             <div class="inline" style="text-align: right">&emsp;Delay Time</div>
+           <div class="fontKnobs">&nbsp;LFO
+             <div class="inline fontKnobs" style="text-align: right">&emsp;&emsp;&emsp;&ensp;&nbsp;Delay Time</div>
            </div>
            <div>
              <div class="inline" id="chorusLFO"></div>
@@ -31,53 +31,53 @@
              <div class="tab2 inline" id="chorusDelayTime_number"></div>
            </div>
            <div><br>
-             <div>&emsp;&emsp;&ensp;Depth</div>
+             <div class="fontKnobs">&emsp;&emsp;&ensp;&emsp;&ensp;Depth</div>
              <div class="tab3" id="chorusDepth"></div>
              <div class="tab4" id="chorusDepth_number"></div>
            </div>
          </div>
-         <div class="col-2-12 pedal">
-           <div style="text-align: center">VIBRATO</div>
+         <div class="col-2-12 pedal" id = "vibrato">
+           <div style="text-align: center; text-decoration: underline;">VIBRATO</div><br>
            <div>Off
              <div class = "inline" id="vibrato_onOff"></div>
              <div class = "inline">On</div>
            </div><hr><br>
            <div>
-             <div>&emsp;&emsp;&emsp;&nbsp;Freq</div>
+             <div class="fontKnobs">&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Freq</div>
              <div class="tab3" id="vibratoFreq"></div>
              <div class="tab4"id="vibratoFreq_number"></div>
            </div>
            <div><br>
-             <div>&emsp;&emsp;&ensp;Depth</div>
+             <div class="fontKnobs">&emsp;&emsp;&ensp;&emsp;&ensp;Depth</div>
              <div class="tab3" id="vibratoDepth"></div>
              <div class="tab4" id="vibratoDepth_number"></div>
            </div>
          </div>
-         <div class="col-2-12 pedal">
-           <div style="text-align: center">TREMOLO</div>
+         <div class="col-2-12 pedal" id = "tremolo">
+           <div style="text-align: center; text-decoration: underline;">TREMOLO</div><br>
            <div>Off
              <div class = "inline" id="tremolo_onOff"></div>
              <div class = "inline">On</div>
            </div><hr><br>
            <div>
-             <div>&emsp;&emsp;&emsp;&nbsp;Freq</div>
+             <div class="fontKnobs">&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Freq</div>
              <div class="tab3" id="tremoloFreq"></div>
              <div class="tab4"id="tremoloFreq_number"></div>
            </div>
            <div><br>
-             <div>&emsp;&emsp;&ensp;Depth</div>
+             <div class="fontKnobs">&emsp;&emsp;&ensp;&emsp;&ensp;Depth</div>
              <div class="tab3" id="tremoloDepth"></div>
              <div class="tab4" id="tremoloDepth_number"></div>
            </div>
          </div>
-         <div class="col-2-12 pedal">
-           <div style="text-align: center">PHASER</div>
+         <div class="col-2-12 pedal" id = "phaser">
+           <div style="text-align: center; text-decoration: underline;">PHASER</div><br>
            <div>Off
              <div class = "inline" id="phaser_onOff"></div>
              <div class = "inline">On</div>
            </div><hr><br>
-           <div>&nbsp;Freq
-             <div class="inline" style="text-align: right">&emsp;&emsp;&emsp;Octave</div>
+           <div class="fontKnobs">&nbsp;Freq
+             <div class="inline fontKnobs" style="text-align: right">&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;Octave</div>
            </div>
            <div>
              <div class="inline" id="phaserFreq"></div>
@@ -88,36 +88,36 @@
              <div class="tab2 inline" id="phaserOctave_number"></div>
            </div>
            <div><br>
-             <div>&emsp;&emsp;Base Freq</div>
+             <div class="fontKnobs">&emsp;&emsp;&emsp;Base Freq</div>
              <div class="tab3" id="phaserBaseFreq"></div>
              <div class="tab4" id="phaserBaseFreq_number"></div>
            </div>
          </div>
-         <div class="col-2-12 pedal">
-           <div style="text-align: center">REVERB</div>
+         <div class="col-2-12 pedal" id = "reverb">
+           <div style="text-align: center; text-decoration: underline;">REVERB</div><br>
            <div>Off
              <div class = "inline" id="reverb_onOff"></div>
              <div class = "inline">On</div>
            </div><hr>
            <div>
-             <p>&emsp;&emsp;&emsp;&nbsp;Decay</p>
-             <p class="tab5" id="reverbDecay"></p>
+             <p class="fontKnobs">&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Decay</p>
+             <p class="tab15" id="reverbDecay"></p>
              <div class="tab3"id="reverbDecay_number"></div>
            </div>
          </div>
-         <div class="col-2-12 pedal">
-           <div style="text-align: center">PingPong DELAY</div>
+         <div class="col-2-12 pedal" id = "delay">
+           <div style="text-align: center; text-decoration: underline;">PingPong DELAY</div><br>
            <div>Off
              <div class = "inline" id="delay_onOff"></div>
              <div class = "inline">On</div>
            </div><hr><br>
            <div>
-             <div>&emsp;&emsp;&emsp;Delay</div>
+             <div class="fontKnobs">&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Delay</div>
              <div class="tab3" id="pingpongDelay"></div>
              <div class="tab4"id="pingpongDelay_number"></div>
            </div>
            <div><br>
-             <div>&emsp;&emsp;&ensp;Feedback</div>
+             <div class="fontKnobs">&emsp;&emsp;&emsp;&nbsp;&nbsp;Feedback</div>
              <div class="tab3" id="pingpongFeedback"></div>
              <div class="tab4" id="pingpongFeedback_number"></div>
            </div>
@@ -127,13 +127,13 @@
        <div class="grid" >
          <div class="col-1-4-2 component">
            <div style="text-align: center"> OSCILLATORS </div><hr>
-           <div class = "tab9">Type</div>
-           <div>Off
+           <div class = "tab9 fontKnobs">&emsp;Type</div>
+           <div id="oscillator1">Off
              <p class = "inline" id="osc1-onOff"></p>
              <p class = "inline">On</p>
              <p class = "tab12 inline" id="osc1-shape"></p>
            </div>
-           <div>Off
+           <div id="oscillator2">Off
              <p class = "inline" id="osc2-onOff"></p>
              <p class = "inline">On</p>
              <p class = "tab12 inline" id="osc2-shape"></p>
@@ -148,9 +148,9 @@
          </div>
          <div class="col-4-12 component">
            <div style="text-align: center"> FILTERS </div><hr>
-           <div class = "tab9">Type
-             <div class  = "tab10 inline">Cut</div>
-             <div class  = "tab5 inline">Gain</div>
+           <div class = "tab9 fontKnobs">&nbsp;Type
+             <div class  = "tab10 inline fontKnobs">&emsp;Cut</div>
+             <div class  = "tab5 inline fontKnobs">&ensp;Gain</div>
            </div>
            <div>Off
              <div class = "inline" id="fir1-toggle"></div>
@@ -177,10 +177,10 @@
          </div>
          <div class="col-1-4-3 component">
            <div style="text-align: center">ENVELOPE</div><hr>
-           <div class="tab">&emsp;&emsp;A
-             <div class="tab12 inline">D</div>
-             <div class="tab12 inline">S</div>
-             <div class="tab12 inline">R</div>
+           <div class="tab fontKnobs">&emsp;&emsp;&emsp;A
+             <div class="tab12 inline fontKnobs">D</div>
+             <div class="tab12 inline fontKnobs">&nbsp;S</div>
+             <div class="tab12 inline fontKnobs">&nbsp;R</div>
            </div>
            <div>Off
              <div class = "inline" id="env1-onOff"></div>
@@ -230,8 +230,9 @@
        </div>
      </div>
    </body>
-   <script src="style/NexusJS/EffectsElements.js"></script>
-   <script src="style/NexusJS/SynthElements.js"></script>
-   <script src="style/NexusJS/Keyboard.js"></script>
+
+   <script src="style/js/NexusJS/EffectsElements.js"></script>
+   <script src="style/js/NexusJS/SynthElements.js"></script>
+   <script src="style/js/NexusJS/Keyboard.js"></script>
    <script src="backend/sound_settings_13.8.4.js"></script>
 </html>

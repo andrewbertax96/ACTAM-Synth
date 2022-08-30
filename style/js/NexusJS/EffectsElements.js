@@ -1,5 +1,6 @@
 Nexus.colors.accent = "#353535"
 Nexus.colors.fill = "#F7F6EF"
+
 //Pedal Box elements
 let chorus_onOff = new Nexus.Toggle('#chorus_onOff',{
    'size': [89,15],
@@ -35,7 +36,6 @@ let chorusLFO = new Nexus.Dial('#chorusLFO',{
    'step': 1,
    'value': 4
 });
-
 let chorusDelayTime = new Nexus.Dial('#chorusDelayTime',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -45,7 +45,6 @@ let chorusDelayTime = new Nexus.Dial('#chorusDelayTime',{
    'step': 0,
    'value': 10
 });
-
 let chorusDepth = new Nexus.Dial('#chorusDepth',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -55,7 +54,6 @@ let chorusDepth = new Nexus.Dial('#chorusDepth',{
    'step': 1,
    'value': 50
 });
-
 let vibratoFreq = new Nexus.Dial('#vibratoFreq',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -74,7 +72,6 @@ let vibratoDepth = new Nexus.Dial('#vibratoDepth',{
    'step': 1,
    'value': 50
 });
-
 let tremoloFreq = new Nexus.Dial('#tremoloFreq',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -84,7 +81,6 @@ let tremoloFreq = new Nexus.Dial('#tremoloFreq',{
    'step': 1,
    'value': 12
 });
-
 let tremoloDepth = new Nexus.Dial('#tremoloDepth',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -94,7 +90,6 @@ let tremoloDepth = new Nexus.Dial('#tremoloDepth',{
    'step': 1,
    'value': 75
 });
-
 let phaserFreq = new Nexus.Dial('#phaserFreq',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -122,9 +117,8 @@ let phaserBaseFreq = new Nexus.Dial('#phaserBaseFreq',{
    'step': 1,
    'value': 350
 });
-
 let reverbDecay = new Nexus.Dial('#reverbDecay',{
-   'size': [100,100],
+   'size': [75,75],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 0,
@@ -132,7 +126,6 @@ let reverbDecay = new Nexus.Dial('#reverbDecay',{
    'step': 0,
    'value': 0.7
 });
-
 let pingpongDelay = new Nexus.Dial('#pingpongDelay',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -142,7 +135,6 @@ let pingpongDelay = new Nexus.Dial('#pingpongDelay',{
    'step': 0,
    'value': 0.2
 });
-
 let pingpongFeedback = new Nexus.Dial('#pingpongFeedback',{
   'size': [40,40],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
@@ -156,50 +148,39 @@ let pingpongFeedback = new Nexus.Dial('#pingpongFeedback',{
 let chorusLFO_number = new Nexus.Number('#chorusLFO_number',{
   'size': [45,20]
 });
-
 let chorusDelayTime_number = new Nexus.Number('#chorusDelayTime_number',{
   'size': [45,20]
 });
-
 let chorusDepth_number = new Nexus.Number('#chorusDepth_number',{
   'size': [45,20]
 });
-
 let vibratoFreq_number = new Nexus.Number('#vibratoFreq_number',{
   'size': [45,20]
 });
 let vibratoDepth_number = new Nexus.Number('#vibratoDepth_number',{
   'size': [45,20]
 });
-
 let tremoloFreq_number = new Nexus.Number('#tremoloFreq_number',{
   'size': [45,20]
 });
-
 let tremoloDepth_number = new Nexus.Number('#tremoloDepth_number',{
   'size': [45,20]
 });
-
 let phaserFreq_number = new Nexus.Number('#phaserFreq_number',{
   'size': [45,20]
 });
-
 let phaserOctave_number = new Nexus.Number('#phaserOctave_number',{
   'size': [45,20]
 });
-
 let phaserBaseFreq_number = new Nexus.Number('#phaserBaseFreq_number',{
   'size': [45,20]
 });
-
 let reverbDecay_number = new Nexus.Number('#reverbDecay_number',{
   'size': [45,20]
 });
-
 let pingpongDelay_number = new Nexus.Number('#pingpongDelay_number',{
   'size': [45,20]
 });
-
 let pingpongFeedback_number = new Nexus.Number('#pingpongFeedback_number',{
   'size': [45,20]
 });
@@ -221,21 +202,28 @@ pingpongFeedback_number.link(pingpongFeedback);
 /*****************************************/
 /***** Tremolo effect implementation *****/
 /*****************************************/
+tremolo_onOff.on('change',function(changeColors) {
+  if(tremolo_onOff.state == true){
 
+    const el = document.getElementById("tremolo");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("tremolo");
+    el.className = "col-2-12 pedal";
+  }
+})
 tremolo_onOff.on("change", updateEffects);
 tremoloFreq.on("change", onTremoloFreqChanged)
 tremoloDepth.on("change", onTremoloDepthChanged);
 
-function onTremoloDepthChanged( )
-{
+function onTremoloDepthChanged( ){
     newValue = tremoloDepth.value / 100;
     tremolo.set({
         depth: newValue
     });
 }
-
-function onTremoloFreqChanged()
-{
+function onTremoloFreqChanged(){
     newValue = tremoloFreq.value;
     tremolo.set({
         frequency: newValue
@@ -245,21 +233,28 @@ function onTremoloFreqChanged()
 /*****************************************/
 /***** Vibrato effect implementation *****/
 /*****************************************/
+vibrato_onOff.on('change',function(changeColors) {
+  if(vibrato_onOff.state == true){
 
+    const el = document.getElementById("vibrato");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("vibrato");
+    el.className = "col-2-12 pedal";
+  }
+})
 vibrato_onOff.on("change", updateEffects);
 vibratoFreq.on("change", onVibratoFreqChanged)
 vibratoDepth.on("change", onVibratoDepthChanged);
 
-function onVibratoDepthChanged( )
-{
+function onVibratoDepthChanged( ){
     newValue = vibratoDepth.value / 100;
     vibrato.set({
         depth: newValue
     });
 }
-
-function onVibratoFreqChanged()
-{
+function onVibratoFreqChanged(){
     newValue = vibratoFreq.value;
     vibrato.set({
         frequency: newValue
@@ -270,29 +265,35 @@ function onVibratoFreqChanged()
 /***** Chorus effect implementation ******/
 /*****************************************/
 
+chorus_onOff.on('change',function(changeColors) {
+  if(chorus_onOff.state == true){
+
+    const el = document.getElementById("chorus");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("chorus");
+    el.className = "col-2-12 pedal";
+  }
+})
 chorus_onOff.on("change", updateEffects);
 chorusLFO.on("change", onChorusFreqChanged)
 chorusDepth.on("change", onChorusDepthChanged);
 chorusDelayTime.on("change", onChorusDelayChanged);
 
-function onChorusDepthChanged( )
-{
+function onChorusDepthChanged( ){
     newValue = chorusDepth.value / 100;
     chorus.set({
         depth: newValue
     });
 }
-
-function onChorusFreqChanged()
-{
+function onChorusFreqChanged(){
     newValue = chorusLFO.value;
     chorus.set({
         frequency: newValue
     });
 }
-
-function onChorusDelayChanged( )
-{
+function onChorusDelayChanged( ){
     newValue = chorusDelayTime.value;
     chorus.set({
         delayTime: newValue
@@ -302,12 +303,21 @@ function onChorusDelayChanged( )
 /*****************************************/
 /***** Reverb effect implementation *****/
 /*****************************************/
+reverb_onOff.on('change',function(changeColors) {
+  if(reverb_onOff.state == true){
 
+    const el = document.getElementById("reverb");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("reverb");
+    el.className = "col-2-12 pedal";
+  }
+})
 reverb_onOff.on("change", updateEffects);
 reverbDecay.on("change", onReverbChanged)
 
-function onReverbChanged( )
-{
+function onReverbChanged( ){
     newValue = reverbDecay.value;
     reverb.set({
         roomSize: newValue
@@ -317,21 +327,28 @@ function onReverbChanged( )
 /*****************************************/
 /***** PingPong effect implementation *****/
 /*****************************************/
+delay_onOff.on('change',function(changeColors) {
+  if(delay_onOff.state == true){
 
+    const el = document.getElementById("delay");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("delay");
+    el.className = "col-2-12 pedal";
+  }
+})
 delay_onOff.on("change", updateEffects);
 pingpongDelay.on("change", onPingPongDelayChanged)
 pingpongFeedback.on("change", onPingPongFeedbackChanged);
 
-function onPingPongDelayChanged( )
-{
+function onPingPongDelayChanged( ){
     newValue = pingpongDelay.value;
     pingpong.set({
         delayTime: newValue
     });
 }
-
-function onPingPongFeedbackChanged()
-{
+function onPingPongFeedbackChanged(){
     newValue = pingpongFeedback.value;
     pingpong.set({
         feedback: newValue
@@ -341,30 +358,35 @@ function onPingPongFeedbackChanged()
 /*****************************************/
 /***** Phaser effect implementation *****/
 /*****************************************/
+phaser_onOff.on('change',function(changeColors) {
+  if(phaser_onOff.state == true){
 
+    const el = document.getElementById("phaser");
+    el.className = "col-2-12 pedalON";
+  }
+  else{
+    const el = document.getElementById("phaser");
+    el.className = "col-2-12 pedal";
+  }
+})
 phaser_onOff.on("change", updateEffects);
 phaserFreq.on("change", onPhaserFreqChanged)
 phaserOctave.on("change", onPhaserOctavesChanged);
 phaserBaseFreq.on("change", onPhaserBaseFreqChanged);
 
-function onPhaserBaseFreqChanged( )
-{
+function onPhaserBaseFreqChanged( ){
     newValue = phaserBaseFreq.value;
     phaser.set({
         baseFrequency: newValue
     });
 }
-
-function onPhaserFreqChanged()
-{
+function onPhaserFreqChanged(){
     newValue = phaserFreq.value;
     phaser.set({
         frequency: newValue
     });
 }
-
-function onPhaserOctavesChanged()
-{
+function onPhaserOctavesChanged(){
     newValue = phaserOctave.value;
     phaser.set({
         octaves: newValue

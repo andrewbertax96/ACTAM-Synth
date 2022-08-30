@@ -2,8 +2,13 @@ body {
   color:#353535 ;
   font-family: Arial;
   font-weight: bold;
-  background-image: url("img/background.jpg");
+  background-image: url("../img/background.jpg");
   background-size: 100%;
+}
+.fontKnobs{
+  font-family: Arial;
+  font-style: italic;
+  font-size: 12.5px;
 }
 #synth {
   width: 1200px;
@@ -37,13 +42,24 @@ body {
 }
 .pedal{
   /*width: 5px;*/
-  height: 290px;
+  height: 302px;
   background: #212121;
   border-radius: 15px;
   border-style: transparent;
-  border-color: #56818a;
+  border-color: #c0c0c0;
   background-image: linear-gradient(to bottom , #9a9a9a , #f8f4f4);
   border-width: 2px;
+  padding: 20px;
+}
+.pedalON{
+  /*width: 5px;*/
+  height: 302px;
+  background: #yellow;
+  border-radius: 15px;
+  border-style: transparent;
+  border-color: darkorange;
+  background-image: linear-gradient(to bottom , red , orange);
+  border-width: 1px;
   padding: 20px;
 }
 .component{
@@ -62,7 +78,7 @@ body {
 }
 .componentMix{
   /*width: 5px;*/
-  height: 182px;
+  height: 172px;
   background: #212121;
   border-radius: 5px;
   border-style: transparent;
@@ -133,4 +149,8 @@ body {
 .tab14{
   display: inline-block;
   margin-left: 100px;
+}
+.tab15{
+  display: inline-block;
+  margin-left: 35px;
 }
