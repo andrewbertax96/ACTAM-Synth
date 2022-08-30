@@ -457,9 +457,8 @@ fir1_toggle.on('change',function(changeColors) {
     fir1_gain.colorize("fill",fillColorBase)
   }
 })
-
 fir2_toggle.on('change', updateSoundSettings);
-+fir2_toggle.on('change',function(changeColors) {
+fir2_toggle.on('change',function(changeColors) {
   if(fir2_toggle.state == true && osc2_onOff.state == true){
     fir2_toggle.colorize("accent",accentColor)
     fir2_toggle.colorize("fill",fillColor)
@@ -485,6 +484,7 @@ fir2_toggle.on('change', updateSoundSettings);
     fir2_gain.colorize("fill",fillColorBase)
   }
 })
+
 fir1_cut.on('change', updateFilter1);
 fir1_type.on('change', updateFilter1);
 fir1_gain.on('change', updateFilter1);
