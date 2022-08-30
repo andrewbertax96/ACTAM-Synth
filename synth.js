@@ -111,7 +111,13 @@ function updateSoundSettings()
         const volume = volume1.value;
         
         updateEnvelope1();
-        soundSettings.addOscillatorShort(type, detune, volume, envelope1);
+
+        let filter = fir1_toggle.state == true ? filter1 : undefined;
+        /*if (fir1_toggle.state == true)
+        {
+          filter = filter1;
+        }*/
+        soundSettings.addOscillatorShort(type, detune, volume, envelope1, filter);
     }
 
     if ( osc2_onOff.state == true )
@@ -121,7 +127,8 @@ function updateSoundSettings()
          const volume = volume2.value;
 
          updateEnvelope2();
-         soundSettings.addOscillatorShort(type, detune, volume, envelope2);
+         let filter = fir2_toggle.state == true ? filter2 : undefined;
+         soundSettings.addOscillatorShort(type, detune, volume, envelope2, filter);
     }
 
     updateEffects( );

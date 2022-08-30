@@ -23,25 +23,25 @@ let fir1_toggle = new Nexus.Toggle('#fir1-toggle',{
 });
 let fir1_type = new Nexus.Select('#fir1-type',{
    'size': [100,30],
-   'options': ['lowpass','highpass','bandpass']
+   'options': ['lowpass','highpass','bandpass'],
 });
 let fir1_cut = new Nexus.Dial('#fir1-cut',{
    'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
-   'max': 5000,
+   'max': 20000,
    'step': 0,
-   'value': 0 //TODO: filterCh1[0].frequency.value
+   'value': 350
 });
 let fir1_gain = new Nexus.Dial('#fir1-gain',{
   'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 20,
-   'max': 5000,
+   'min': 0,
+   'max': 1,
    'step': 0,
-   'value': 0 //TODO: filterCh1[0].frequency.value
+   'value': 0
 });
 let env1_onOff = new Nexus.Toggle('#env1-onOff',{
    'size': [39,20],
@@ -178,18 +178,18 @@ let fir2_cut = new Nexus.Dial('#fir2-cut',{
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
    'min': 20,
-   'max': 5000,
+   'max': 20000,
    'step': 0,
-   'value': 0 //TODO: filterCh2[0].frequency.value
+   'value': 350
 });
 let fir2_gain = new Nexus.Dial('#fir2-gain',{
    'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 20,
-   'max': 5000,
+   'min': 0,
+   'max': 1,
    'step': 0,
-   'value': 0 //TODO: filterCh2[0].frequency.value
+   'value': 0 
 });
 let env2_onOff = new Nexus.Toggle('#env2-onOff',{
   'size': [39,20],
@@ -342,12 +342,16 @@ detune1.on('change', updateSoundSettings);
 detune2.on('change', updateSoundSettings);
 volume2.on('change', updateSoundSettings);
 
-fir1_toggle.on('change', fir1_OnOff_func);
-fir2_toggle.on('change', fir2_OnOff_func);
-fir1_cut.on('change', fir1_update_param );
-fir1_type.on('change', fir1_update_param);
-fir2_cut.on('change', fir2_update_param);
-fir2_type.on('change', fir2_update_param);
+fir1_toggle.on('change', updateSoundSettings);
+fir2_toggle.on('change', updateSoundSettings);
+
+fir1_cut.on('change', updateFilter1);
+fir1_type.on('change', updateFilter1);
+fir1_gain.on('change', updateFilter1);
+
+fir2_cut.on('change', updateFilter2);
+fir2_type.on('change', updateFilter2);
+fir2_gain.on('change', updateFilter2);
 
 attack1.on('change', updateEnvelope1);
 decay1.on('change', updateEnvelope1);
@@ -390,66 +394,30 @@ function updateEnvelope2( )
    envelope2.release = release2.value;
 }
 
-function fir1_OnOff_func(){
-   if(fir1_toggle.state){
-      /*for (let i = 0; i < nVoices; i++) {
-         voicesCh1[i].disconnect(adsrCh1[i]);
-         harmVoicesCh1[i].disconnect(adsrHarmCh1[i]);
-         voicesCh1[i].connect(filterCh1[i]);
-         harmVoicesCh1[i].connect(filterHarmCh1[i]);
-         filterCh1[i].connect(adsrCh1[i]);
-         filterHarmCh1[i].connect(adsrHarmCh1[i]);
-      }*/
-   } else {
-      /*for (let i = 0; i < nVoices; i++) {
-         voicesCh1[i].disconnect(filterCh1[i]);
-         harmVoicesCh1[i].disconnect(filterHarmCh1[i]);
-         filterCh1[i].disconnect(adsrCh1[i]);
-         filterHarmCh1[i].disconnect(adsrHarmCh1[i]);
-         voicesCh1[i].connect(adsrCh1[i]);
-         harmVoicesCh1[i].connect(adsrHarmCh1[i]);
-      }*/
-   }
+let filter1 =  new Tone.Filter({
+   type: 'lowpass',
+   frequency: 350,
+   gain: 0
+});
+
+let filter2 =  new Tone.Filter({
+   type: 'lowpass',
+   frequency: 350,
+   gain: 0
+});
+
+function updateFilter1( )
+{
+   filter1.type = fir1_type.value;
+   filter1.frequency = fir1_cut.value;
+   filter1.gain = fir1_gain.value;
 }
 
-function fir2_OnOff_func(){
-   if(fir2_toggle.state){
-      /*for (let i = 0; i < nVoices; i++) {
-         voicesCh2[i].disconnect(adsrCh2[i]);
-         harmVoicesCh2[i].disconnect(adsrHarmCh2[i]);
-         voicesCh2[i].connect(filterCh2[i]);
-         harmVoicesCh2[i].connect(filterHarmCh2[i]);
-         filterCh2[i].connect(adsrCh2[i]);
-         filterHarmCh2[i].connect(adsrHarmCh2[i]);
-      }*/
-   } else{
-      /*for (let i = 0; i < nVoices; i++) {
-         /*voicesCh2[i].disconnect(filterCh2[i]);
-         harmVoicesCh2[i].disconnect(filterHarmCh2[i]);
-         filterCh2[i].disconnect(adsrCh2[i]);
-         filterHarmCh2[i].disconnect(adsrHarmCh2[i]);
-         voicesCh2[i].connect(adsrCh2[i]);
-         harmVoicesCh2[i].connect(adsrHarmCh2[i]);
-      }*/
-   }
-}
-
-function fir1_update_param(){
-   for (let i = 0; i < nVoices; i++) {
-     /* filterCh1[i].type = fir1_type.value;
-      filterCh1[i].frequency.value = fir1_cut.value;
-      filterHarmCh1[i].type = fir1_type.value;
-      filterHarmCh1[i].frequency.value = fir1_cut.value;*/
-   }
-}
-
-function fir2_update_param(){
-   for (let i = 0; i < nVoices; i++) {
-     /*filterCh2[i].type = fir2_type.value;
-     filterCh2[i].frequency.value = fir2_cut.value;
-     filterHarmCh2[i].type = fir2_type.value;
-     filterHarmCh2[i].frequency.value = fir2_cut.value;*/
-  }
+function updateFilter2( )
+{
+   filter2.type = fir2_type.value;
+   filter2.frequency = fir2_cut.value;
+   filter2.gain = fir2_gain.value;
 }
 
 let myWebAudioNode = Tone.Master;

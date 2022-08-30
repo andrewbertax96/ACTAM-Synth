@@ -133,7 +133,17 @@ class sound_settings {
         });
 
         setEnvelope(synth, settings.envelope);
-        //synth.filter.frequency = 20000;
+
+        if (settings.filter != undefined)
+        {
+            synth.filter.type = settings.filter.type;
+            synth.filter.frequency.value = settings.filter.frequency.value;
+            synth.filter.gain.value = settings.filter.gain.value;
+
+            console.log("synth filter: " + synth.filter.type + synth.filter.gain.value);
+            console.log("settings filter: " + settings.filter.type + settings.filter.gain.value);
+        }
+
         return synth;
     }
     else if (oscCount == 2)
