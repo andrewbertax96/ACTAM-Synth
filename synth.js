@@ -23,15 +23,26 @@ navigator.requestMIDIAccess().then((midiAccess) =>
    }
  }
 
+ let activeSynths = new Map();
+
  function midiNoteOn(key)
  {
+   if (activeSynths.has(key))
+      return;
+
    let pitch = pitchFromMidiNote(key);
-   onClickedPlaySound(pitch, "8n");
+   let synth = onPlaySound(pitch, "8n");
+   activeSynths.set(key, synth);
  }
 
  function midiNoteOff(key)
  {
-//TODO::
+  let synth = activeSynths.get(key);
+  if (synth != null)
+  {
+      onStopSound(synth);
+      activeSynths.delete(key);
+  }
  }
 
  function pitchFromMidiNote(key)
@@ -40,14 +51,19 @@ navigator.requestMIDIAccess().then((midiAccess) =>
    return pitch;
  }
 
- function onClickedPlaySound( pitch, duration )
+ function onPlaySound( pitch, duration )
 {
-    if (soundSettings === undefined)
+    if (soundSettings == null)
     {
         updateSoundSettings();
     }
 
-    playSound(pitch, duration, soundSettings);
+    return playSound(pitch, duration, soundSettings);
+}
+
+function onStopSound(synth)
+{
+  stopSound(synth);
 }
 
 function piano_func( msg )
@@ -87,7 +103,7 @@ let emulatedKeys = {
 
  document.addEventListener('keyup', function(e) {
    if (emulatedKeys.hasOwnProperty(e.key)) {
-      midiNoteOff();
+      midiNoteOff(emulatedKeys[e.key]);
    }
  });
 
@@ -112,11 +128,11 @@ function updateSoundSettings()
 
         updateEnvelope1();
 
-        let filter = fir1_toggle.state == true ? filter1 : undefined;
-        /*if (fir1_toggle.state == true)
+        let filter;
+        if (fir1_toggle.state == true)
         {
           filter = filter1;
-        }*/
+        }
         soundSettings.addOscillatorShort(type, detune, volume, envelope1, filter);
     }
 
@@ -127,7 +143,11 @@ function updateSoundSettings()
          const volume = volume2.value;
 
          updateEnvelope2();
-         let filter = fir2_toggle.state == true ? filter2 : undefined;
+         let filter;
+         if (fir2_toggle.state == true)
+         {
+           filter = filter2;
+         }
          soundSettings.addOscillatorShort(type, detune, volume, envelope2, filter);
     }
 

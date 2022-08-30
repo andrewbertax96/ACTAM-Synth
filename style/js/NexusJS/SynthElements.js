@@ -99,20 +99,15 @@ let detune1_number = new Nexus.Number('#detune1_number',{
   'max': 5000,
   'step': 1
 });
+
 let fir1_cut_number = new Nexus.Number('#fir1_cut_number',{
-  'size': [30,15],
-  'value': 0,
-  'min': 20,
-  'max': 5000,
-  'step': 1
+  'size': [30,15]
 });
+
 let fir1_gain_number = new Nexus.Number('#fir1_gain_number',{
-  'size': [30,15],
-  'value': 0,
-  'min': 20,
-  'max': 5000,
-  'step': 1
+  'size': [30,15]
 });
+
 let attack1_number = new Nexus.Number('#osc1_att_number',{
   'size': [30,15],
   'value': 0,
@@ -171,7 +166,7 @@ let fir2_toggle = new Nexus.Toggle('#fir2-toggle',{
 });
 let fir2_type = new Nexus.Select('#fir2-type',{
    'size': [100,30],
-   'options': ['lowpass','highpass','bandpass']
+   'options': ['lowshelf','highpass','bandpass']
 });
 let fir2_cut = new Nexus.Dial('#fir2-cut',{
    'size': [30,30],
@@ -588,26 +583,26 @@ let filter1 =  new Tone.Filter({
   type: 'lowpass',
   frequency: 350,
   gain: 0
-});
+}).toMaster();
 
 let filter2 =  new Tone.Filter({
   type: 'lowpass',
   frequency: 350,
   gain: 0
-});
+}).toMaster();
 
 function updateFilter1( )
 {
+  console.log("updateFilter1");
+
    filter1.type = fir1_type.value;
-   filter1.frequency = fir1_cut.value;
-   filter1.gain = fir1_gain.value;
+   filter1.frequency.value = fir1_cut.value;
+   filter1.gain.value = fir1_gain.value;
 }
-
-
 
 function updateFilter2( )
 {
    filter2.type = fir2_type.value;
-   filter2.frequency = fir2_cut.value;
-   filter2.gain = fir2_gain.value;
+   filter2.frequency.value = fir2_cut.value;
+   filter2.gain.value = fir2_gain.value;
 }

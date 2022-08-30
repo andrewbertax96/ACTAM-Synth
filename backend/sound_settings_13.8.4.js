@@ -95,7 +95,6 @@ class sound_settings {
     }
   }
 
-  //let synth;
   function playSound(pitch, duration, soundSettings)
   {
     let synth = createSynth(soundSettings);
@@ -114,8 +113,17 @@ class sound_settings {
     {
         synth.volume.value += mixVolume.value;
     }
-    synth.toMaster().triggerAttackRelease(pitch, duration);
+    //synth.toMaster().triggerAttackRelease(pitch, duration);
+    synth.toMaster().triggerAttack(pitch);
     return synth;
+  }
+
+  function stopSound(synth)
+  {
+    if (synth != null)
+    {
+        synth.triggerRelease( );
+    }
   }
 
   function createSynth(soundSettings)
@@ -134,14 +142,14 @@ class sound_settings {
 
         setEnvelope(synth, settings.envelope);
 
-        if (settings.filter != undefined)
+        if (settings.filter != null)
         {
             synth.filter.type = settings.filter.type;
             synth.filter.frequency.value = settings.filter.frequency.value;
             synth.filter.gain.value = settings.filter.gain.value;
 
-            console.log("synth filter: " + synth.filter.type + synth.filter.gain.value);
-            console.log("settings filter: " + settings.filter.type + settings.filter.gain.value);
+            console.log("synth filter: " + synth.filter.type + "\n" + synth.filter.frequency.value);
+            console.log("settings filter: " + settings.filter.type + "\n" + settings.filter.frequency.value);
         }
 
         return synth;

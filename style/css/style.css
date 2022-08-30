@@ -54,7 +54,7 @@ body {
 .pedalON{
   /*width: 5px;*/
   height: 302px;
-  background: #yellow;
+  background: yellow;
   border-radius: 15px;
   border-style: transparent;
   border-color: darkorange;
