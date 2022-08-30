@@ -1,24 +1,29 @@
 Nexus.context = Tone.context.rawContext;
 
+/*************************************/
+/********* MIDI Keyboard *************/
+/*************************************/
+
 navigator.requestMIDIAccess().then((midiAccess) =>
 {
    Array.from(midiAccess.inputs).forEach
    (
-      (input) => { input[1].onmidimessage = processMidiMessage }
+      (input) => { console.log("input: " + input); input[1].onmidimessage = processMidiMessage }
    )
 })
 
  function processMidiMessage( msg )
- {
+ {    
    const [command, key, velocity] = msg.data;
-   if (command === 145)
+
+   if (command === 144)
    {
-     console.log('KEY UP: ' + key);
+     console.log('note on: ' + key);
      midiNoteOn(key);
    }
-   else if (command === 129)
+   else if (command === 128)
    {
-     console.log('KEY DOWN: ' + key);
+     console.log('note off: ' + key);
      midiNoteOff(key);
    }
  }
@@ -28,11 +33,17 @@ navigator.requestMIDIAccess().then((midiAccess) =>
  function midiNoteOn(key)
  {
    if (activeSynths.has(key))
+   {
       return;
+   }
 
    let pitch = pitchFromMidiNote(key);
    let synth = onPlaySound(pitch, "8n");
-   activeSynths.set(key, synth);
+
+   if (synth != null)
+   {
+    activeSynths.set(key, synth);
+   }
  }
 
  function midiNoteOff(key)
@@ -41,8 +52,8 @@ navigator.requestMIDIAccess().then((midiAccess) =>
   if (synth != null)
   {
       onStopSound(synth);
-      activeSynths.delete(key);
   }
+  activeSynths.delete(key);
  }
 
  function pitchFromMidiNote(key)
@@ -66,6 +77,10 @@ function onStopSound(synth)
   stopSound(synth);
 }
 
+/*************************************/
+/********* NEXUS Piano  **************/
+/*************************************/
+
 function piano_func( msg )
 {
    if (msg.state)
@@ -78,32 +93,43 @@ function piano_func( msg )
    }
 }
 
-// Keyboard emulation for C4-C5 s-l keys
+/********************************************************************/
+/******* Keyboard emulation for C2-C8 octaves with s-l keys *********/
+/******************* (and z-x for switching octaves) ****************/
+
+let baseOctave = 60; //C4 octave, by default
 let emulatedKeys = {
-   s: 60,
-   e: 61,
-   d: 62,
-   r: 63,
-   f: 64,
-   g: 65,
-   y: 66,
-   h: 67,
-   u: 68,
-   j: 69,
-   i: 70,
-   k: 71,
-   l: 72
+   s: 0, 
+   e: 1,
+   d: 2,
+   r: 3,
+   f: 4,
+   g: 5,
+   y: 6,
+   h: 7,
+   u: 8,
+   j: 9,
+   i: 10,
+   k: 11,
+   l: 12
  }
 
  document.addEventListener('keydown', function(e) {
    if (emulatedKeys.hasOwnProperty(e.key)) {
-      midiNoteOn(emulatedKeys[e.key]);
+      midiNoteOn(baseOctave + emulatedKeys[e.key]);
    }
+
+   if (e.key === "z" && baseOctave - 12 >= 36){
+    baseOctave = baseOctave - 12;
+   } else if (e.key === "x" && baseOctave + 12 <= 108) {
+    baseOctave = baseOctave + 12;
+   }
+
  });
 
  document.addEventListener('keyup', function(e) {
    if (emulatedKeys.hasOwnProperty(e.key)) {
-      midiNoteOff(emulatedKeys[e.key]);
+      midiNoteOff(baseOctave + emulatedKeys[e.key]);
    }
  });
 
@@ -221,36 +247,3 @@ function updateEffects( )
     soundSettings.removeEffect(pingpong);
   }
 }
-
-/*************************************/
-/********* MIDI Keyboard *************/
-/*************************************/
-
-/* Note: MIDIAccess provides methods for listing MIDI input and output devices,
-and obtaining access to those devices.*/
-/*navigator.requestMIDIAccess().then(function(access)
-{
-   console.log('access', access);
-   replaceElements(Array.from(access.inputs.values()));
-   access.onstatechange = function(e) //onstatechange is fired every time a new device is connected
-   {
-      replaceElements(Array.from(this.inputs.values()));
-   }
-})*/
-
-/*audioCtx = new AudioContext();
-
-
-document.onclick = async function () {
-   await audioCtx.resume();
-   document.onclick = undefined;
-}
-*/
-
-let nVoices = 4;
-let voicesCh1 = new Array(nVoices);
-let voicesCh2 = new Array(nVoices);
-let adsrCh1 = new Array(nVoices);
-let adsrCh2 = new Array(nVoices);
-let filterCh1 = new Array(nVoices);
-let filterCh2 = new Array(nVoices);
