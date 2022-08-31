@@ -58,7 +58,7 @@ body {
   border-radius: 15px;
   border-style: transparent;
   border-color: darkorange;
-  background-image: linear-gradient(to bottom , red , orange);
+  background-image: linear-gradient(to bottom , rgb(131, 151, 248) , rgb(239, 70, 248));
   border-width: 1px;
   padding: 20px;
 }
