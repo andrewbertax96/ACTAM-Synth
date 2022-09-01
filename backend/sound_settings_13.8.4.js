@@ -50,7 +50,6 @@ class sound_settings {
 
     addEffect( effect )
     {
-        console.log("adding effect: " + effect);
         if ( !this.#effects.includes(effect) )
         {
             this.#effects.push(effect);
@@ -61,8 +60,6 @@ class sound_settings {
     {
         if(this.#effects.includes(effect)) 
         {
-            console.log("removing effect: " + effect);
-
             let index = this.#effects.indexOf(effect)
             this.#effects.splice(index, 1);
         }
