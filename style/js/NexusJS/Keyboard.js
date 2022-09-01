@@ -26,7 +26,7 @@ let piano = new Nexus.Piano('#keyboard',{
    'lowNote': 36,
    'highNote': 108
 });
-piano.colorize("accent","darkorange")
+piano.colorize("accent", "#e066ff")
 piano.colorize("fill","#F7F6EF")
 
 let myWebAudioNode = Tone.Master;

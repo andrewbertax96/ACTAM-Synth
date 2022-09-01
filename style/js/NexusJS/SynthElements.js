@@ -300,18 +300,18 @@ release2_number.link(release2);
 
 let accentColorBase = "#353535";
 let fillColorBase = "#F7F6EF";
-let accentColor = "darkorange";
-let fillColor = "#blue";
+let accentColor = "#e066ff";
+let fillColor = "#353535";
 
 osc1_shape.on('change', updateSoundSettings);
 osc1_onOff.on('change',function(changeColors) {
   if(osc1_onOff.state == true){
-    osc1_onOff.colorize("accent","darkorange")
-    osc1_onOff.colorize("fill","#blue")
-    detune1.colorize("accent","darkorange")
-    detune1.colorize("fill","#blue")
-    volume1.colorize("accent","darkorange")
-    volume1.colorize("fill","#blue")
+    osc1_onOff.colorize("accent","#e066ff")
+    osc1_onOff.colorize("fill","#353535")
+    detune1.colorize("accent","#e066ff")
+    detune1.colorize("fill","#353535")
+    volume1.colorize("accent","#e066ff")
+    volume1.colorize("fill","#353535")
     if(fir1_toggle.state == true){
       fir1_toggle.colorize("accent",accentColor)
       fir1_toggle.colorize("fill",fillColor)
