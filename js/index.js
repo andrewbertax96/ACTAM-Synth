@@ -38,7 +38,7 @@ navigator.requestMIDIAccess().then((midiAccess) =>
    }
 
    let pitch = pitchFromMidiNote(key);
-   let synth = onPlaySound(pitch, "8n");
+   let synth = onPlaySound(pitch);
 
    if (synth != null)
    {
@@ -62,14 +62,14 @@ navigator.requestMIDIAccess().then((midiAccess) =>
    return pitch;
  }
 
- function onPlaySound( pitch, duration )
+ function onPlaySound( pitch )
 {
     if (soundSettings == null)
     {
         updateSoundSettings();
     }
 
-    return playSound(pitch, duration, soundSettings);
+    return playSound(pitch, soundSettings);
 }
 
 function onStopSound(synth)
@@ -133,14 +133,12 @@ let emulatedKeys = {
    }
  });
 
-let soundSettings;
+/*************************************/
+/***** Gather information about ******/
+/*** selected settings and effects ***/
+/*************************************/
 
-let tremolo = new Tone.Tremolo(12, 0.75).toMaster().start();
-let vibrato = new Tone.Vibrato(5, 0.5).toMaster();
-let chorus = new Tone.Chorus(4, 10, 0.5).toMaster();
-let phaser = new Tone.Phaser(10, 3, 350).toMaster();
-let reverb = new Tone.JCReverb(0.7).toMaster();
-let pingpong  =  new Tone.PingPongDelay(0.2, 0.3).toMaster();
+let soundSettings;
 
 function updateSoundSettings()
 {
@@ -159,7 +157,7 @@ function updateSoundSettings()
         {
           filter = filter1;
         }
-        soundSettings.addOscillatorShort(type, detune, volume, envelope1, filter);
+        soundSettings.addOscillator(type, detune, volume, envelope1, filter);
     }
 
     if ( osc2_onOff.state == true )
@@ -174,11 +172,18 @@ function updateSoundSettings()
          {
            filter = filter2;
          }
-         soundSettings.addOscillatorShort(type, detune, volume, envelope2, filter);
+         soundSettings.addOscillator(type, detune, volume, envelope2, filter);
     }
 
     updateEffects( );
 }
+
+let tremolo = new Tone.Tremolo(12, 0.75).toMaster().start();
+let vibrato = new Tone.Vibrato(5, 0.5).toMaster();
+let chorus = new Tone.Chorus(4, 10, 0.5).toMaster();
+let phaser = new Tone.Phaser(10, 3, 350).toMaster();
+let reverb = new Tone.JCReverb(0.7).toMaster();
+let pingpong  =  new Tone.PingPongDelay(0.2, 0.3).toMaster();
 
 function updateEffects( )
 {

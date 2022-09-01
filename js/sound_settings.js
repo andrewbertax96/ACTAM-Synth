@@ -3,13 +3,13 @@
 /***********************************************/
 
 class sound_settings {
-    //array of MonoSynths
+    //array of Synths
     #oscillators = [];
 
     //array of Effects
     #effects = [];
 
-    addOscillatorShort(type, detune, volume, envelope, filter) 
+    addOscillator(type, detune, volume, envelope, filter) 
     {
         let synthOptions = 
         {
@@ -20,31 +20,6 @@ class sound_settings {
             filter: filter
         };
 
-        this.#oscillators.push(synthOptions);
-    }
-
-    addOscillator(type, attack, decay, sustain, release, detune, f_type, f_freq, f_gain, volume) 
-    {
-        let synthOptions = {
-            oscillator: {
-                type: type
-            },
-            envelope: {
-                attack: attack,
-                decay: decay,
-                sustain: sustain,
-                release: release
-            },
-            //0-1200 semitone cents, a Cent is 1/100th of a semitone
-            detune: detune,
-            volume: volume,
-            /*filter: 
-				{
-					gain: f_gain,
-					frequency: f_freq,
-					type: f_type,
-				},*/
-        };
         this.#oscillators.push(synthOptions);
     }
 
@@ -90,10 +65,14 @@ class sound_settings {
     {
         return this.#effects.length;
     }
-  }
+} //sound_settings
 
-  function playSound(pitch, duration, soundSettings)
-  {
+/***********************************************/
+/****** Main functions for playing sound *******/
+/***********************************************/
+
+function playSound(pitch, soundSettings)
+{
     let synth = createSynth(soundSettings);
     if (synth == null)
     {
@@ -110,21 +89,21 @@ class sound_settings {
     {
         synth.volume.value += mixVolume.value;
     }
-    //synth.toMaster().triggerAttackRelease(pitch, duration);
+
     synth.toMaster().triggerAttack(pitch);
     return synth;
-  }
+}
 
-  function stopSound(synth)
-  {
+function stopSound(synth)
+{
     if (synth != null)
     {
         synth.triggerRelease( );
     }
-  }
+}
 
-  function createSynth(soundSettings)
-  {
+function createSynth(soundSettings)
+{
     const oscCount = soundSettings.getOscillatorCount();
     if (oscCount == 1)
     {
@@ -179,7 +158,7 @@ class sound_settings {
         
         return duoSynth;
     }
-  }
+}
 
 function setEnvelope(synth, envelope)
 {
@@ -190,7 +169,7 @@ function setEnvelope(synth, envelope)
 }
 
 function addEffects(synth, soundSettings)
-  {
+{
     if (soundSettings.getEffectCount() > 0 )
     {
         for (const effect of soundSettings.getEffects()) 
@@ -199,4 +178,4 @@ function addEffects(synth, soundSettings)
         }
     }
     return synth;
-  }
+}
