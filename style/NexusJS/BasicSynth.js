@@ -491,12 +491,13 @@ fir2_toggle.on('change', updateSoundSettings);
 /*****************************/
 /***** Updating envelope *****/
 /*****************************/
-
+env1_onOff.on('change', updateEnvelope1);
 attack1.on('change', updateEnvelope1);
 decay1.on('change', updateEnvelope1);
 sustain1.on('change', updateEnvelope1);
 release1.on('change', updateEnvelope1);
 
+env2_onOff.on('change', updateEnvelope2);
 attack2.on('change', updateEnvelope2);
 decay2.on('change', updateEnvelope2);
 sustain2.on('change', updateEnvelope2);
@@ -516,17 +517,21 @@ let envelope2 =  new Tone.Envelope({
 });
 
 function updateEnvelope1( ){
-   envelope1.attack = attack1.value;
-   envelope1.decay = decay1.value;
-   envelope1.sustain = sustain1.value;
-   envelope1.release = release1.value;
+  let isOn = env1_onOff.state == true;
+
+   envelope1.attack = isOn ? attack1.value : 0.5;
+   envelope1.decay = isOn ? decay1.value : 0.5;
+   envelope1.sustain = isOn ? sustain1.value : 0.5;
+   envelope1.release = isOn ? release1.value : 0.5;
 }
 
 function updateEnvelope2( ){
-   envelope2.attack = attack2.value;
-   envelope2.decay = decay2.value;
-   envelope2.sustain = sustain2.value;
-   envelope2.release = release2.value;
+  let isOn = env2_onOff.state == true;
+
+   envelope2.attack = isOn ? attack2.value : 0.5;
+   envelope2.decay = isOn ? decay2.value : 0.5;
+   envelope2.sustain = isOn ? sustain2.value : 0.5;
+   envelope2.release = isOn ? release2.value : 0.5;
 }
 
 /*****************************/
