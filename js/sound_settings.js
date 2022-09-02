@@ -90,7 +90,7 @@ function playSound(pitch, soundSettings)
         synth.volume.value += mixVolume.value;
     }
 
-    synth.toMaster().triggerAttack(pitch);
+    synth.triggerAttack(pitch);
     return synth;
 }
 
@@ -120,12 +120,11 @@ function createSynth(soundSettings)
 
         if (settings.filter != null)
         {
-            synth.filter.type = settings.filter.type;
-            synth.filter.frequency.value = settings.filter.frequency.value;
-            synth.filter.gain.value = settings.filter.gain.value;
-
-            console.log("synth filter: " + synth.filter.type + "\n" + synth.filter.frequency.value);
-            console.log("settings filter: " + settings.filter.type + "\n" + settings.filter.frequency.value);
+            synth.connect(settings.filter);
+        }
+        else
+        {
+            synth.toMaster();
         }
 
         return synth;
@@ -144,6 +143,16 @@ function createSynth(soundSettings)
             detune: settings1.detune,
             volume: settings1.volume
         });
+
+        if (settings1.filter != null)
+        {
+            duoSynth.voice0.connect(settings1.filter);
+        }
+        else
+        {
+            duoSynth.voice0.toMaster();
+        }
+
         setEnvelope(duoSynth.voice1, settings2.envelope);
 
         duoSynth.voice1.oscillator.type = settings2.type;
@@ -152,6 +161,14 @@ function createSynth(soundSettings)
             detune: settings2.detune,
             volume: settings2.volume
         });
+        if (settings2.filter != null)
+        {
+            duoSynth.voice1.connect(settings2.filter);
+        }
+        else
+        {
+            duoSynth.voice1.toMaster();
+        }
 
         duoSynth.harmonicity.value = 1;
         duoSynth.vibratoAmount.value = 0;

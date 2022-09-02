@@ -76,8 +76,8 @@ let fir1_cut = new Nexus.Dial('#fir1-cut',{
    'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 20,
-   'max': 20000,
+   'min': 100,
+   'max': 5000,
    'step': 0,
    'value': 350
 });
@@ -219,8 +219,8 @@ let fir2_cut = new Nexus.Dial('#fir2-cut',{
    'size': [30,30],
    'interaction': 'vertical', // "radial", "vertical", or "horizontal"
    'mode': 'relative', // "absolute" or "relative"
-   'min': 20,
-   'max': 20000,
+   'min': 100,
+   'max': 5000,
    'step': 0,
    'value': 350
 });
@@ -560,8 +560,6 @@ let filter2 =  new Tone.Filter({
 
 function updateFilter1( )
 {
-  console.log("updateFilter1");
-
    filter1.type = fir1_type.value;
    filter1.frequency.value = fir1_cut.value;
    filter1.gain.value = fir1_gain.value;
