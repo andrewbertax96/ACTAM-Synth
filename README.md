@@ -22,7 +22,8 @@ Effects that were chosen to be implemented in the project are:
 * Chorus
 * Vibrato 
 * Tremolo 
-* Phaser, Reverb
+* Phaser
+* Reverb
 * Ping-pong delay
 ### Synthesizer
 The synthesizer is composed of two independent channels. For each one there is:
