@@ -23,12 +23,12 @@ navigator.requestMIDIAccess().then((midiAccess) =>
 
    const [command, key, velocity] = msg.data;
 
-   if (command === 144)
+   if (command >= 144 && command <=159)
    {
      console.log('note on: ' + key);
      midiNoteOn(key);
    }
-   else if (command === 128)
+   else if (command >= 128 && command <= 143)
    {
      console.log('note off: ' + key);
      midiNoteOff(key);
