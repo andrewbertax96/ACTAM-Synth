@@ -26,12 +26,12 @@ navigator.requestMIDIAccess().then((midiAccess) =>
    if (command >= 144 && command <=159)
    {
      console.log('note on: ' + key);
-     midiNoteOn(key);
+     //midiNoteOn(key);
    }
    else if (command >= 128 && command <= 143)
    {
      console.log('note off: ' + key);
-     midiNoteOff(key);
+     //midiNoteOff(key);
    }
  }
 
@@ -51,12 +51,14 @@ navigator.requestMIDIAccess().then((midiAccess) =>
   // Listen for a 'note on' message on all channels
   input.addListener('noteon', 'all',
       function (e) {
-          console.log("Received 'noteon' message (" + e.note.name + e.note.octave + ").");
+        midiNoteOn(e.note.number);
+          console.log("Received 'noteon' message (" + e.note.name + e.note.octave + e.note.number+").");
       }
   );
 
   input.addListener('noteoff', 'all',
   function (e) {
+    midiNoteOff(e.note.number);
       console.log("Received 'noteoff' message (" + e.note.name + e.note.octave + ").");
   }
 );
