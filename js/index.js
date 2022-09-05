@@ -3,86 +3,29 @@ Nexus.context = Tone.context.rawContext;
 /*************************************/
 /********* MIDI Keyboard *************/
 /*************************************/
-
-navigator.requestMIDIAccess().then((midiAccess) =>
-{
-   Array.from(midiAccess.inputs).forEach
-   (
-      (input) => { console.log("input: " + input); input[1].onmidimessage = processMidiMessage }
-   )
-
-   Array.from(midiAccess.outputs).forEach
-   (
-      (output) => { console.log("output: " + output); output[1].onmidimessage = processMidiMessage }
-   )
-})
-
- function processMidiMessage( msg )
- {    
-  console.log('midi data: ' + msg.data);
-
-   const [command, key, velocity] = msg.data;
-
-   if (command >= 144 && command <=159)
-   {
-     console.log('note on: ' + key);
-     //midiNoteOn(key);
-   }
-   else if (command >= 128 && command <= 143)
-   {
-     console.log('note off: ' + key);
-     //midiNoteOff(key);
-   }
- }
-
  WebMidi.enable(function () {
 
-  // Viewing available inputs and outputs
+  // available inputs and outputs
   console.log(WebMidi.inputs);
   console.log(WebMidi.outputs);
 
-  // Retrieve an input by name, id or index
   let input = WebMidi.inputs[0];
-
-  // OR...
-  // input = WebMidi.getInputById("1809568182");
-  // input = WebMidi.inputs[0];
 
   // Listen for a 'note on' message on all channels
   input.addListener('noteon', 'all',
       function (e) {
         midiNoteOn(e.note.number);
-          console.log("Received 'noteon' message (" + e.note.name + e.note.octave + e.note.number+").");
+        //console.log("Received 'noteon' message (" + e.note.name + e.note.octave +").");
       }
   );
 
+  // Listen for a 'note off' message on all channels
   input.addListener('noteoff', 'all',
   function (e) {
     midiNoteOff(e.note.number);
-      console.log("Received 'noteoff' message (" + e.note.name + e.note.octave + ").");
+    //console.log("Received 'noteoff' message (" + e.note.name + e.note.octave + ").");
   }
 );
-
-  // Listen to pitch bend message on channel 3
-  input.addListener('pitchbend', 3,
-      function (e) {
-          console.log("Received 'pitchbend' message.", e);
-      }
-  );
-
-  // Listen to control change message on all channels
-  input.addListener('controlchange', "all",
-      function (e) {
-          console.log("Received 'controlchange' message.", e);
-      }
-  );
-
-  // Remove all listeners for 'noteoff' on all channels
-  //input.removeListener('noteoff');
-
-  // Remove all listeners on the input
-  //input.removeListener();
-
 });
 
  let activeSynths = new Map();
