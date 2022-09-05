@@ -43,4 +43,4 @@ A brief pdf report of the *SYNTH* is available at this [link](https://github.com
 
 ###
 
-This application was developed as a project for "Advanced Coding Tools and Methodologies" and "Computer Music: Representations and Models" courses at [Politecnico di Milano](https://www.polimi.it) (MSc in Music and Acoustic Engineering).
+This application was developed as a project for "Advanced Coding Tools and Methodologies" course at [Politecnico di Milano](https://www.polimi.it) (MSc in Music and Acoustic Engineering).
