@@ -349,12 +349,14 @@ osc1_onOff.on('change',function() {
   updateOsc1Colors();
   updateFir1Colors();
   updateEnvelope1Colors();
+  updateMixMeterColors();
 })
 
 osc2_onOff.on('change',function() {
   updateOsc2Colors();
   updateFir2Colors();
   updateEnvelope2Colors();
+  updateMixMeterColors();
 })
 
 env1_onOff.on('change',function(changeColors) {
@@ -386,11 +388,7 @@ function updateOsc1Colors()
   volume1.colorize("accent", isActive ? accentColor : accentColorBase)
   volume1.colorize("fill", isActive ? fillColor : fillColorBase)
 
-  mixVolume.colorize("accent", isActive ? accentColor : accentColorBase)
-  mixVolume.colorize("fill", isActive ? fillColor : fillColorBase)
 
-  meter.colorize("accent", isActive ? accentColor : accentColorBase)
-  meter.colorize("fill", isActive ? fillColor : fillColorBase)
 }
 
 function updateOsc2Colors()
@@ -405,12 +403,16 @@ function updateOsc2Colors()
 
   volume2.colorize("accent", isActive ? accentColor : accentColorBase)
   volume2.colorize("fill", isActive ? fillColor : fillColorBase)
+}
 
-  mixVolume.colorize("accent", isActive ? accentColor : accentColorBase)
-  mixVolume.colorize("fill", isActive ? fillColor : fillColorBase)
+function updateMixMeterColors()
+{
+  let isOneActive = osc1_onOff.state == true || osc2_onOff.state == true;
+  mixVolume.colorize("accent", isOneActive ? accentColor : accentColorBase)
+  mixVolume.colorize("fill", isOneActive ? fillColor : fillColorBase)
 
-  meter.colorize("accent", isActive ? accentColor : accentColorBase)
-  meter.colorize("fill", isActive ? fillColor : fillColorBase)
+  meter.colorize("accent", isOneActive ? accentColor : accentColorBase)
+  meter.colorize("fill", isOneActive ? fillColor : fillColorBase)
 }
 
 function updateFir1Colors()
