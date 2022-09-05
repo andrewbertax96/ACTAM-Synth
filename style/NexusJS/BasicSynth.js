@@ -379,12 +379,18 @@ function updateOsc1Colors()
 
   osc1_onOff.colorize("accent", isActive ? accentColor : accentColorBase)
   osc1_onOff.colorize("fill", isActive ? fillColor : fillColorBase)
-  
+
   detune1.colorize("accent", isActive ? accentColor : accentColorBase)
   detune1.colorize("fill", isActive ? fillColor : fillColorBase)
 
   volume1.colorize("accent", isActive ? accentColor : accentColorBase)
   volume1.colorize("fill", isActive ? fillColor : fillColorBase)
+
+  mixVolume.colorize("accent", isActive ? accentColor : accentColorBase)
+  mixVolume.colorize("fill", isActive ? fillColor : fillColorBase)
+
+  meter.colorize("accent", isActive ? accentColor : accentColorBase)
+  meter.colorize("fill", isActive ? fillColor : fillColorBase)
 }
 
 function updateOsc2Colors()
@@ -399,6 +405,12 @@ function updateOsc2Colors()
 
   volume2.colorize("accent", isActive ? accentColor : accentColorBase)
   volume2.colorize("fill", isActive ? fillColor : fillColorBase)
+
+  mixVolume.colorize("accent", isActive ? accentColor : accentColorBase)
+  mixVolume.colorize("fill", isActive ? fillColor : fillColorBase)
+
+  meter.colorize("accent", isActive ? accentColor : accentColorBase)
+  meter.colorize("fill", isActive ? fillColor : fillColorBase)
 }
 
 function updateFir1Colors()
