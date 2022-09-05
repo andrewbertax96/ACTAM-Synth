@@ -10,6 +10,11 @@ navigator.requestMIDIAccess().then((midiAccess) =>
    (
       (input) => { console.log("input: " + input); input[1].onmidimessage = processMidiMessage }
    )
+
+   Array.from(midiAccess.outputs).forEach
+   (
+      (output) => { console.log("output: " + output); output[1].onmidimessage = processMidiMessage }
+   )
 })
 
  function processMidiMessage( msg )
