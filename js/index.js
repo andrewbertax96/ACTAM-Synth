@@ -14,6 +14,8 @@ navigator.requestMIDIAccess().then((midiAccess) =>
 
  function processMidiMessage( msg )
  {    
+  console.log('midi data: ' + msg.data);
+
    const [command, key, velocity] = msg.data;
 
    if (command === 144)
