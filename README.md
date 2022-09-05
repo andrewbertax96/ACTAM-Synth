@@ -12,7 +12,7 @@ There are 3 different ways of playing the synth:
 * Using the keyboard of your computer, following the mapping shown in the picture just below.
 
 <p align="center">
-<img src="style/img/Synth.jpg" alt="keyboard" width="1200"/>
+<img src="style/img/Keyboard.jpeg" alt="keyboard" width="1200"/>
 </p>
 
 ## Features
