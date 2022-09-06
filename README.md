@@ -38,7 +38,7 @@ Next to the keyboard there are two components: a Spectrogram and an Oscilloscope
 
 ## Video demo and Report
 
-A video demonstration of the *SYNTH* is available at this [link](https://we.tl/t-CwMIc5CqIR).
+A video demonstration of the *SYNTH* is available at this [link](https://www.linkedin.com/posts/andres-bertazzi-61952411a_music-coding-engineering-activity-6972832224949723136-55TY/?utm_source=share&utm_medium=member_desktop).
 A brief pdf report of the *SYNTH* is available at this [link](https://github.com/andrewbertax96/ACTAM-Synth/blob/main/presentation/ACTAM___Subtractive_Synthesizer.pdf).
 
 ###
